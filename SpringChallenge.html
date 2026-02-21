@@ -222,7 +222,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVjCpSiccFFBqEZPyRew1INxOJdrn0zhvx3EcXcfGmJOXvtNIrM0_mpDS7-eYCP6kv/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0/exec";
 
 const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
@@ -325,6 +325,7 @@ function App() {
   const [forgotUser,setForgotUser]=useState("");
   const [drills,setDrills]=useState(FALLBACK_DRILLS);
   const [allSessions,setAllSessions]=useState([]);
+  const [allPlayers,setAllPlayers]=useState([]);
   const [config,setConfig]=useState({current_day:10,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0});
   const [dataLoading,setDataLoading]=useState(false);
   const [selTier,setSelTier]=useState(null);
@@ -341,11 +342,12 @@ function App() {
   useEffect(()=>{
     if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
     setDataLoading(true);
-    Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions")])
-      .then(([dr,cfg,sess])=>{
+    Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions"),callAPI("getPlayers")])
+      .then(([dr,cfg,sess,pl])=>{
         if(dr.ok&&dr.drills&&dr.drills.length) setDrills(dr.drills);
         if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
         if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
+        if(pl.ok&&pl.players) setAllPlayers(pl.players);
       }).finally(()=>setDataLoading(false));
   },[]);
 
@@ -389,14 +391,28 @@ function App() {
   const myTotal=basePts+sb+wpts;
 
   const buildLeaderboard=function(){
+    // Start with ALL players as the base (so everyone shows even on day 1)
     const map={};
+    allPlayers.forEach(function(p){
+      const ini=p.initials||(p.name.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?");
+      map[p.username]={u:p.username,n:p.name,t:Number(p.team)||1,i:ini,days:new Set(),base:0};
+    });
+    // If no players loaded yet, fall back to building from sessions
+    if(allPlayers.length===0){
+      allSessions.forEach(function(s){
+        if(!s.username||String(s.username).trim()==="") return;
+        if(!map[s.username]){
+          const nm=String(s.fullName||"").trim();
+          const displayName=(nm&&isNaN(nm))?nm:String(s.username);
+          const ini=displayName.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?";
+          map[s.username]={u:s.username,n:displayName,t:Number(s.team)||1,i:ini,days:new Set(),base:0};
+        }
+      });
+    }
+    // Apply session points on top
     allSessions.forEach(function(s){
-      if(!map[s.username]){
-        const nm=String(s.fullName||s.username||"Unknown");
-        const ini=nm.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?";
-        map[s.username]={u:s.username,n:nm,t:Number(s.team)||1,i:ini,days:new Set(),base:0};
-      }
-      map[s.username].days.add(Number(s.day));
+      if(!s.username||!map[s.username]) return;
+      if(Number(s.day)>0) map[s.username].days.add(Number(s.day));
       map[s.username].base+=(Number(s.ptsEarned)||0);
     });
     return Object.values(map).map(function(p){
@@ -408,7 +424,11 @@ function App() {
       }
       const sb2=streak>=7?500:streak>=5?250:streak>=3?100:0;
       return Object.assign({},p,{days:days.length,streak,sb:sb2,total:p.base+sb2});
-    }).sort((a,b)=>b.total-a.total);
+    }).sort(function(a,b){
+      // Sort by total points desc; if tied (e.g. all 0 on day 1), sort alphabetically
+      if(b.total!==a.total) return b.total-a.total;
+      return a.n.localeCompare(b.n);
+    });
   };
 
   const lb=buildLeaderboard();
