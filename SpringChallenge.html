@@ -222,7 +222,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVjCpSiccFFBqEZPyRew1INxOJdrn0zhvx3EcXcfGmJOXvtNIrM0_mpDS7-eYCP6kv/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0/exec";
 
 const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
@@ -391,27 +391,33 @@ function App() {
   const myTotal=basePts+sb+wpts;
 
   const buildLeaderboard=function(){
-    // Start with ALL players as the base (so everyone shows even on day 1)
     const map={};
+    // Helper: is this a valid short username (no spaces, not a long sentence)
+    function validUsername(u){ return u&&String(u).length<30&&String(u).indexOf(" ")===-1&&String(u).indexOf("—")===-1; }
+    // Start with ALL players as the base (so everyone shows even on day 1)
     allPlayers.forEach(function(p){
-      const ini=p.initials||(p.name.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?");
-      map[p.username]={u:p.username,n:p.name,t:Number(p.team)||1,i:ini,days:new Set(),base:0};
+      if(!validUsername(p.username)) return;
+      const nm=String(p.name||"").trim();
+      if(!nm||nm.length>60) return; // skip garbage rows
+      const ini=String(p.initials||"").trim()||(nm.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?");
+      map[p.username]={u:p.username,n:nm,t:Number(p.team)||1,i:ini,days:new Set(),base:0};
     });
     // If no players loaded yet, fall back to building from sessions
     if(allPlayers.length===0){
       allSessions.forEach(function(s){
-        if(!s.username||String(s.username).trim()==="") return;
+        if(!validUsername(s.username)) return;
+        if(s.tier==="wall_bonus") return; // never create players from wall bonus rows
         if(!map[s.username]){
           const nm=String(s.fullName||"").trim();
-          const displayName=(nm&&isNaN(nm))?nm:String(s.username);
+          const displayName=(nm&&nm.length<60&&isNaN(nm))?nm:String(s.username);
           const ini=displayName.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?";
           map[s.username]={u:s.username,n:displayName,t:Number(s.team)||1,i:ini,days:new Set(),base:0};
         }
       });
     }
-    // Apply session points on top
+    // Apply session points on top — only for known players
     allSessions.forEach(function(s){
-      if(!s.username||!map[s.username]) return;
+      if(!validUsername(s.username)||!map[s.username]) return;
       if(Number(s.day)>0) map[s.username].days.add(Number(s.day));
       map[s.username].base+=(Number(s.ptsEarned)||0);
     });
