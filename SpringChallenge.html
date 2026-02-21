@@ -18,7 +18,6 @@
 }
 html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3',sans-serif;height:100%;overflow:hidden;}
 #root{height:100%;display:flex;flex-direction:column;}
-/* LOGIN */
 .login-page{flex:1;background:radial-gradient(ellipse 80% 60% at 50% 0%,#220008,#0d0d0d 65%);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;position:relative;}
 .login-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px);pointer-events:none;}
 .login-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.18),transparent 70%);pointer-events:none;}
@@ -39,7 +38,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .forgot-link a{color:var(--gold);cursor:pointer;text-decoration:underline;}
 .login-err{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.35);border-radius:8px;padding:9px 13px;font-size:12px;color:#ff8888;margin-bottom:13px;}
 .login-ok{background:rgba(0,201,122,.08);border:1px solid rgba(0,201,122,.3);border-radius:8px;padding:9px 13px;font-size:12px;color:#00c97a;margin-bottom:13px;}
-/* SHELL */
 .shell{display:flex;flex-direction:column;height:100%;height:100dvh;}
 .app-header{background:#111;border-bottom:1px solid var(--border);flex-shrink:0;}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;gap:8px;min-height:52px;}
@@ -58,7 +56,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .page{max-width:560px;margin:0 auto;padding:14px 12px 80px;}
 @media(min-width:480px){.page{padding:16px 16px 80px;}}
-/* COMMON */
 .sec{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:8px;}
 .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 .sec:first-child{margin-top:0;}
@@ -66,7 +63,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .card-body{padding:13px;}
 .fade{opacity:1;transition:opacity .15s;}
 .fade.out{opacity:0;}
-/* HERO */
 .hero{background:linear-gradient(150deg,#1a0008,#1c1010 60%,#1a0d00 100%);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:15px 13px;margin-bottom:11px;position:relative;overflow:hidden;}
 .hero::after{content:'';position:absolute;top:-30px;right:-15px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.1),transparent 70%);pointer-events:none;}
 .day-pill{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px;}
@@ -78,12 +74,10 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .prog-meta{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .prog-track{background:#1a1a1a;border-radius:999px;height:6px;overflow:hidden;border:1px solid var(--border);}
 .prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 1.2s ease;}
-/* STATS */
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:11px;}
 .stat-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:10px;padding:10px 6px;text-align:center;}
 .stat-val{font-family:'Anton',sans-serif;font-size:clamp(22px,5.5vw,30px);line-height:1;margin-bottom:2px;}
 .stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
-/* DRILL CARD */
 .drill-hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:14px;margin-bottom:11px;overflow:hidden;}
 .dh-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:12px 14px 10px;}
 .dh-day{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--gold);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:3px;}
@@ -92,20 +86,17 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .dtag{background:#111;border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:8px;font-weight:700;color:var(--muted);font-family:'Rajdhani',sans-serif;text-transform:uppercase;}
 .dtag.red{background:rgba(200,16,46,.1);border-color:rgba(200,16,46,.3);color:var(--red);}
 .dtag.gold{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);color:var(--gold);}
-/* VIDEO */
 .video-wrap{margin:10px 14px 0;border-radius:10px;overflow:hidden;aspect-ratio:16/9;position:relative;background:#000;}
 .video-thumb{position:absolute;inset:0;background:linear-gradient(150deg,#1a0008,#0d0d0d);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;}
 .play-btn{width:54px;height:54px;border-radius:50%;background:var(--red);border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;transition:transform .2s;}
 .play-btn:hover{transform:scale(1.08);}
 .video-cap{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;}
 .video-attr{font-size:8px;color:rgba(255,255,255,.2);}
-.video-err{font-size:11px;color:#ff8888;text-align:center;padding:6px;}
 .cue-box{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:9px 12px;margin:10px 14px 0;font-size:12px;color:#d4a84c;line-height:1.6;font-weight:600;}
 .tip-box{background:rgba(0,201,122,.05);border-left:3px solid var(--green);border-radius:0 7px 7px 0;padding:8px 12px;margin:8px 14px 0;font-size:12px;color:var(--green);line-height:1.5;}
 .drill-desc-txt{padding:10px 14px 0;font-size:13px;color:#bbb;line-height:1.7;}
 .drill-sets-txt{padding:7px 14px 0;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--red);}
 .sec-title-inner{padding:12px 14px 6px;font-weight:700;font-size:13px;color:var(--white);}
-/* 3-TIER */
 .tier-section{padding:4px 14px 0;}
 .tier-lbl{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
 .tier-btn{width:100%;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;border:2px solid var(--border);background:#111;cursor:pointer;transition:border-color .15s;margin-bottom:6px;text-align:left;}
@@ -120,7 +111,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .submit-btn.go:active{transform:scale(.98);}
 .submit-btn.dim{background:#2a0008;color:rgba(255,255,255,.3);cursor:default;}
 .submit-hint{text-align:center;font-size:9px;color:#444;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding-bottom:12px;}
-/* WALL BONUS */
 .wall-section{background:rgba(56,182,255,.03);border:1px solid rgba(56,182,255,.18);border-radius:12px;margin-bottom:11px;overflow:hidden;}
 .wall-hdr{background:rgba(56,182,255,.07);padding:10px 12px;border-bottom:1px solid rgba(56,182,255,.12);}
 .wall-title{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:1px;}
@@ -135,11 +125,9 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .wall-sub2{font-size:10px;color:var(--muted);line-height:1.3;}
 .wall-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--blue);flex-shrink:0;}
 .wall-done-badge{background:rgba(0,201,122,.12);border:1px solid var(--green);color:var(--green);font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;white-space:nowrap;}
-/* RULES */
 .rule-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;font-size:12px;border-bottom:1px solid var(--border);}
 .rule-row:last-child{border:none;}
 .rule-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;margin-left:8px;}
-/* DRILLS LIST */
 .week-nav{display:flex;gap:5px;margin-bottom:11px;}
 .week-btn{flex:1;padding:7px 3px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s;line-height:1.4;}
 .week-btn.active{background:var(--red);color:#fff;border-color:var(--red);}
@@ -157,7 +145,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .dtitle{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:2px;}
 .dmeta{display:flex;gap:7px;font-size:8px;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
 .dstat{display:flex;align-items:center;justify-content:center;width:30px;flex-shrink:0;}
-/* STANDINGS */
 .grand-card{background:linear-gradient(150deg,#1a0008,#141414);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:14px 13px;margin-bottom:11px;}
 .grand-title-txt{font-family:'Anton',sans-serif;font-size:clamp(17px,4.5vw,21px);letter-spacing:2px;line-height:1;}
 .grand-sub-txt{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2px 0 10px;}
@@ -186,7 +173,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .lb-name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .lb-meta{font-size:9px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
 .lb-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);flex-shrink:0;}
-/* SCORE CARD — Instagram 4:5 portrait ratio */
 .scorecard-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
 .scorecard{width:min(360px,100%);aspect-ratio:4/5;background:linear-gradient(160deg,#1a0008 0%,#0d0d0d 45%,#07100a 100%);border:2px solid var(--gold);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .scorecard::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(201,168,76,.015) 24px,rgba(201,168,76,.015) 25px);pointer-events:none;}
@@ -207,7 +193,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .sc-footer{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;text-align:center;position:relative;z-index:1;margin-top:auto;}
 .sc-hashtag{color:rgba(201,168,76,.5);}
 .sc-screenshot-hint{text-align:center;padding:10px 0 4px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
-/* MODAL */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(5px);}
 .modal-sheet{background:var(--card);border-top:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-height:92vh;max-height:92dvh;overflow-y:auto;animation:slideUp .26s ease;}
 @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
@@ -223,8 +208,6 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .math-formula{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(201,168,76,.5);display:block;margin-top:2px;}
 .math-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
 .math-note{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:11px;color:#bbb;line-height:1.8;}
-.back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;margin-bottom:10px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding:0;display:block;}
-/* LOADING */
 .loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
 .loading-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;text-align:center;}
 .spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px;}
@@ -239,12 +222,8 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-// ══════════════════════════════════════════════════════════════════════════════
-// CONFIG — replace with your deployed Apps Script Web App URL
-// ══════════════════════════════════════════════════════════════════════════════
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0/execAKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0/exec";
 
-// ── Fallback data (used when offline or before Sheets loads) ─────────────────
 const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
 
@@ -263,10 +242,9 @@ const WALL_BONUSES=[
    desc:"A second 30-minute school wall session.\nDifferent day from Session A.\nChoose 3 circuits from the full programme."},
 ];
 
-const SQUAD_TARGET=30*15*35; // 15,750
+const SQUAD_TARGET=30*15*35;
 const PARENT_THRESH=Math.round(SQUAD_TARGET*0.70);
 
-// ── Fallback drill list (loaded from Sheets in production) ────────────────────
 const FALLBACK_DRILLS=[
   {day:1,week:1,title:"Cone Square Sole Roll Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"",ytLabel:"Ball Mastery Drill",desc:"Place 4 objects at corners of your 3m×3m square. Roll the ball with the sole of your foot to each corner in sequence.",sets:"10 laps CW (right) + 10 laps CCW (left) · 3 sets · Rest 45 sec",cue:"🔍 BENT KNEES — Your centre of gravity must feel low.",tip:"Use the arch of your sole — not the toe tip, not the heel."},
   {day:2,week:1,title:"V-Cut Weave",cat:"Moves",dur:"25 min",diff:3,foot:"Both",yt:"",ytLabel:"Moves Drill",desc:"3 objects in a line, 80cm apart. V-cut around each: push ball sideways with outside of foot, cut sharply back with inside.",sets:"8 full passes through all 3 objects = 1 rep · 10 reps · 3 sets",cue:"🔍 SHOULDER DROP — Drops BEFORE your foot moves.",tip:"Full-body weight shift. Upper body commits to the fake first."},
@@ -285,7 +263,6 @@ const FALLBACK_DRILLS=[
   {day:15,week:3,title:"Grand Finale — Full Circuit",cat:"Grand Finale",dur:"30 min",diff:5,foot:"Both",yt:"",ytLabel:"Grand Finale",desc:"The complete programme in one timed circuit. No stops. Every element. Compare to Day 7.",sets:"Once. Full effort on every element. Log all times immediately after.",cue:"🔍 THIS IS IT — 15 sessions live in your muscle memory. Trust it.",tip:"The gap between Day 7 time and today's is exactly what you built."},
 ];
 
-// ── API helper ────────────────────────────────────────────────────────────────
 async function callAPI(action, data={}) {
   if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return {ok:false,error:"No API configured"};
   try {
@@ -295,7 +272,6 @@ async function callAPI(action, data={}) {
   } catch(e) { return {ok:false,error:e.message}; }
 }
 
-// ── CB Logo ───────────────────────────────────────────────────────────────────
 function CBLogo({size=80}) {
   const h=Math.round(size*1.15);
   return React.createElement("svg",{viewBox:"0 0 200 230",width:size,height:h},
@@ -321,13 +297,12 @@ function CBLogo({size=80}) {
 
 function VideoPlayer({ytId,ytLabel}) {
   const [playing,setPlaying]=useState(false);
-  const [err,setErr]=useState(false);
   const id=(ytId||"").trim();
   if(!id) return React.createElement("div",{className:"video-wrap"},
     React.createElement("div",{className:"video-thumb"},
       React.createElement("div",{className:"video-cap"},"No video assigned — check Drills sheet")));
   if(playing) return React.createElement("div",{className:"video-wrap"},
-    React.createElement("iframe",{src:`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`,title:"drill",allowFullScreen:true,allow:"autoplay",style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}));
+    React.createElement("iframe",{src:"https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&modestbranding=1&playsinline=1",title:"drill",allowFullScreen:true,allow:"autoplay",style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}));
   return React.createElement("div",{className:"video-wrap"},
     React.createElement("div",{className:"video-thumb",onClick:()=>setPlaying(true)},
       React.createElement("div",{className:"play-btn"},"▶"),
@@ -336,14 +311,11 @@ function VideoPlayer({ytId,ytLabel}) {
       React.createElement("div",{className:"video-attr",style:{color:"rgba(255,255,255,.15)",marginTop:3}},"If video unavailable, coach can update ID in Drills sheet")));
 }
 
-// ══════════════════════════════════════════════════════════════════════════════
 function App() {
   const [user,setUser]=useState(null);
   const [tab,setTab]=useState("home");
   const [wf,setWf]=useState(1);
   const [fade,setFade]=useState(true);
-
-  // login
   const [lu,setLu]=useState("");
   const [lp,setLp]=useState("");
   const [lerr,setLerr]=useState("");
@@ -351,45 +323,32 @@ function App() {
   const [lloading,setLloading]=useState(false);
   const [forgotMode,setForgotMode]=useState(false);
   const [forgotUser,setForgotUser]=useState("");
-
-  // data from Sheets
   const [drills,setDrills]=useState(FALLBACK_DRILLS);
   const [allSessions,setAllSessions]=useState([]);
   const [config,setConfig]=useState({current_day:10,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0});
   const [dataLoading,setDataLoading]=useState(false);
-
-  // today
   const [selTier,setSelTier]=useState(null);
   const [submitted,setSubmitted]=useState(false);
   const [doneDays,setDoneDays]=useState(new Set([1,2,3,4,5,6,7,8,9]));
-
-  // wall
   const [wallDone,setWallDone]=useState(new Set());
   const [wallModal,setWallModal]=useState(null);
-
-  // modals
   const [drillModal,setDrillModal]=useState(null);
   const [mathModal,setMathModal]=useState(false);
 
   const CURRENT_DAY=config.current_day||10;
   const today=drills[CURRENT_DAY-1]||drills[0];
 
-  // Load data from Apps Script
   useEffect(()=>{
     if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
     setDataLoading(true);
-    Promise.all([
-      callAPI("getDrills"),
-      callAPI("getConfig"),
-      callAPI("getAllSessions"),
-    ]).then(([dr,cfg,sess])=>{
-      if(dr.ok&&dr.drills?.length) setDrills(dr.drills);
-      if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
-      if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
-    }).finally(()=>setDataLoading(false));
+    Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions")])
+      .then(([dr,cfg,sess])=>{
+        if(dr.ok&&dr.drills&&dr.drills.length) setDrills(dr.drills);
+        if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
+        if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
+      }).finally(()=>setDataLoading(false));
   },[]);
 
-  // Reload sessions after login
   useEffect(()=>{
     if(!user||APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
     callAPI("getPlayerSessions",{username:user.u}).then(r=>{
@@ -397,55 +356,58 @@ function App() {
         const d=new Set(r.sessions.map(s=>Number(s.day)));
         setDoneDays(d);
         const todayDone=r.sessions.some(s=>Number(s.day)===CURRENT_DAY);
-        if(todayDone){setSubmitted(true);const t=r.sessions.find(s=>Number(s.day)===CURRENT_DAY);if(t)setSelTier(t.tier);}
+        if(todayDone){
+          setSubmitted(true);
+          const t=r.sessions.find(s=>Number(s.day)===CURRENT_DAY);
+          if(t) setSelTier(t.tier);
+        }
       }
     });
   },[user]);
 
-  // ── Computed ──────────────────────────────────────────────────────────────
-  const todayPts=selTier?(TIERS.find(t=>t.id===selTier)?.pts??0):0;
+  const todayPts=selTier?(TIERS.find(t=>t.id===selTier)||{pts:0}).pts:0;
 
-  // compute per-player stats from allSessions
-  const getStats=useCallback(u=>{
+  const getStats=useCallback(function(u){
     const entries=allSessions.filter(s=>s.username===u);
     const days=[...new Set(entries.map(s=>Number(s.day)))].sort((a,b)=>a-b);
     let streak=0;
-    for(let i=days.length-1;i>=0;i--){if(i===days.length-1||days[i]+1===days[i+1])streak++;else break;}
+    for(let i=days.length-1;i>=0;i--){
+      if(i===days.length-1||days[i]+1===days[i+1]) streak++;
+      else break;
+    }
     const base=entries.reduce((s,r)=>s+(Number(r.ptsEarned)||0),0);
     const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
     return{days:days.length,streak,base,sb,total:base+sb};
   },[allSessions]);
 
   const myStats=user?getStats(user.u):{days:0,streak:0,base:0,sb:0,total:0};
-  const totalDays=(doneDays.size)+(submitted&&!doneDays.has(CURRENT_DAY)?1:0);
-  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user?.u&&Number(s.day)===CURRENT_DAY)?todayPts:0);
+  const totalDays=doneDays.size+(submitted&&!doneDays.has(CURRENT_DAY)?1:0);
+  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user&&Number(s.day)===CURRENT_DAY)?todayPts:0);
   const streak=(myStats.streak||0)+(submitted&&myStats.streak===0?1:myStats.streak>0&&!doneDays.has(CURRENT_DAY)?1:0);
   const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
-  const wpts=[...wallDone].reduce((s,id)=>s+(WALL_BONUSES.find(w=>w.id===id)?.pts??0),0);
+  const wpts=[...wallDone].reduce((s,id)=>s+(WALL_BONUSES.find(w=>w.id===id)||{pts:0}).pts,0);
   const myTotal=basePts+sb+wpts;
 
-  // Fallback fake squad data when no sessions loaded
-  const fakeSessions=[];
-  const playerList=user?[user]:[];
-
-  // Build leaderboard from sessions
-  const buildLeaderboard=()=>{
+  const buildLeaderboard=function(){
     const map={};
-    allSessions.forEach(s=>{
-      if(!map[s.username]) map[s.username]={u:s.username,n:s.fullName||s.username,t:Number(s.team)||1,i:(s.fullName||s.username).split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase(),days:new Set(),base:0,streak:0};
+    allSessions.forEach(function(s){
+      if(!map[s.username]) map[s.username]={u:s.username,n:s.fullName||s.username,t:Number(s.team)||1,i:(s.fullName||s.username).split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase(),days:new Set(),base:0};
       map[s.username].days.add(Number(s.day));
       map[s.username].base+=(Number(s.ptsEarned)||0);
     });
-    return Object.values(map).map(p=>{
+    return Object.values(map).map(function(p){
       const days=[...p.days].sort((a,b)=>a-b);
-      let streak=0;for(let i=days.length-1;i>=0;i--){if(i===days.length-1||days[i]+1===days[i+1])streak++;else break;}
+      let streak=0;
+      for(let i=days.length-1;i>=0;i--){
+        if(i===days.length-1||days[i]+1===days[i+1]) streak++;
+        else break;
+      }
       const sb2=streak>=7?500:streak>=5?250:streak>=3?100:0;
-      return{...p,days:days.length,streak,sb:sb2,total:p.base+sb2};
+      return Object.assign({},p,{days:days.length,streak,sb:sb2,total:p.base+sb2});
     }).sort((a,b)=>b.total-a.total);
   };
 
   const lb=buildLeaderboard();
-  // ensure logged-in user appears
   if(user&&!lb.find(p=>p.u===user.u)){
     lb.push({u:user.u,n:user.n,t:user.t,i:user.i,days:doneDays.size+(submitted?1:0),streak,base:basePts,sb,total:myTotal});
     lb.sort((a,b)=>b.total-a.total);
@@ -457,7 +419,7 @@ function App() {
 
   const myRank=user?lb.findIndex(p=>p.u===user.u)+1:"—";
 
-  const teams=[1,2,3,4,5].map(tid=>{
+  const teams=[1,2,3,4,5].map(function(tid){
     const players=lb.filter(p=>p.t===tid);
     return{tid,label:TL[tid],color:TC[tid],pts:players.reduce((s,p)=>s+p.total,0),players};
   }).sort((a,b)=>b.pts-a.pts);
@@ -467,20 +429,21 @@ function App() {
   const parentThresh=Math.round(squadTarget*(config.parent_game_pct||.7));
   const grandPct=Math.round((grandTotal/squadTarget)*100);
 
-  const goTab=t=>{setFade(false);setTimeout(()=>{setTab(t);setFade(true);},130);};
+  const goTab=function(t){
+    setFade(false);
+    setTimeout(function(){setTab(t);setFade(true);},130);
+  };
 
-  // ── LOGIN ──────────────────────────────────────────────────────────────────
-  const doLogin=async()=>{
+  const doLogin=async function(){
     if(!lu.trim()||!lp.trim()){setLerr("Enter your username and password.");return;}
     setLloading(true);setLerr("");
     if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
-      // Demo mode fallback
       const demos=[
-        {u:"aylah",    pw:"cheetah736",n:"Ayla Hanna",           t:5,i:"AH"},
-        {u:"ellac",    pw:"cheetah951",n:"Ella Childs",           t:1,i:"EC"},
-        {u:"aaliyahm", pw:"cheetah663",n:"Aaliyah Milne",         t:2,i:"AM"},
-        {u:"gemmaf",   pw:"cheetah480",n:"Gemma Feetham",         t:3,i:"GF"},
-        {u:"emmae",    pw:"cheetah817",n:"Emma Evdemon",          t:4,i:"EE"},
+        {u:"aylah",    pw:"cheetah736",n:"Ayla Hanna",     t:5,i:"AH"},
+        {u:"ellac",    pw:"cheetah951",n:"Ella Childs",     t:1,i:"EC"},
+        {u:"aaliyahm", pw:"cheetah663",n:"Aaliyah Milne",   t:2,i:"AM"},
+        {u:"gemmaf",   pw:"cheetah480",n:"Gemma Feetham",   t:3,i:"GF"},
+        {u:"emmae",    pw:"cheetah817",n:"Emma Evdemon",     t:4,i:"EE"},
       ];
       const f=demos.find(p=>p.u===lu.trim().toLowerCase()&&p.pw===lp.trim());
       if(f){setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
@@ -495,7 +458,7 @@ function App() {
     }
   };
 
-  const doForgot=async()=>{
+  const doForgot=async function(){
     if(!forgotUser.trim()){setLerr("Enter your username.");return;}
     setLloading(true);setLerr("");setLok("");
     const r=await callAPI("forgotPassword",{username:forgotUser.trim().toLowerCase()});
@@ -504,8 +467,8 @@ function App() {
     else setLerr(r.error||"Username not found. Check with your coach.");
   };
 
-  const doSubmit=async()=>{
-    if(!selTier||!user)return;
+  const doSubmit=async function(){
+    if(!selTier||!user) return;
     setSubmitted(true);
     setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
     if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
@@ -513,17 +476,17 @@ function App() {
     }
   };
 
-  const doWall=async(wid)=>{
-    if(!user)return;
+  const doWall=async function(wid){
+    if(!user) return;
     setWallDone(prev=>new Set([...prev,wid]));
     setWallModal(null);
     if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
       const b=WALL_BONUSES.find(w=>w.id===wid);
-      callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?.pts||0,team:user.t});
+      callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
     }
   };
 
-  // ── LOGIN PAGE ─────────────────────────────────────────────────────────────
+  // LOGIN PAGE
   if(!user) return React.createElement("div",{className:"login-page"},
     React.createElement("div",{className:"login-grid"}),
     React.createElement("div",{className:"login-glow"}),
@@ -536,26 +499,29 @@ function App() {
       React.createElement("div",{className:"lc-note"},"👤 Username: firstname + last initial  |  All lowercase"),
       lerr&&React.createElement("div",{className:"login-err"},"⚠ "+lerr),
       lok&&React.createElement("div",{className:"login-ok"},"✓ "+lok),
-      !forgotMode?React.createElement("div",null,
-        React.createElement("div",{className:"form-group"},
-          React.createElement("label",{className:"form-label"},"Username"),
-          React.createElement("input",{className:"form-input",placeholder:"e.g. aylah or ellac",value:lu,onChange:e=>setLu(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin(),autoCapitalize:"none",autoCorrect:"off",spellCheck:"false",inputMode:"text"})),
-        React.createElement("div",{className:"form-group"},
-          React.createElement("label",{className:"form-label"},"Password"),
-          React.createElement("input",{className:"form-input",type:"password",placeholder:"cheetah + 3 numbers",value:lp,onChange:e=>setLp(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin()})),
-        React.createElement("button",{className:"login-btn",onClick:doLogin,disabled:lloading},lloading?"SIGNING IN…":"SIGN IN →"),
-        React.createElement("div",{className:"forgot-link"},"Forgotten your password? ",React.createElement("a",{onClick:()=>{setForgotMode(true);setLerr("");setLok("");}},"Get it sent to your email"))):
-      React.createElement("div",null,
-        React.createElement("div",{className:"form-group"},
-          React.createElement("label",{className:"form-label"},"Your Username (all lowercase)</label>"),
-          React.createElement("input",{className:"form-input",placeholder:"e.g. aylah",value:forgotUser,onChange:e=>setForgotUser(e.target.value),onKeyDown:e=>e.key==="Enter"&&doForgot(),autoCapitalize:"none",autoCorrect:"off",inputMode:"text"})),
-        React.createElement("button",{className:"login-btn",onClick:doForgot,disabled:lloading},lloading?"SENDING…":"SEND MY PASSWORD →"),
-        React.createElement("div",{className:"forgot-link"},React.createElement("a",{onClick:()=>{setForgotMode(false);setLerr("");setLok("");}},"← Back to login")))
+      !forgotMode
+        ? React.createElement("div",null,
+            React.createElement("div",{className:"form-group"},
+              React.createElement("label",{className:"form-label"},"Username"),
+              React.createElement("input",{className:"form-input",placeholder:"e.g. aylah or ellac",value:lu,onChange:function(e){setLu(e.target.value);},onKeyDown:function(e){if(e.key==="Enter")doLogin();},autoCapitalize:"none",autoCorrect:"off",spellCheck:"false",inputMode:"text"})),
+            React.createElement("div",{className:"form-group"},
+              React.createElement("label",{className:"form-label"},"Password"),
+              React.createElement("input",{className:"form-input",type:"password",placeholder:"cheetah + 3 numbers",value:lp,onChange:function(e){setLp(e.target.value);},onKeyDown:function(e){if(e.key==="Enter")doLogin();}})),
+            React.createElement("button",{className:"login-btn",onClick:doLogin,disabled:lloading},lloading?"SIGNING IN…":"SIGN IN →"),
+            React.createElement("div",{className:"forgot-link"},"Forgotten your password? ",
+              React.createElement("a",{onClick:function(){setForgotMode(true);setLerr("");setLok("");}},"Get it sent to your email")))
+        : React.createElement("div",null,
+            React.createElement("div",{className:"form-group"},
+              React.createElement("label",{className:"form-label"},"Your Username (all lowercase)"),
+              React.createElement("input",{className:"form-input",placeholder:"e.g. aylah",value:forgotUser,onChange:function(e){setForgotUser(e.target.value);},onKeyDown:function(e){if(e.key==="Enter")doForgot();},autoCapitalize:"none",autoCorrect:"off",inputMode:"text"})),
+            React.createElement("button",{className:"login-btn",onClick:doForgot,disabled:lloading},lloading?"SENDING…":"SEND MY PASSWORD →"),
+            React.createElement("div",{className:"forgot-link"},
+              React.createElement("a",{onClick:function(){setForgotMode(false);setLerr("");setLok("");}},"← Back to login")))
     )
   );
 
-  // ── HOME ───────────────────────────────────────────────────────────────────
-  const HomeContent=()=>{
+  // HOME
+  function HomeContent() {
     const td=teams.find(t=>t.tid===user.t);
     return React.createElement("div",null,
       React.createElement("div",{className:"hero"},
@@ -570,29 +536,33 @@ function App() {
         React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val",style:{color:"var(--red)"}},totalDays),React.createElement("div",{className:"stat-lbl"},"Days Done")),
         React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val",style:{color:"var(--gold)"}},"#"+myRank),React.createElement("div",{className:"stat-lbl"},"Your Rank")),
         React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val"},myTotal.toLocaleString()),React.createElement("div",{className:"stat-lbl"},"Total Pts"))),
-      !submitted?
-        React.createElement("div",{onClick:()=>goTab("today"),style:{display:"flex",alignItems:"center",gap:11,padding:"12px 13px",background:"linear-gradient(135deg,#1a0008,#1c1c1c)",border:"1px solid rgba(200,16,46,.28)",borderRadius:12,cursor:"pointer",marginBottom:11}},
-          React.createElement("div",{style:{flex:1}},
-            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:8,color:"var(--red)",letterSpacing:3,fontWeight:700,textTransform:"uppercase",marginBottom:3}},"Today's Drill"),
-            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:16,fontWeight:700}},today.title),
-            React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:3}},"Tap to watch and log your session →")),
-          React.createElement("span",{style:{fontSize:26,color:"var(--red)"}},"▶")):
-        React.createElement("div",{className:"card",style:{border:"2px solid var(--green)",marginBottom:11,textAlign:"center"}},
-          React.createElement("div",{className:"card-body",style:{padding:"16px 13px"}},
-            React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
-            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"TODAY COMPLETE!"),
-            React.createElement("div",{style:{fontSize:11,color:"var(--muted)",marginTop:3}},(TIERS.find(t=>t.id===selTier)?.label||"")+" · +"+todayPts+" pts"))),
+      !submitted
+        ? React.createElement("div",{onClick:function(){goTab("today");},style:{display:"flex",alignItems:"center",gap:11,padding:"12px 13px",background:"linear-gradient(135deg,#1a0008,#1c1c1c)",border:"1px solid rgba(200,16,46,.28)",borderRadius:12,cursor:"pointer",marginBottom:11}},
+            React.createElement("div",{style:{flex:1}},
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:8,color:"var(--red)",letterSpacing:3,fontWeight:700,textTransform:"uppercase",marginBottom:3}},"Today's Drill"),
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:16,fontWeight:700}},today.title),
+              React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:3}},"Tap to watch and log your session →")),
+            React.createElement("span",{style:{fontSize:26,color:"var(--red)"}},"▶"))
+        : React.createElement("div",{className:"card",style:{border:"2px solid var(--green)",marginBottom:11,textAlign:"center"}},
+            React.createElement("div",{className:"card-body",style:{padding:"16px 13px"}},
+              React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"TODAY COMPLETE!"),
+              React.createElement("div",{style:{fontSize:11,color:"var(--muted)",marginTop:3}},(TIERS.find(t=>t.id===selTier)||{label:""}).label+" · +"+todayPts+" pts"))),
       React.createElement("div",{className:"sec"},"School Wall Drill Bonus"),
       React.createElement("div",{className:"wall-section"},
         React.createElement("div",{className:"wall-hdr"},
           React.createElement("div",{className:"wall-title"},"🏫 Outside School Wall Programme"),
           React.createElement("div",{className:"wall-subtitle"},"Done outside at any school wall — no space constraints")),
-        WALL_BONUSES.map(w=>{
+        WALL_BONUSES.map(function(w){
           const done=wallDone.has(w.id);
-          return React.createElement("button",{key:w.id,className:"wall-btn "+(done?"wdone":""),onClick:()=>!done&&setWallModal(w)},
+          return React.createElement("button",{key:w.id,className:"wall-btn "+(done?"wdone":""),onClick:function(){if(!done)setWallModal(w);}},
             React.createElement("span",{className:"wall-emo"},w.emoji),
-            React.createElement("div",{className:"wall-info-txt"},React.createElement("div",{className:"wall-name",style:{color:w.color}},w.label),React.createElement("div",{className:"wall-sub2"},w.subLabel)),
-            done?React.createElement("span",{className:"wall-done-badge"},"✓ DONE"):React.createElement("span",{className:"wall-pts"},"+"+w.pts));
+            React.createElement("div",{className:"wall-info-txt"},
+              React.createElement("div",{className:"wall-name",style:{color:w.color}},w.label),
+              React.createElement("div",{className:"wall-sub2"},w.subLabel)),
+            done
+              ? React.createElement("span",{className:"wall-done-badge"},"✓ DONE")
+              : React.createElement("span",{className:"wall-pts"},"+"+w.pts));
         })),
       React.createElement("div",{className:"sec"},"Points Breakdown"),
       React.createElement("div",{className:"card"},
@@ -603,114 +573,183 @@ function App() {
       React.createElement("div",{className:"sec"},TL[user.t]+" Standing"),
       React.createElement("div",{className:"card",style:{borderTop:"3px solid "+TC[user.t],marginBottom:11}},
         React.createElement("div",{className:"card-body",style:{display:"flex",justifyContent:"space-between",alignItems:"center",gap:9}},
-          React.createElement("div",null,React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:TC[user.t]}},TL[user.t]),React.createElement("div",{style:{fontSize:9,color:"var(--muted)"}},["—","🥇","🥈","🥉","4th","5th"][teams.findIndex(t=>t.tid===user.t)+1]||""," of 5 teams")),
-          React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:26,color:TC[user.t]}},(td?.pts||0).toLocaleString()),React.createElement("div",{style:{fontSize:8,color:"var(--muted)"}},"team points")))));
-  };
+          React.createElement("div",null,
+            React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:TC[user.t]}},TL[user.t]),
+            React.createElement("div",{style:{fontSize:9,color:"var(--muted)"}},["—","🥇","🥈","🥉","4th","5th"][teams.findIndex(t=>t.tid===user.t)+1]||""," of 5 teams")),
+          React.createElement("div",{style:{textAlign:"right"}},
+            React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:26,color:TC[user.t]}},(td?td.pts:0).toLocaleString()),
+            React.createElement("div",{style:{fontSize:8,color:"var(--muted)"}},"team points")))));
+  }
 
-  // ── TODAY ──────────────────────────────────────────────────────────────────
-  const TodayContent=()=>React.createElement("div",null,
-    React.createElement("div",{className:"drill-hero"},
-      React.createElement("div",{className:"dh-top"},
-        React.createElement("div",{className:"dh-day"},"Day "+CURRENT_DAY+" of 15 · "+today.cat+" · Week "+today.week),
-        React.createElement("div",{className:"dh-name"},today.title)),
-      React.createElement(VideoPlayer,{ytId:today.yt,ytLabel:today.ytLabel}),
-      React.createElement("div",{className:"dtags"},
-        React.createElement("span",{className:"dtag"},"⏱ "+today.dur),
-        React.createElement("span",{className:"dtag red"},"📐 3m×3m"),
-        React.createElement("span",{className:"dtag gold"},"👟 "+today.foot),
-        React.createElement("span",{className:"dtag"},"⚽".repeat(today.diff))),
-      React.createElement("div",{className:"cue-box"},today.cue),
-      React.createElement("div",{className:"sec-title-inner"},"📋 The Drill"),
-      React.createElement("div",{className:"drill-desc-txt"},today.desc),
-      React.createElement("div",{className:"drill-sets-txt"},today.sets),
-      React.createElement("div",{className:"tip-box"},"💡 ",React.createElement("strong",null,"Pro Tip:")," ",today.tip),
-      !submitted?React.createElement("div",null,
-        React.createElement("div",{className:"tier-section",style:{paddingTop:13}},
-          React.createElement("div",{className:"tier-lbl"},"How did today's session go?"),
-          TIERS.map(tier=>React.createElement("button",{key:tier.id,className:"tier-btn "+(selTier===tier.id?"sel":""),style:{borderColor:selTier===tier.id?tier.color:"var(--border)"},onClick:()=>setSelTier(tier.id)},
+  // TODAY — fixed: use function body with variables instead of arrow + giant ternary
+  function TodayContent() {
+    const sessionForm = React.createElement("div",null,
+      React.createElement("div",{className:"tier-section",style:{paddingTop:13}},
+        React.createElement("div",{className:"tier-lbl"},"How did today's session go?"),
+        TIERS.map(function(tier){
+          return React.createElement("button",{key:tier.id,className:"tier-btn",style:{borderColor:selTier===tier.id?tier.color:"var(--border)"},onClick:function(){setSelTier(tier.id);}},
             React.createElement("span",{className:"tier-emo"},tier.emoji),
-            React.createElement("div",{className:"tier-info"},React.createElement("div",{className:"tier-name",style:{color:selTier===tier.id?tier.color:"var(--white)"}},tier.label),React.createElement("div",{className:"tier-sub"},tier.subLabel)),
-            React.createElement("span",{className:"tier-pts",style:{color:selTier===tier.id?tier.color:"var(--muted)"}},"+"+tier.pts))),
-        React.createElement("button",{className:"submit-btn "+(selTier?"go":"dim"),onClick:selTier?doSubmit:undefined},selTier?"✓ LOG MY SESSION · +"+todayPts+" PTS":"↑ Select How It Went First"),
-        selTier&&React.createElement("div",{className:"submit-hint"},"Counts toward streak · "+TL[user.t]+" points · Squad challenge")):
-      React.createElement("div",{style:{padding:"13px 14px"}},
-        React.createElement("div",{style:{background:"rgba(0,201,122,.07)",border:"2px solid var(--green)",borderRadius:12,padding:"15px 13px",textAlign:"center"}},
-          React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
-          React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"SESSION LOGGED!"),
-          React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--gold)",marginTop:3}},"+"+todayPts+" PTS EARNED"),
-          React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:4}},TIERS.find(t=>t.id===selTier)?.label)))));
+            React.createElement("div",{className:"tier-info"},
+              React.createElement("div",{className:"tier-name",style:{color:selTier===tier.id?tier.color:"var(--white)"}},tier.label),
+              React.createElement("div",{className:"tier-sub"},tier.subLabel)),
+            React.createElement("span",{className:"tier-pts",style:{color:selTier===tier.id?tier.color:"var(--muted)"}},"+"+tier.pts));
+        })),
+      React.createElement("button",{className:"submit-btn "+(selTier?"go":"dim"),onClick:selTier?doSubmit:undefined},
+        selTier?"✓ LOG MY SESSION · +"+todayPts+" PTS":"↑ Select How It Went First"),
+      selTier&&React.createElement("div",{className:"submit-hint"},"Counts toward streak · "+TL[user.t]+" points · Squad challenge"));
 
-  // ── DRILLS ─────────────────────────────────────────────────────────────────
-  const DrillsContent=()=>React.createElement("div",null,
-    React.createElement("div",{className:"week-nav"},
-      [1,2,3].map(w=>{const has=drills.some(d=>d.week===w&&d.day<=CURRENT_DAY);return React.createElement("button",{key:w,className:"week-btn "+(wf===w?"active":""),onClick:()=>setWf(w),style:{opacity:has?1:.32}},"WK "+w,React.createElement("br",null),React.createElement("span",{style:{fontSize:"7px",opacity:.7}},w===1?"FOUND.":w===2?"BUILD":"ELITE"));})),
-    React.createElement("div",{className:"sec"},"Week "+wf+" · "+(wf===1?"Foundation":wf===2?"Building":"Elite Phase")),
-    drills.filter(d=>d.week===wf).map(drill=>{
-      const locked=drill.day>CURRENT_DAY;
-      const done=doneDays.has(drill.day)||(drill.day===CURRENT_DAY&&submitted);
-      const isToday=drill.day===CURRENT_DAY;
-      if(locked) return React.createElement("div",{key:drill.day,className:"drill-row locked"},
-        React.createElement("div",{className:"dd dlocked"},React.createElement("div",{className:"ddnum",style:{color:"var(--border)",fontSize:16}},"🔒"),React.createElement("div",{className:"ddlbl"},"D"+drill.day)),
-        React.createElement("div",{className:"db"},React.createElement("div",{className:"dcat"},"LOCKED"),React.createElement("div",{className:"dtitle",style:{color:"var(--border)"}},"Unlocks Day "+drill.day),React.createElement("div",{className:"dmeta"},React.createElement("span",null,(drill.day-CURRENT_DAY)+" day"+(drill.day-CURRENT_DAY!==1?"s":"")+" away"))),
-        React.createElement("div",{className:"dstat"},React.createElement("span",{style:{color:"var(--border)"}},"🔒")));
-      return React.createElement("div",{key:drill.day,className:"drill-row",onClick:()=>setDrillModal(drill)},
-        React.createElement("div",{className:"dd "+(done?"ddone":isToday?"dtoday":"")},React.createElement("div",{className:"ddnum",style:{color:done?"var(--green)":isToday?"var(--red)":"var(--muted)"}},drill.day),React.createElement("div",{className:"ddlbl"},"DAY")),
-        React.createElement("div",{className:"db"},React.createElement("div",{className:"dcat"},drill.cat),React.createElement("div",{className:"dtitle"},drill.title),React.createElement("div",{className:"dmeta"},React.createElement("span",null,"⏱"+drill.dur),React.createElement("span",null,"⚽".repeat(drill.diff)))),
-        React.createElement("div",{className:"dstat"},done?React.createElement("span",{style:{color:"var(--green)",fontSize:15}},"✓"):isToday?React.createElement("span",{style:{color:"var(--red)",fontSize:7,fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,textAlign:"center"}},"TODAY"):React.createElement("span",{style:{color:"var(--border)",fontSize:15}},"○")));
-    }));
+    const sessionDone = React.createElement("div",{style:{padding:"13px 14px"}},
+      React.createElement("div",{style:{background:"rgba(0,201,122,.07)",border:"2px solid var(--green)",borderRadius:12,padding:"15px 13px",textAlign:"center"}},
+        React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
+        React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"SESSION LOGGED!"),
+        React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--gold)",marginTop:3}},"+"+todayPts+" PTS EARNED"),
+        React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:4}},(TIERS.find(function(t){return t.id===selTier;})||{label:""}).label)));
 
-  // ── STANDINGS ──────────────────────────────────────────────────────────────
-  const StandingsContent=()=>React.createElement("div",null,
-    React.createElement("div",{className:"grand-card"},
-      React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:9}},
-        React.createElement("div",null,React.createElement("div",{className:"grand-title-txt"},"SQUAD CHALLENGE"),React.createElement("div",{className:"grand-sub-txt"},"All 30 Cheetahs — 5 Teams")),
-        React.createElement("div",{className:"grand-pct"},grandPct+"%")),
-      React.createElement("div",{className:"grand-track"},React.createElement("div",{className:"grand-fill",style:{width:Math.min(100,grandPct)+"%"}})),
-      React.createElement("div",{style:{display:"flex",justifyContent:"space-between",fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,marginBottom:5}},
-        React.createElement("span",null,grandTotal.toLocaleString()+" pts"),React.createElement("span",null,"Target: "+squadTarget.toLocaleString())),
-      React.createElement("div",{className:"reward-card "+(grandPct>=70?"rwd-unlock":"rwd-locked")},React.createElement("strong",null,grandPct>=70?"🎮 UNLOCKED!":"🎮 At 70%:")," Parents vs Players Game!",grandPct<70&&" "+(parentThresh-grandTotal).toLocaleString()+" pts needed."),
-      React.createElement("div",{className:"reward-card "+(grandPct>=100?"rwd-unlock":"rwd-locked")},React.createElement("strong",null,grandPct>=100?"🍕 UNLOCKED!":"🍕 At 100%:")," Pizza Party for all 30!",grandPct<100&&" "+(squadTarget-grandTotal).toLocaleString()+" pts still needed."),
-      React.createElement("div",{className:"math-link",onClick:()=>setMathModal(true)},"📊 How is this calculated? →")),
-    React.createElement("div",{className:"sec"},"Score Card"),
-    React.createElement("div",{className:"scorecard-wrap"},
-      React.createElement("div",{className:"scorecard"},
-        React.createElement("div",{className:"sc-header"},
-          React.createElement(CBLogo,{size:42}),
-          React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{className:"sc-club"},"CB CHEETAHS"),React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:9,color:"rgba(201,168,76,.5)",letterSpacing:2,textTransform:"uppercase",marginTop:3}},"BALL MASTERY"))),
-        React.createElement("div",{style:{position:"relative",zIndex:1}},
-          React.createElement("div",{className:"sc-day-badge"},"Day "+CURRENT_DAY+" of 15"),
-          React.createElement("div",{className:"sc-drill"},today.title),
-          React.createElement("div",{className:"sc-tier",style:{color:TIERS.find(t=>t.id===selTier)?.color||"var(--muted)"}},TIERS.find(t=>t.id===selTier)?.label||"Log today's session to update card")),
-        React.createElement("div",{className:"sc-divider"}),
-        React.createElement("div",{className:"sc-stats"},
-          [{l:"MY PTS",v:myTotal.toLocaleString(),c:"var(--gold)"},{l:"RANK",v:"#"+myRank,c:"var(--red)"},{l:"STREAK",v:streak>=1?"🔥"+streak:"—",c:"var(--orange)"}].map(s=>
-            React.createElement("div",{key:s.l,className:"sc-stat"},React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),React.createElement("div",{className:"sc-stat-lbl"},s.l)))),
-        React.createElement("div",{className:"sc-team-bar"},
-          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
-            React.createElement("div",{style:{width:8,height:8,borderRadius:"50%",background:TC[user.t]}}),
-            React.createElement("div",{className:"sc-team-name",style:{color:TC[user.t]}},TL[user.t])),
-          React.createElement("div",{className:"sc-team-pts"},(teams.find(t=>t.tid===user.t)?.pts||0).toLocaleString()+" pts")),
-        React.createElement("div",{className:"sc-footer"},
-          React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
-    React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
-    React.createElement("div",{className:"sec"},"Team Standings"),
-    teams.map((t,i)=>React.createElement("div",{key:t.tid,className:"team-card"},
-      React.createElement("div",{className:"team-top",style:{background:"linear-gradient(135deg,"+t.color+"18,"+t.color+"06)"}},
-        React.createElement("div",null,React.createElement("div",{className:"team-nbig",style:{color:t.color}},t.label),React.createElement("div",{style:{fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"6 PLAYERS"+(t.players.length>0?" · AVG "+(Math.round(t.pts/Math.max(t.players.length,1))).toLocaleString()+" PTS":""))),
-        React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{className:"team-pbig",style:{color:t.color}},t.pts.toLocaleString()),i===0&&React.createElement("div",{style:{background:t.color,color:"#000",fontSize:7,fontWeight:700,padding:"2px 6px",borderRadius:999,fontFamily:"Rajdhani,sans-serif",letterSpacing:1,display:"inline-block"}},"LEADING"))),
-      React.createElement("div",{className:"tbar-wrap"},React.createElement("div",{className:"tbar-track"},React.createElement("div",{className:"tbar-fill",style:{width:(teams[0].pts>0?(t.pts/teams[0].pts)*100:0)+"%",background:t.color}}))),
-      React.createElement("div",{className:"tchips"},t.players.map(p=>React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i))))),
-    React.createElement("div",{className:"sec"},"Individual Rankings"),
-    lb.map((p,i)=>React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
-      React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
-      React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
-      React.createElement("div",{className:"lb-info"},
-        React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
-        React.createElement("div",{className:"lb-meta"},React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),React.createElement("span",null,"·"),React.createElement("span",null,p.days+"/15"),p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
-      React.createElement("div",{className:"lb-pts"},p.total.toLocaleString()))));
+    return React.createElement("div",null,
+      React.createElement("div",{className:"drill-hero"},
+        React.createElement("div",{className:"dh-top"},
+          React.createElement("div",{className:"dh-day"},"Day "+CURRENT_DAY+" of 15 · "+today.cat+" · Week "+today.week),
+          React.createElement("div",{className:"dh-name"},today.title)),
+        React.createElement(VideoPlayer,{ytId:today.yt,ytLabel:today.ytLabel}),
+        React.createElement("div",{className:"dtags"},
+          React.createElement("span",{className:"dtag"},"⏱ "+today.dur),
+          React.createElement("span",{className:"dtag red"},"📐 3m×3m"),
+          React.createElement("span",{className:"dtag gold"},"👟 "+today.foot),
+          React.createElement("span",{className:"dtag"},"⚽".repeat(today.diff))),
+        React.createElement("div",{className:"cue-box"},today.cue),
+        React.createElement("div",{className:"sec-title-inner"},"📋 The Drill"),
+        React.createElement("div",{className:"drill-desc-txt"},today.desc),
+        React.createElement("div",{className:"drill-sets-txt"},today.sets),
+        React.createElement("div",{className:"tip-box"},"💡 ",React.createElement("strong",null,"Pro Tip:")," ",today.tip),
+        submitted ? sessionDone : sessionForm));
+  }
 
-  // ── POINTS ──────────────────────────────────────────────────────────────────
-  const PointsContent=()=>{
+  // DRILLS
+  function DrillsContent() {
+    return React.createElement("div",null,
+      React.createElement("div",{className:"week-nav"},
+        [1,2,3].map(function(w){
+          const has=drills.some(d=>d.week===w&&d.day<=CURRENT_DAY);
+          return React.createElement("button",{key:w,className:"week-btn "+(wf===w?"active":""),onClick:function(){setWf(w);},style:{opacity:has?1:.32}},
+            "WK "+w,React.createElement("br",null),
+            React.createElement("span",{style:{fontSize:"7px",opacity:.7}},w===1?"FOUND.":w===2?"BUILD":"ELITE"));
+        })),
+      React.createElement("div",{className:"sec"},"Week "+wf+" · "+(wf===1?"Foundation":wf===2?"Building":"Elite Phase")),
+      drills.filter(d=>d.week===wf).map(function(drill){
+        const locked=drill.day>CURRENT_DAY;
+        const done=doneDays.has(drill.day)||(drill.day===CURRENT_DAY&&submitted);
+        const isToday=drill.day===CURRENT_DAY;
+        if(locked) return React.createElement("div",{key:drill.day,className:"drill-row locked"},
+          React.createElement("div",{className:"dd dlocked"},
+            React.createElement("div",{className:"ddnum",style:{color:"var(--border)",fontSize:16}},"🔒"),
+            React.createElement("div",{className:"ddlbl"},"D"+drill.day)),
+          React.createElement("div",{className:"db"},
+            React.createElement("div",{className:"dcat"},"LOCKED"),
+            React.createElement("div",{className:"dtitle",style:{color:"var(--border)"}},"Unlocks Day "+drill.day),
+            React.createElement("div",{className:"dmeta"},React.createElement("span",null,(drill.day-CURRENT_DAY)+" day"+(drill.day-CURRENT_DAY!==1?"s":"")+" away"))),
+          React.createElement("div",{className:"dstat"},React.createElement("span",{style:{color:"var(--border)"}},"🔒")));
+        return React.createElement("div",{key:drill.day,className:"drill-row",onClick:function(){setDrillModal(drill);}},
+          React.createElement("div",{className:"dd "+(done?"ddone":isToday?"dtoday":"")},
+            React.createElement("div",{className:"ddnum",style:{color:done?"var(--green)":isToday?"var(--red)":"var(--muted)"}},drill.day),
+            React.createElement("div",{className:"ddlbl"},"DAY")),
+          React.createElement("div",{className:"db"},
+            React.createElement("div",{className:"dcat"},drill.cat),
+            React.createElement("div",{className:"dtitle"},drill.title),
+            React.createElement("div",{className:"dmeta"},
+              React.createElement("span",null,"⏱"+drill.dur),
+              React.createElement("span",null,"⚽".repeat(drill.diff)))),
+          React.createElement("div",{className:"dstat"},
+            done
+              ? React.createElement("span",{style:{color:"var(--green)",fontSize:15}},"✓")
+              : isToday
+                ? React.createElement("span",{style:{color:"var(--red)",fontSize:7,fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,textAlign:"center"}},"TODAY")
+                : React.createElement("span",{style:{color:"var(--border)",fontSize:15}},"○")));
+      }));
+  }
+
+  // STANDINGS
+  function StandingsContent() {
+    return React.createElement("div",null,
+      React.createElement("div",{className:"grand-card"},
+        React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:9}},
+          React.createElement("div",null,
+            React.createElement("div",{className:"grand-title-txt"},"SQUAD CHALLENGE"),
+            React.createElement("div",{className:"grand-sub-txt"},"All 30 Cheetahs — 5 Teams")),
+          React.createElement("div",{className:"grand-pct"},grandPct+"%")),
+        React.createElement("div",{className:"grand-track"},React.createElement("div",{className:"grand-fill",style:{width:Math.min(100,grandPct)+"%"}})),
+        React.createElement("div",{style:{display:"flex",justifyContent:"space-between",fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,marginBottom:5}},
+          React.createElement("span",null,grandTotal.toLocaleString()+" pts"),
+          React.createElement("span",null,"Target: "+squadTarget.toLocaleString())),
+        React.createElement("div",{className:"reward-card "+(grandPct>=70?"rwd-unlock":"rwd-locked")},
+          React.createElement("strong",null,grandPct>=70?"🎮 UNLOCKED!":"🎮 At 70%:")," Parents vs Players Game!",
+          grandPct<70&&" "+(parentThresh-grandTotal).toLocaleString()+" pts needed."),
+        React.createElement("div",{className:"reward-card "+(grandPct>=100?"rwd-unlock":"rwd-locked")},
+          React.createElement("strong",null,grandPct>=100?"🍕 UNLOCKED!":"🍕 At 100%:")," Pizza Party for all 30!",
+          grandPct<100&&" "+(squadTarget-grandTotal).toLocaleString()+" pts still needed."),
+        React.createElement("div",{className:"math-link",onClick:function(){setMathModal(true);}},"📊 How is this calculated? →")),
+      React.createElement("div",{className:"sec"},"Score Card"),
+      React.createElement("div",{className:"scorecard-wrap"},
+        React.createElement("div",{className:"scorecard"},
+          React.createElement("div",{className:"sc-header"},
+            React.createElement(CBLogo,{size:42}),
+            React.createElement("div",{style:{textAlign:"right"}},
+              React.createElement("div",{className:"sc-club"},"CB CHEETAHS"),
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:9,color:"rgba(201,168,76,.5)",letterSpacing:2,textTransform:"uppercase",marginTop:3}},"BALL MASTERY"))),
+          React.createElement("div",{style:{position:"relative",zIndex:1}},
+            React.createElement("div",{className:"sc-day-badge"},"Day "+CURRENT_DAY+" of 15"),
+            React.createElement("div",{className:"sc-drill"},today.title),
+            React.createElement("div",{className:"sc-tier",style:{color:(TIERS.find(t=>t.id===selTier)||{color:"var(--muted)"}).color}},(TIERS.find(t=>t.id===selTier)||{label:"Log today's session to update card"}).label)),
+          React.createElement("div",{className:"sc-divider"}),
+          React.createElement("div",{className:"sc-stats"},
+            [{l:"MY PTS",v:myTotal.toLocaleString(),c:"var(--gold)"},{l:"RANK",v:"#"+myRank,c:"var(--red)"},{l:"STREAK",v:streak>=1?"🔥"+streak:"—",c:"var(--orange)"}].map(function(s){
+              return React.createElement("div",{key:s.l,className:"sc-stat"},
+                React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),
+                React.createElement("div",{className:"sc-stat-lbl"},s.l));
+            })),
+          React.createElement("div",{className:"sc-team-bar"},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
+              React.createElement("div",{style:{width:8,height:8,borderRadius:"50%",background:TC[user.t]}}),
+              React.createElement("div",{className:"sc-team-name",style:{color:TC[user.t]}},TL[user.t])),
+            React.createElement("div",{className:"sc-team-pts"},(teams.find(t=>t.tid===user.t)||{pts:0}).pts.toLocaleString()+" pts")),
+          React.createElement("div",{className:"sc-footer"},
+            React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
+      React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
+      React.createElement("div",{className:"sec"},"Team Standings"),
+      teams.map(function(t,i){
+        return React.createElement("div",{key:t.tid,className:"team-card"},
+          React.createElement("div",{className:"team-top",style:{background:"linear-gradient(135deg,"+t.color+"18,"+t.color+"06)"}},
+            React.createElement("div",null,
+              React.createElement("div",{className:"team-nbig",style:{color:t.color}},t.label),
+              React.createElement("div",{style:{fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"6 PLAYERS"+(t.players.length>0?" · AVG "+(Math.round(t.pts/Math.max(t.players.length,1))).toLocaleString()+" PTS":""))),
+            React.createElement("div",{style:{textAlign:"right"}},
+              React.createElement("div",{className:"team-pbig",style:{color:t.color}},t.pts.toLocaleString()),
+              i===0&&React.createElement("div",{style:{background:t.color,color:"#000",fontSize:7,fontWeight:700,padding:"2px 6px",borderRadius:999,fontFamily:"Rajdhani,sans-serif",letterSpacing:1,display:"inline-block"}},"LEADING"))),
+          React.createElement("div",{className:"tbar-wrap"},
+            React.createElement("div",{className:"tbar-track"},
+              React.createElement("div",{className:"tbar-fill",style:{width:(teams[0].pts>0?(t.pts/teams[0].pts)*100:0)+"%",background:t.color}}))),
+          React.createElement("div",{className:"tchips"},
+            t.players.map(function(p){
+              return React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i);
+            })));
+      }),
+      React.createElement("div",{className:"sec"},"Individual Rankings"),
+      lb.map(function(p,i){
+        return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
+          React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+          React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
+          React.createElement("div",{className:"lb-info"},
+            React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
+            React.createElement("div",{className:"lb-meta"},
+              React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
+              React.createElement("span",null,"·"),
+              React.createElement("span",null,p.days+"/15"),
+              p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
+          React.createElement("div",{className:"lb-pts"},p.total.toLocaleString()));
+      }));
+  }
+
+  // POINTS
+  function PointsContent() {
     const rules=[
       {i:"🔥",l:"Nailed It — clean reps, pushed pace",v:"+50",c:"var(--red)"},
       {i:"💪",l:"Gave It My Best — worked hard, kept going",v:"+25",c:"var(--gold)"},
@@ -726,72 +765,137 @@ function App() {
     ];
     return React.createElement("div",null,
       React.createElement("div",{className:"sec"},"How Points Work"),
-      React.createElement("div",{className:"card"},rules.map((r,i)=>React.createElement("div",{key:i,className:"rule-row"},
-        React.createElement("div",{style:{display:"flex",gap:7,alignItems:"center",flex:1,minWidth:0}},React.createElement("span",{style:{fontSize:13,flexShrink:0}},r.i),React.createElement("span",{style:{fontSize:11,color:"#bbb",lineHeight:1.4}},r.l)),
-        React.createElement("span",{className:"rule-val",style:{color:r.c}},r.v)))),
+      React.createElement("div",{className:"card"},
+        rules.map(function(r,i){
+          return React.createElement("div",{key:i,className:"rule-row"},
+            React.createElement("div",{style:{display:"flex",gap:7,alignItems:"center",flex:1,minWidth:0}},
+              React.createElement("span",{style:{fontSize:13,flexShrink:0}},r.i),
+              React.createElement("span",{style:{fontSize:11,color:"#bbb",lineHeight:1.4}},r.l)),
+            React.createElement("span",{className:"rule-val",style:{color:r.c}},r.v));
+        })),
       React.createElement("div",{className:"sec"},"Submission Levels"),
-      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{padding:"2px 11px"}},
-        TIERS.map((t,i)=>React.createElement("div",{key:t.id,style:{padding:"10px 0",borderBottom:i<2?"1px solid var(--border)":"none"}},
-          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7,marginBottom:2}},React.createElement("span",{style:{fontSize:17}},t.emoji),React.createElement("span",{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:t.color,flex:1}},t.label),React.createElement("span",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:t.color}},"+"+t.pts)),
-          React.createElement("div",{style:{fontSize:11,color:"var(--muted)",lineHeight:1.5,paddingLeft:24}},t.subLabel))))),
+      React.createElement("div",{className:"card"},
+        React.createElement("div",{className:"card-body",style:{padding:"2px 11px"}},
+          TIERS.map(function(t,i){
+            return React.createElement("div",{key:t.id,style:{padding:"10px 0",borderBottom:i<2?"1px solid var(--border)":"none"}},
+              React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7,marginBottom:2}},
+                React.createElement("span",{style:{fontSize:17}},t.emoji),
+                React.createElement("span",{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:t.color,flex:1}},t.label),
+                React.createElement("span",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:t.color}},"+"+t.pts)),
+              React.createElement("div",{style:{fontSize:11,color:"var(--muted)",lineHeight:1.5,paddingLeft:24}},t.subLabel));
+          }))),
       React.createElement("div",{className:"sec"},"Outside Wall Programme"),
-      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
-        "Done outside at any school wall. No space constraints — just find a solid wall and a ball.",React.createElement("br",null),React.createElement("br",null),
-        React.createElement("strong",{style:{color:"var(--blue)"}},"Full Session (45 min) +200 pts"),React.createElement("br",null),"All 5 circuits: Inside-Outside Rapid Fire, Laces Precision Strikes, One-Touch Rebounds, Two-Touch Combos, Cool-down Juggling.",React.createElement("br",null),React.createElement("br",null),
-        React.createElement("strong",{style:{color:"var(--purple)"}},"Session A (30 min) +150 pts"),React.createElement("br",null),"Choose 3 circuits from the full programme.",React.createElement("br",null),React.createElement("br",null),
-        React.createElement("strong",{style:{color:"var(--muted)"}},"Session B (30 min) +150 pts"),React.createElement("br",null),"Another 30-minute session on a different day.")),
+      React.createElement("div",{className:"card"},
+        React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
+          "Done outside at any school wall. No space constraints — just find a solid wall and a ball.",
+          React.createElement("br",null),React.createElement("br",null),
+          React.createElement("strong",{style:{color:"var(--blue)"}},"Full Session (45 min) +200 pts"),
+          React.createElement("br",null),
+          "All 5 circuits: Inside-Outside Rapid Fire, Laces Precision Strikes, One-Touch Rebounds, Two-Touch Combos, Cool-down Juggling.",
+          React.createElement("br",null),React.createElement("br",null),
+          React.createElement("strong",{style:{color:"var(--purple)"}},"Session A (30 min) +150 pts"),
+          React.createElement("br",null),"Choose 3 circuits from the full programme.",
+          React.createElement("br",null),React.createElement("br",null),
+          React.createElement("strong",{style:{color:"var(--muted)"}},"Session B (30 min) +150 pts"),
+          React.createElement("br",null),"Another 30-minute session on a different day.")),
       React.createElement("div",{className:"sec"},"Squad Rewards"),
-      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
-        "🎮 ",React.createElement("strong",{style:{color:"var(--gold)"}},"70%")," → Parents vs Players Game",React.createElement("br",null),
-        "🍕 ",React.createElement("strong",{style:{color:"var(--green)"}},"100%")," → Pizza Party for all 30 players",React.createElement("br",null),"Every session by every player counts.",
-        React.createElement("div",{className:"math-link",style:{marginTop:8},onClick:()=>setMathModal(true)},"📊 Squad maths →"))));
-  };
+      React.createElement("div",{className:"card"},
+        React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
+          "🎮 ",React.createElement("strong",{style:{color:"var(--gold)"}},"70%")," → Parents vs Players Game",
+          React.createElement("br",null),
+          "🍕 ",React.createElement("strong",{style:{color:"var(--green)"}},"100%")," → Pizza Party for all 30 players",
+          React.createElement("br",null),
+          "Every session by every player counts.",
+          React.createElement("div",{className:"math-link",style:{marginTop:8},onClick:function(){setMathModal(true);}},"📊 Squad maths →"))));
+  }
 
-  // ── MATH MODAL ─────────────────────────────────────────────────────────────
-  const MathModal=()=>React.createElement("div",{className:"overlay",onClick:()=>setMathModal(false)},
-    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement("div",{className:"m-handle"}),
-      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Squad Challenge Maths"),React.createElement("div",{className:"m-title-txt"},"📊 Target Calculation")),
-      React.createElement("div",{className:"m-body"},
-        React.createElement("div",{className:"math-panel"},
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Players in squad",React.createElement("span",{className:"math-formula"},"30 players total")),React.createElement("div",{className:"math-val"},"30")),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Total sessions",React.createElement("span",{className:"math-formula"},"30 × 15 days = 450 sessions")),React.createElement("div",{className:"math-val"},"450")),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Weighted avg pts/session",React.createElement("span",{className:"math-formula"},"Nailed(50)×40% + Best(25)×45% + Bit(3)×15% ≈ 35")),React.createElement("div",{className:"math-val"},"≈35 pts")),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Squad target",React.createElement("span",{className:"math-formula"},"30 × 15 × 35 = "+squadTarget.toLocaleString())),React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()+" pts"))),
-        React.createElement("div",{className:"math-panel"},
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"🎮 Parent Game (70%)",React.createElement("span",{className:"math-formula"},squadTarget.toLocaleString()+" × 0.70 = "+parentThresh.toLocaleString())),React.createElement("div",{className:"math-val"},parentThresh.toLocaleString())),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"🍕 Pizza Party (100%)"),React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()))),
-        React.createElement("div",{className:"math-panel"},
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Earned so far"),React.createElement("div",{className:"math-val",style:{color:"var(--green)"}},grandTotal.toLocaleString())),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Progress"),React.createElement("div",{className:"math-val",style:{color:grandPct>=100?"var(--green)":grandPct>=70?"var(--gold)":"var(--red)"}},grandPct+"%")),
-          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Still needed"),React.createElement("div",{className:"math-val",style:{color:"var(--muted)"}},Math.max(0,squadTarget-grandTotal).toLocaleString()))),
-        React.createElement("div",{className:"math-note"},React.createElement("strong",{style:{color:"var(--gold)"}},"💡 Every player matters:"),React.createElement("br",null),"All Nailed It every day: 30×15×50 = ",React.createElement("strong",null,"22,500 pts"),React.createElement("br",null),"The target is reachable with honest mixed effort."))));
+  // MATH MODAL
+  function MathModal() {
+    return React.createElement("div",{className:"overlay",onClick:function(){setMathModal(false);}},
+      React.createElement("div",{className:"modal-sheet",onClick:function(e){e.stopPropagation();}},
+        React.createElement("div",{className:"m-handle"}),
+        React.createElement("div",{className:"m-top"},
+          React.createElement("div",{className:"m-day-label"},"Squad Challenge Maths"),
+          React.createElement("div",{className:"m-title-txt"},"📊 Target Calculation")),
+        React.createElement("div",{className:"m-body"},
+          React.createElement("div",{className:"math-panel"},
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Players in squad",React.createElement("span",{className:"math-formula"},"30 players total")),
+              React.createElement("div",{className:"math-val"},"30")),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Total sessions",React.createElement("span",{className:"math-formula"},"30 × 15 days = 450 sessions")),
+              React.createElement("div",{className:"math-val"},"450")),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Weighted avg pts/session",React.createElement("span",{className:"math-formula"},"Nailed(50)×40% + Best(25)×45% + Bit(3)×15% ≈ 35")),
+              React.createElement("div",{className:"math-val"},"≈35 pts")),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Squad target",React.createElement("span",{className:"math-formula"},"30 × 15 × 35 = "+squadTarget.toLocaleString())),
+              React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()+" pts"))),
+          React.createElement("div",{className:"math-panel"},
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"🎮 Parent Game (70%)",React.createElement("span",{className:"math-formula"},squadTarget.toLocaleString()+" × 0.70 = "+parentThresh.toLocaleString())),
+              React.createElement("div",{className:"math-val"},parentThresh.toLocaleString())),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"🍕 Pizza Party (100%)"),
+              React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()))),
+          React.createElement("div",{className:"math-panel"},
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Earned so far"),
+              React.createElement("div",{className:"math-val",style:{color:"var(--green)"}},grandTotal.toLocaleString())),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Progress"),
+              React.createElement("div",{className:"math-val",style:{color:grandPct>=100?"var(--green)":grandPct>=70?"var(--gold)":"var(--red)"}},grandPct+"%")),
+            React.createElement("div",{className:"math-row"},
+              React.createElement("div",{className:"math-lbl"},"Still needed"),
+              React.createElement("div",{className:"math-val",style:{color:"var(--muted)"}},Math.max(0,squadTarget-grandTotal).toLocaleString()))),
+          React.createElement("div",{className:"math-note"},
+            React.createElement("strong",{style:{color:"var(--gold)"}},"💡 Every player matters:"),
+            React.createElement("br",null),
+            "All Nailed It every day: 30×15×50 = ",React.createElement("strong",null,"22,500 pts"),
+            React.createElement("br",null),
+            "The target is reachable with honest mixed effort."))));
+  }
 
-  // ── WALL MODAL ─────────────────────────────────────────────────────────────
-  const WallModal=()=>!wallModal?null:React.createElement("div",{className:"overlay",onClick:()=>setWallModal(null)},
-    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement("div",{className:"m-handle"}),
-      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Outside School Wall"),React.createElement("div",{className:"m-title-txt"},wallModal.emoji+" "+wallModal.label),React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--blue)",marginTop:2}},"+"+wallModal.pts+" pts")),
-      React.createElement("div",{className:"m-body"},
-        React.createElement("div",{style:{background:"rgba(56,182,255,.05)",border:"1px solid rgba(56,182,255,.18)",borderRadius:10,padding:"12px",marginBottom:11,whiteSpace:"pre-line",fontSize:12,color:"#bbb",lineHeight:1.7}},wallModal.desc),
-        React.createElement("div",{style:{background:"rgba(201,168,76,.05)",border:"1px solid rgba(201,168,76,.18)",borderRadius:10,padding:"10px 12px",marginBottom:12,fontSize:11,color:"#d4a84c",lineHeight:1.6}},"⚠ Honour system: Only log this if you genuinely completed it."),
-        React.createElement("button",{className:"submit-btn go",style:{margin:0,width:"100%"},onClick:()=>doWall(wallModal.id)},"✓ CONFIRM — I COMPLETED THIS"),
-        React.createElement("div",{style:{textAlign:"center",fontSize:9,color:"var(--muted)",marginTop:8,fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"Each bonus can only be claimed once."))));
+  // WALL MODAL
+  function WallModal() {
+    if(!wallModal) return null;
+    return React.createElement("div",{className:"overlay",onClick:function(){setWallModal(null);}},
+      React.createElement("div",{className:"modal-sheet",onClick:function(e){e.stopPropagation();}},
+        React.createElement("div",{className:"m-handle"}),
+        React.createElement("div",{className:"m-top"},
+          React.createElement("div",{className:"m-day-label"},"Outside School Wall"),
+          React.createElement("div",{className:"m-title-txt"},wallModal.emoji+" "+wallModal.label),
+          React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--blue)",marginTop:2}},"+"+wallModal.pts+" pts")),
+        React.createElement("div",{className:"m-body"},
+          React.createElement("div",{style:{background:"rgba(56,182,255,.05)",border:"1px solid rgba(56,182,255,.18)",borderRadius:10,padding:"12px",marginBottom:11,whiteSpace:"pre-line",fontSize:12,color:"#bbb",lineHeight:1.7}},wallModal.desc),
+          React.createElement("div",{style:{background:"rgba(201,168,76,.05)",border:"1px solid rgba(201,168,76,.18)",borderRadius:10,padding:"10px 12px",marginBottom:12,fontSize:11,color:"#d4a84c",lineHeight:1.6}},"⚠ Honour system: Only log this if you genuinely completed it."),
+          React.createElement("button",{className:"submit-btn go",style:{margin:0,width:"100%"},onClick:function(){doWall(wallModal.id);}},"✓ CONFIRM — I COMPLETED THIS"),
+          React.createElement("div",{style:{textAlign:"center",fontSize:9,color:"var(--muted)",marginTop:8,fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"Each bonus can only be claimed once."))));
+  }
 
-  // ── DRILL MODAL ─────────────────────────────────────────────────────────────
-  const DrillModal=()=>!drillModal?null:React.createElement("div",{className:"overlay",onClick:()=>setDrillModal(null)},
-    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement("div",{className:"m-handle"}),
-      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Day "+drillModal.day+" · "+drillModal.cat),React.createElement("div",{className:"m-title-txt"},drillModal.title)),
-      React.createElement("div",{className:"m-body"},
-        React.createElement(VideoPlayer,{ytId:drillModal.yt,ytLabel:drillModal.ytLabel}),
-        React.createElement("div",{className:"dtags",style:{padding:"9px 0 0"}},React.createElement("span",{className:"dtag"},"⏱ "+drillModal.dur),React.createElement("span",{className:"dtag red"},"📐 3m×3m"),React.createElement("span",{className:"dtag"},"⚽".repeat(drillModal.diff)),React.createElement("span",{className:"dtag gold"},"👟 "+drillModal.foot)),
-        React.createElement("div",{className:"cue-box",style:{margin:"9px 0 0"}},drillModal.cue),
-        React.createElement("div",{style:{fontSize:13,color:"#bbb",lineHeight:1.7,margin:"9px 0"}},drillModal.desc),
-        React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:15,fontWeight:700,color:"var(--red)",marginBottom:8}},drillModal.sets),
-        React.createElement("div",{className:"tip-box",style:{margin:"0 0 8px"}},"💡 ",drillModal.tip))));
+  // DRILL MODAL
+  function DrillModal() {
+    if(!drillModal) return null;
+    return React.createElement("div",{className:"overlay",onClick:function(){setDrillModal(null);}},
+      React.createElement("div",{className:"modal-sheet",onClick:function(e){e.stopPropagation();}},
+        React.createElement("div",{className:"m-handle"}),
+        React.createElement("div",{className:"m-top"},
+          React.createElement("div",{className:"m-day-label"},"Day "+drillModal.day+" · "+drillModal.cat),
+          React.createElement("div",{className:"m-title-txt"},drillModal.title)),
+        React.createElement("div",{className:"m-body"},
+          React.createElement(VideoPlayer,{ytId:drillModal.yt,ytLabel:drillModal.ytLabel}),
+          React.createElement("div",{className:"dtags",style:{padding:"9px 0 0"}},
+            React.createElement("span",{className:"dtag"},"⏱ "+drillModal.dur),
+            React.createElement("span",{className:"dtag red"},"📐 3m×3m"),
+            React.createElement("span",{className:"dtag"},"⚽".repeat(drillModal.diff)),
+            React.createElement("span",{className:"dtag gold"},"👟 "+drillModal.foot)),
+          React.createElement("div",{className:"cue-box",style:{margin:"9px 0 0"}},drillModal.cue),
+          React.createElement("div",{style:{fontSize:13,color:"#bbb",lineHeight:1.7,margin:"9px 0"}},drillModal.desc),
+          React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:15,fontWeight:700,color:"var(--red)",marginBottom:8}},drillModal.sets),
+          React.createElement("div",{className:"tip-box",style:{margin:"0 0 8px"}},"💡 ",drillModal.tip))));
+  }
 
-  // ── MAIN RENDER ─────────────────────────────────────────────────────────────
+  // MAIN RENDER
   return React.createElement("div",{className:"shell"},
     dataLoading&&React.createElement("div",{className:"loading-overlay"},
       React.createElement("div",{className:"loading-box"},
@@ -801,16 +905,19 @@ function App() {
       React.createElement("div",{className:"header-inner"},
         React.createElement("div",{className:"header-left"},
           React.createElement(CBLogo,{size:38}),
-          React.createElement("div",null,React.createElement("div",{className:"header-club"},"CHERRY BEACH CHEETAHS"),React.createElement("div",{className:"header-sub-txt"},"U15 · 15-Day Ball Mastery"))),
+          React.createElement("div",null,
+            React.createElement("div",{className:"header-club"},"CHERRY BEACH CHEETAHS"),
+            React.createElement("div",{className:"header-sub-txt"},"U15 · 15-Day Ball Mastery"))),
         React.createElement("div",{className:"header-right"},
           React.createElement("div",{style:{textAlign:"right"}},
             React.createElement("div",{className:"hname"},user.n),
             streak>=3&&React.createElement("div",{className:"hstreak"},"🔥"+streak+"-day"),
-            React.createElement("div",{className:"hlogout",onClick:()=>{setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set([1,2,3,4,5,6,7,8,9]))}},"logout")),
+            React.createElement("div",{className:"hlogout",onClick:function(){setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set([1,2,3,4,5,6,7,8,9]));}},"logout")),
           React.createElement("div",{className:"av",style:{background:TC[user.t]||"#888"}},user.i))),
       React.createElement("nav",{className:"app-nav"},
-        [{id:"home",l:"Home"},{id:"today",l:"Today"},{id:"drills",l:"Drills"},{id:"standings",l:"Standings"},{id:"points",l:"Points"}].map(n=>
-          React.createElement("button",{key:n.id,className:"nav-btn "+(tab===n.id?"active":""),onClick:()=>goTab(n.id)},n.l)))),
+        [{id:"home",l:"Home"},{id:"today",l:"Today"},{id:"drills",l:"Drills"},{id:"standings",l:"Standings"},{id:"points",l:"Points"}].map(function(n){
+          return React.createElement("button",{key:n.id,className:"nav-btn "+(tab===n.id?"active":""),onClick:function(){goTab(n.id);}},n.l);
+        }))),
     React.createElement("div",{className:"content"},
       React.createElement("div",{className:"page fade "+(fade?"":"out")},
         tab==="home"&&React.createElement(HomeContent,null),
