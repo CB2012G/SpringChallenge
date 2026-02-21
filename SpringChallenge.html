@@ -2,199 +2,233 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+<meta name="theme-color" content="#0d0d0d"/>
 <title>CB Cheetahs — Ball Mastery</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-:root{--black:#0d0d0d;--card:#1c1c1c;--dark:#111;--border:#2e2e2e;--red:#c8102e;--red2:#e01030;--gold:#c9a84c;--white:#fff;--muted:#888;--green:#00c97a;--blue:#38b6ff;--purple:#7b61ff;}
+:root{
+  --black:#0d0d0d;--card:#1c1c1c;--dark:#111;--border:#2e2e2e;
+  --red:#c8102e;--red2:#e01030;--gold:#c9a84c;--gold2:#e8c46a;
+  --white:#fff;--muted:#888;--grey:#bbb;
+  --green:#00c97a;--blue:#38b6ff;--purple:#7b61ff;--orange:#ff6b35;
+}
 html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3',sans-serif;height:100%;overflow:hidden;}
 #root{height:100%;display:flex;flex-direction:column;}
-.login-page{flex:1;background:radial-gradient(ellipse 80% 60% at 50% 0%,#220008,#0d0d0d 65%);display:flex;align-items:center;justify-content:center;padding:16px;position:relative;overflow:hidden auto;}
+/* LOGIN */
+.login-page{flex:1;background:radial-gradient(ellipse 80% 60% at 50% 0%,#220008,#0d0d0d 65%);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;position:relative;}
 .login-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px);pointer-events:none;}
-.login-glow{position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:500px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.18),transparent 70%);pointer-events:none;}
-.login-card{background:linear-gradient(160deg,#1e1e1e,#161616);border:1px solid var(--border);border-radius:20px;padding:clamp(22px,5vw,44px) clamp(18px,5vw,40px);width:100%;max-width:420px;box-shadow:0 32px 80px rgba(0,0,0,.85),0 0 0 1px rgba(201,168,76,.1);position:relative;}
-.login-logo{text-align:center;margin-bottom:20px;}
-.login-club{font-family:'Anton',sans-serif;font-size:clamp(22px,6vw,30px);color:var(--gold);letter-spacing:3px;line-height:1.05;margin-top:12px;}
-.login-sub{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:4px;}
-.login-prog{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--red);letter-spacing:4px;text-transform:uppercase;margin-top:4px;}
-.form-group{margin-bottom:14px;}
-.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-family:'Rajdhani',sans-serif;}
-.form-input{width:100%;padding:13px 15px;background:#0f0f0f;border:1px solid var(--border);border-radius:10px;font-size:16px;color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;}
+.login-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:500px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.18),transparent 70%);pointer-events:none;}
+.login-card{background:linear-gradient(160deg,#1e1e1e,#161616);border:1px solid var(--border);border-radius:20px;padding:clamp(20px,5vw,40px) clamp(16px,5vw,36px);width:100%;max-width:400px;box-shadow:0 24px 60px rgba(0,0,0,.8),0 0 0 1px rgba(201,168,76,.1);position:relative;z-index:1;}
+.login-logo{text-align:center;margin-bottom:18px;}
+.login-club{font-family:'Anton',sans-serif;font-size:clamp(20px,5.5vw,28px);color:var(--gold);letter-spacing:3px;line-height:1.05;margin-top:10px;}
+.login-sub{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:3px;}
+.login-prog{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--red);letter-spacing:4px;text-transform:uppercase;margin-top:3px;}
+.lc-note{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:7px;padding:7px 11px;font-size:11px;color:rgba(201,168,76,.7);margin-bottom:14px;text-align:center;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.form-group{margin-bottom:13px;}
+.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-family:'Rajdhani',sans-serif;}
+.form-input{width:100%;padding:12px 14px;background:#0f0f0f;border:1px solid var(--border);border-radius:10px;font-size:16px;color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;}
 .form-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15);}
-.login-btn{width:100%;padding:15px;border:none;border-radius:11px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;letter-spacing:3px;cursor:pointer;margin-top:4px;text-transform:uppercase;}
+.login-btn{width:100%;padding:14px;border:none;border-radius:11px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;cursor:pointer;text-transform:uppercase;margin-top:2px;}
 .login-btn:active{opacity:.85;}
-.login-btn:disabled{opacity:.6;cursor:default;}
-.login-err{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.35);border-radius:8px;padding:10px 14px;font-size:13px;color:#ff8888;margin-bottom:14px;}
-.login-hint{font-size:11px;color:#444;text-align:center;margin-top:14px;line-height:1.9;}
-.login-hint code{color:var(--gold);background:#1a1a1a;padding:1px 6px;border-radius:4px;font-size:11px;}
+.login-btn:disabled{opacity:.55;cursor:default;}
+.forgot-link{text-align:center;margin-top:11px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.forgot-link a{color:var(--gold);cursor:pointer;text-decoration:underline;}
+.login-err{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.35);border-radius:8px;padding:9px 13px;font-size:12px;color:#ff8888;margin-bottom:13px;}
+.login-ok{background:rgba(0,201,122,.08);border:1px solid rgba(0,201,122,.3);border-radius:8px;padding:9px 13px;font-size:12px;color:#00c97a;margin-bottom:13px;}
+/* SHELL */
 .shell{display:flex;flex-direction:column;height:100%;height:100dvh;}
 .app-header{background:#111;border-bottom:1px solid var(--border);flex-shrink:0;}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;gap:8px;min-height:54px;}
-.header-left{display:flex;align-items:center;gap:9px;flex:1;min-width:0;}
-.header-club{font-family:'Anton',sans-serif;font-size:clamp(13px,3.5vw,17px);color:var(--gold);letter-spacing:1.5px;white-space:nowrap;}
-.header-sub-txt{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;gap:8px;min-height:52px;}
+.header-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0;}
+.header-club{font-family:'Anton',sans-serif;font-size:clamp(12px,3.2vw,16px);color:var(--gold);letter-spacing:1.5px;white-space:nowrap;}
+.header-sub-txt{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
 .header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;color:#fff;border:2px solid var(--gold);flex-shrink:0;}
-.hname{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--white);line-height:1.2;}
-.hstreak{font-size:10px;color:#ff6b35;font-family:'Rajdhani',sans-serif;font-weight:700;}
-.hlogout{font-size:10px;color:#444;cursor:pointer;font-family:'Rajdhani',sans-serif;}
-.app-nav{display:flex;overflow-x:auto;scrollbar-width:none;border-top:1px solid var(--border);background:#0f0f0f;flex-shrink:0;}
+.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:#fff;border:2px solid var(--gold);flex-shrink:0;}
+.hname{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;line-height:1.2;}
+.hstreak{font-size:9px;color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;}
+.hlogout{font-size:10px;color:#444;cursor:pointer;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.app-nav{display:flex;border-top:1px solid var(--border);background:#0f0f0f;flex-shrink:0;overflow-x:auto;scrollbar-width:none;}
 .app-nav::-webkit-scrollbar{display:none;}
-.nav-btn{flex:1;min-width:52px;background:none;border:none;color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 4px 8px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .18s,border-color .18s;}
+.nav-btn{flex:1;min-width:50px;background:none;border:none;color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 3px 7px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}
 .nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.page{max-width:600px;margin:0 auto;padding:14px 13px 80px;}
-@media(min-width:480px){.page{padding:18px 18px 80px;}}
-.sec{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:18px 0 9px;display:flex;align-items:center;gap:8px;}
+.page{max-width:560px;margin:0 auto;padding:14px 12px 80px;}
+@media(min-width:480px){.page{padding:16px 16px 80px;}}
+/* COMMON */
+.sec{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:8px;}
 .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 .sec:first-child{margin-top:0;}
-.card{background:var(--card);border:1px solid var(--border);border-radius:13px;margin-bottom:11px;overflow:hidden;}
-.card-body{padding:14px;}
-.fade{opacity:1;transition:opacity .18s;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.card-body{padding:13px;}
+.fade{opacity:1;transition:opacity .15s;}
 .fade.out{opacity:0;}
-.hero{background:linear-gradient(150deg,#1a0008,#1c1010 60%,#1a0d00 100%);border:1px solid rgba(200,16,46,.22);border-radius:15px;padding:16px 14px;margin-bottom:12px;position:relative;overflow:hidden;}
-.hero::after{content:'';position:absolute;top:-40px;right:-20px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.1),transparent 70%);pointer-events:none;}
-.day-pill{display:inline-flex;align-items:center;gap:4px;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-bottom:7px;}
-.hero-greet{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
-.hero-name{font-family:'Anton',sans-serif;font-size:clamp(26px,7vw,34px);letter-spacing:1.5px;line-height:1.05;margin-bottom:2px;}
-.streak-pill{display:inline-flex;align-items:center;gap:4px;background:linear-gradient(135deg,#7a2000,#c84400);color:#fff;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;padding:4px 11px;border-radius:999px;margin-top:8px;animation:pulseO 2s infinite;}
-@keyframes pulseO{0%,100%{box-shadow:0 0 0 0 rgba(200,68,0,.5);}50%{box-shadow:0 0 0 8px rgba(200,68,0,0);}}
-.prog-wrap{margin-top:11px;}
-.prog-meta{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
-.prog-track{background:#1a1a1a;border-radius:999px;height:7px;overflow:hidden;border:1px solid var(--border);}
+/* HERO */
+.hero{background:linear-gradient(150deg,#1a0008,#1c1010 60%,#1a0d00 100%);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:15px 13px;margin-bottom:11px;position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;top:-30px;right:-15px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.1),transparent 70%);pointer-events:none;}
+.day-pill{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px;}
+.hero-greet{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.hero-name{font-family:'Anton',sans-serif;font-size:clamp(24px,6.5vw,32px);letter-spacing:1.5px;line-height:1.05;margin-bottom:2px;}
+.streak-pill{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#7a2000,#c84400);color:#fff;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:7px;animation:pulseO 2s infinite;}
+@keyframes pulseO{0%,100%{box-shadow:0 0 0 0 rgba(200,68,0,.5);}50%{box-shadow:0 0 0 7px rgba(200,68,0,0);}}
+.prog-wrap{margin-top:10px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.prog-track{background:#1a1a1a;border-radius:999px;height:6px;overflow:hidden;border:1px solid var(--border);}
 .prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 1.2s ease;}
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px;}
-.stat-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:11px;padding:11px 7px;text-align:center;}
-.stat-val{font-family:'Anton',sans-serif;font-size:clamp(24px,6vw,32px);line-height:1;margin-bottom:2px;}
-.stat-lbl{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
-.drill-hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:15px;margin-bottom:12px;overflow:hidden;}
-.dh-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:13px 15px 11px;}
-.dh-day{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--gold);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:3px;}
-.dh-name{font-family:'Rajdhani',sans-serif;font-size:clamp(19px,5vw,25px);font-weight:700;line-height:1.15;}
-.dtags{display:flex;gap:6px;flex-wrap:wrap;padding:11px 15px 0;}
-.dtag{background:#111;border:1px solid var(--border);border-radius:5px;padding:3px 8px;font-size:9px;font-weight:700;color:var(--muted);font-family:'Rajdhani',sans-serif;text-transform:uppercase;}
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:11px;}
+.stat-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:10px;padding:10px 6px;text-align:center;}
+.stat-val{font-family:'Anton',sans-serif;font-size:clamp(22px,5.5vw,30px);line-height:1;margin-bottom:2px;}
+.stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+/* DRILL CARD */
+.drill-hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:14px;margin-bottom:11px;overflow:hidden;}
+.dh-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:12px 14px 10px;}
+.dh-day{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--gold);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:3px;}
+.dh-name{font-family:'Rajdhani',sans-serif;font-size:clamp(18px,4.5vw,24px);font-weight:700;line-height:1.15;}
+.dtags{display:flex;gap:5px;flex-wrap:wrap;padding:10px 14px 0;}
+.dtag{background:#111;border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:8px;font-weight:700;color:var(--muted);font-family:'Rajdhani',sans-serif;text-transform:uppercase;}
 .dtag.red{background:rgba(200,16,46,.1);border-color:rgba(200,16,46,.3);color:var(--red);}
 .dtag.gold{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);color:var(--gold);}
-.video-wrap{margin:11px 15px 0;border-radius:11px;overflow:hidden;aspect-ratio:16/9;position:relative;background:#000;}
-.video-thumb{position:absolute;inset:0;background:linear-gradient(150deg,#1a0008,#0d0d0d);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:8px;}
-.play-btn{width:58px;height:58px;border-radius:50%;background:var(--red);border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;transition:transform .2s;}
+/* VIDEO */
+.video-wrap{margin:10px 14px 0;border-radius:10px;overflow:hidden;aspect-ratio:16/9;position:relative;background:#000;}
+.video-thumb{position:absolute;inset:0;background:linear-gradient(150deg,#1a0008,#0d0d0d);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;}
+.play-btn{width:54px;height:54px;border-radius:50%;background:var(--red);border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;transition:transform .2s;}
 .play-btn:hover{transform:scale(1.08);}
-.video-cap{font-family:'Rajdhani',sans-serif;font-size:10px;color:rgba(255,255,255,.45);letter-spacing:2px;text-transform:uppercase;}
-.video-attr{font-size:9px;color:rgba(255,255,255,.2);}
-.cue-box{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 9px 9px 0;padding:10px 13px;margin:11px 15px 0;font-size:13px;color:#d4a84c;line-height:1.6;font-weight:600;}
-.tip-box{background:rgba(0,201,122,.05);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:9px 13px;margin:9px 15px 0;font-size:13px;color:#00c97a;line-height:1.5;}
-.space-box{background:rgba(56,182,255,.05);border:1px solid rgba(56,182,255,.15);border-radius:9px;padding:9px 13px;margin:9px 15px 0;font-size:12px;color:#78c8f0;display:flex;gap:8px;align-items:flex-start;}
-.drill-desc-txt{padding:11px 15px 0;font-size:14px;color:#bbb;line-height:1.7;}
-.drill-sets-txt{padding:8px 15px 0;font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;color:var(--red);}
-.sec-title-inner{padding:13px 15px 7px;font-weight:700;font-size:14px;color:var(--white);}
-.tier-section{padding:4px 15px 0;}
-.tier-lbl{font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
-.tier-btn{width:100%;display:flex;align-items:center;gap:11px;padding:13px 15px;border-radius:11px;border:2px solid var(--border);background:#111;cursor:pointer;transition:border-color .18s;margin-bottom:7px;text-align:left;}
+.video-cap{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;}
+.video-attr{font-size:8px;color:rgba(255,255,255,.2);}
+.video-err{font-size:11px;color:#ff8888;text-align:center;padding:6px;}
+.cue-box{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:9px 12px;margin:10px 14px 0;font-size:12px;color:#d4a84c;line-height:1.6;font-weight:600;}
+.tip-box{background:rgba(0,201,122,.05);border-left:3px solid var(--green);border-radius:0 7px 7px 0;padding:8px 12px;margin:8px 14px 0;font-size:12px;color:var(--green);line-height:1.5;}
+.drill-desc-txt{padding:10px 14px 0;font-size:13px;color:#bbb;line-height:1.7;}
+.drill-sets-txt{padding:7px 14px 0;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--red);}
+.sec-title-inner{padding:12px 14px 6px;font-weight:700;font-size:13px;color:var(--white);}
+/* 3-TIER */
+.tier-section{padding:4px 14px 0;}
+.tier-lbl{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.tier-btn{width:100%;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;border:2px solid var(--border);background:#111;cursor:pointer;transition:border-color .15s;margin-bottom:6px;text-align:left;}
 .tier-btn:active{transform:scale(.98);}
-.tier-emo{font-size:26px;flex-shrink:0;width:34px;text-align:center;}
+.tier-emo{font-size:24px;flex-shrink:0;width:30px;text-align:center;}
 .tier-info{flex:1;min-width:0;}
-.tier-name{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;margin-bottom:1px;}
-.tier-sub{font-size:11px;color:var(--muted);line-height:1.4;}
-.tier-pts{font-family:'Anton',sans-serif;font-size:22px;flex-shrink:0;}
-.submit-btn{display:block;width:calc(100% - 30px);margin:11px 15px;padding:15px;border:none;border-radius:11px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all .2s;}
-.submit-btn.go{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 6px 20px rgba(200,16,46,.3);}
+.tier-name{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;margin-bottom:1px;}
+.tier-sub{font-size:10px;color:var(--muted);line-height:1.35;}
+.tier-pts{font-family:'Anton',sans-serif;font-size:20px;flex-shrink:0;}
+.submit-btn{display:block;width:calc(100% - 28px);margin:10px 14px;padding:14px;border:none;border-radius:10px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all .2s;}
+.submit-btn.go{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 5px 18px rgba(200,16,46,.3);}
 .submit-btn.go:active{transform:scale(.98);}
 .submit-btn.dim{background:#2a0008;color:rgba(255,255,255,.3);cursor:default;}
-.submit-hint{text-align:center;font-size:10px;color:#444;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding-bottom:13px;}
-.wall-section{background:rgba(56,182,255,.03);border:1px solid rgba(56,182,255,.18);border-radius:13px;margin-bottom:12px;overflow:hidden;}
-.wall-hdr{background:rgba(56,182,255,.07);padding:11px 13px;border-bottom:1px solid rgba(56,182,255,.13);}
-.wall-title{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;color:var(--blue);letter-spacing:1px;}
-.wall-subtitle{font-size:11px;color:rgba(56,182,255,.55);margin-top:2px;}
-.wall-btn{display:flex;align-items:center;gap:11px;padding:12px 13px;border-bottom:1px solid rgba(56,182,255,.08);cursor:pointer;background:transparent;border-left:none;border-right:none;border-top:none;width:100%;text-align:left;transition:background .15s;}
+.submit-hint{text-align:center;font-size:9px;color:#444;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding-bottom:12px;}
+/* WALL BONUS */
+.wall-section{background:rgba(56,182,255,.03);border:1px solid rgba(56,182,255,.18);border-radius:12px;margin-bottom:11px;overflow:hidden;}
+.wall-hdr{background:rgba(56,182,255,.07);padding:10px 12px;border-bottom:1px solid rgba(56,182,255,.12);}
+.wall-title{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:1px;}
+.wall-subtitle{font-size:10px;color:rgba(56,182,255,.5);margin-top:2px;}
+.wall-btn{display:flex;align-items:center;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(56,182,255,.07);background:transparent;border-left:none;border-right:none;border-top:none;width:100%;text-align:left;cursor:pointer;transition:background .13s;}
 .wall-btn:last-child{border-bottom:none;}
 .wall-btn:hover:not(.wdone){background:rgba(56,182,255,.05);}
 .wall-btn.wdone{opacity:.5;cursor:default;}
-.wall-emo{font-size:20px;width:26px;text-align:center;flex-shrink:0;}
+.wall-emo{font-size:18px;width:24px;text-align:center;flex-shrink:0;}
 .wall-info-txt{flex:1;min-width:0;}
-.wall-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;margin-bottom:1px;}
-.wall-sub2{font-size:11px;color:var(--muted);line-height:1.3;}
-.wall-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--blue);flex-shrink:0;}
-.wall-done-badge{background:rgba(0,201,122,.12);border:1px solid var(--green);color:var(--green);font-size:9px;font-weight:700;padding:2px 7px;border-radius:999px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;}
-.rule-row{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;font-size:12px;border-bottom:1px solid var(--border);}
+.wall-name{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;margin-bottom:1px;}
+.wall-sub2{font-size:10px;color:var(--muted);line-height:1.3;}
+.wall-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--blue);flex-shrink:0;}
+.wall-done-badge{background:rgba(0,201,122,.12);border:1px solid var(--green);color:var(--green);font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;white-space:nowrap;}
+/* RULES */
+.rule-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;font-size:12px;border-bottom:1px solid var(--border);}
 .rule-row:last-child{border:none;}
-.rule-val{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;flex-shrink:0;margin-left:8px;}
-.week-nav{display:flex;gap:6px;margin-bottom:12px;}
-.week-btn{flex:1;padding:8px 4px;border-radius:9px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .18s;line-height:1.4;}
+.rule-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;margin-left:8px;}
+/* DRILLS LIST */
+.week-nav{display:flex;gap:5px;margin-bottom:11px;}
+.week-btn{flex:1;padding:7px 3px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s;line-height:1.4;}
 .week-btn.active{background:var(--red);color:#fff;border-color:var(--red);}
-.drill-row{display:flex;align-items:stretch;background:var(--card);border:1px solid var(--border);border-radius:11px;margin-bottom:8px;overflow:hidden;cursor:pointer;transition:border-color .15s;}
+.drill-row{display:flex;align-items:stretch;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;overflow:hidden;cursor:pointer;transition:border-color .13s;}
 .drill-row:hover:not(.locked){border-color:var(--red);}
-.drill-row.locked{cursor:default;opacity:.38;}
-.dd{width:48px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;border-right:1px solid var(--border);}
+.drill-row.locked{cursor:default;opacity:.35;}
+.dd{width:44px;background:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;border-right:1px solid var(--border);}
 .dd.ddone{background:rgba(0,201,122,.06);}
 .dd.dtoday{background:rgba(200,16,46,.09);}
 .dd.dlocked{background:#0d0d0d;}
-.ddnum{font-family:'Anton',sans-serif;font-size:20px;line-height:1;}
-.ddlbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
-.db{padding:10px 12px;flex:1;min-width:0;}
-.dcat{font-size:9px;color:var(--red);letter-spacing:2px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:1px;}
-.dtitle{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;line-height:1.2;margin-bottom:2px;}
-.dmeta{display:flex;gap:8px;font-size:9px;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
-.dstat{display:flex;align-items:center;justify-content:center;width:32px;flex-shrink:0;}
-.grand-card{background:linear-gradient(150deg,#1a0008,#141414);border:1px solid rgba(200,16,46,.22);border-radius:15px;padding:16px 14px;margin-bottom:12px;}
-.grand-title-txt{font-family:'Anton',sans-serif;font-size:clamp(18px,5vw,22px);letter-spacing:2px;line-height:1;}
-.grand-sub-txt{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2px 0 11px;}
-.grand-pct{font-family:'Anton',sans-serif;font-size:clamp(32px,8vw,42px);color:var(--gold);line-height:1;}
-.grand-track{background:#111;border-radius:999px;height:11px;overflow:hidden;border:1px solid var(--border);margin:9px 0 5px;}
+.ddnum{font-family:'Anton',sans-serif;font-size:18px;line-height:1;}
+.ddlbl{font-family:'Rajdhani',sans-serif;font-size:6px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.db{padding:9px 11px;flex:1;min-width:0;}
+.dcat{font-size:8px;color:var(--red);letter-spacing:2px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:1px;}
+.dtitle{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.dmeta{display:flex;gap:7px;font-size:8px;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
+.dstat{display:flex;align-items:center;justify-content:center;width:30px;flex-shrink:0;}
+/* STANDINGS */
+.grand-card{background:linear-gradient(150deg,#1a0008,#141414);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:14px 13px;margin-bottom:11px;}
+.grand-title-txt{font-family:'Anton',sans-serif;font-size:clamp(17px,4.5vw,21px);letter-spacing:2px;line-height:1;}
+.grand-sub-txt{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2px 0 10px;}
+.grand-pct{font-family:'Anton',sans-serif;font-size:clamp(30px,7.5vw,40px);color:var(--gold);line-height:1;}
+.grand-track{background:#111;border-radius:999px;height:10px;overflow:hidden;border:1px solid var(--border);margin:8px 0 4px;}
 .grand-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 1.5s ease;}
-.reward-card{border-radius:9px;padding:10px 12px;font-size:12px;line-height:1.6;margin-top:8px;}
+.reward-card{border-radius:8px;padding:9px 11px;font-size:11px;line-height:1.6;margin-top:7px;}
 .rwd-locked{background:rgba(255,255,255,.02);border:1px solid var(--border);color:var(--muted);}
 .rwd-unlock{background:rgba(0,201,122,.06);border:1px solid rgba(0,201,122,.28);color:#7af0c0;}
-.math-link{display:inline-flex;align-items:center;gap:5px;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:9px;cursor:pointer;}
-.team-card{border-radius:13px;margin-bottom:9px;overflow:hidden;border:1px solid var(--border);background:var(--card);}
-.team-top{padding:12px 14px;display:flex;align-items:center;justify-content:space-between;}
-.team-nbig{font-family:'Anton',sans-serif;font-size:clamp(18px,5vw,22px);letter-spacing:1px;}
-.team-pbig{font-family:'Anton',sans-serif;font-size:clamp(26px,6vw,32px);}
-.tbar-wrap{padding:0 14px 11px;}
+.math-link{display:inline-flex;align-items:center;gap:4px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:8px;cursor:pointer;}
+.team-card{border-radius:12px;margin-bottom:8px;overflow:hidden;border:1px solid var(--border);background:var(--card);}
+.team-top{padding:11px 13px;display:flex;align-items:center;justify-content:space-between;}
+.team-nbig{font-family:'Anton',sans-serif;font-size:clamp(16px,4.5vw,20px);letter-spacing:1px;}
+.team-pbig{font-family:'Anton',sans-serif;font-size:clamp(24px,5.5vw,30px);}
+.tbar-wrap{padding:0 13px 10px;}
 .tbar-track{background:#111;border-radius:999px;height:4px;overflow:hidden;}
 .tbar-fill{height:100%;border-radius:999px;transition:width 1s ease;}
-.tchips{padding:0 14px 11px;display:flex;gap:4px;flex-wrap:wrap;}
-.tchip{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;padding:2px 7px;border-radius:999px;background:#111;border:1px solid var(--border);color:var(--muted);}
-.lb-row{display:flex;align-items:center;gap:9px;padding:9px 11px;background:var(--card);border-radius:10px;margin-bottom:6px;border:1px solid var(--border);}
+.tchips{padding:0 13px 10px;display:flex;gap:4px;flex-wrap:wrap;}
+.tchip{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;background:#111;border:1px solid var(--border);color:var(--muted);}
+.lb-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--card);border-radius:9px;margin-bottom:5px;border:1px solid var(--border);}
 .lb-row.me{border:2px solid var(--gold);background:rgba(201,168,76,.03);}
-.lb-rank{font-family:'Anton',sans-serif;font-size:16px;color:var(--muted);width:24px;text-align:center;flex-shrink:0;}
+.lb-rank{font-family:'Anton',sans-serif;font-size:15px;color:var(--muted);width:22px;text-align:center;flex-shrink:0;}
 .lb-rank.top{color:var(--gold);}
-.lb-av{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:#fff;flex-shrink:0;}
+.lb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;}
 .lb-info{flex:1;min-width:0;}
-.lb-name{font-weight:600;font-size:13px;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.lb-meta{font-size:10px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
-.lb-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);flex-shrink:0;}
+.lb-name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lb-meta{font-size:9px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
+.lb-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);flex-shrink:0;}
+/* SCORE CARD — Instagram 4:5 portrait ratio */
+.scorecard-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
+.scorecard{width:min(360px,100%);aspect-ratio:4/5;background:linear-gradient(160deg,#1a0008 0%,#0d0d0d 45%,#07100a 100%);border:2px solid var(--gold);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.scorecard::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(201,168,76,.015) 24px,rgba(201,168,76,.015) 25px);pointer-events:none;}
+.scorecard::after{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.12),transparent 70%);pointer-events:none;}
+.sc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;position:relative;z-index:1;}
+.sc-club{font-family:'Anton',sans-serif;font-size:13px;color:var(--gold);letter-spacing:2px;line-height:1.2;text-align:right;}
+.sc-day-badge{background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:7px;display:inline-block;}
+.sc-drill{font-family:'Rajdhani',sans-serif;font-size:clamp(18px,5vw,24px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:5px;position:relative;z-index:1;}
+.sc-tier{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px;position:relative;z-index:1;}
+.sc-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);margin:0 0 16px;position:relative;z-index:1;}
+.sc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;position:relative;z-index:1;}
+.sc-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:11px 6px;text-align:center;}
+.sc-stat-val{font-family:'Anton',sans-serif;font-size:clamp(22px,5.5vw,28px);line-height:1;margin-bottom:3px;}
+.sc-stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.sc-team-bar{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;margin-bottom:14px;}
+.sc-team-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;}
+.sc-team-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);}
+.sc-footer{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;text-align:center;position:relative;z-index:1;margin-top:auto;}
+.sc-hashtag{color:rgba(201,168,76,.5);}
+.sc-screenshot-hint{text-align:center;padding:10px 0 4px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+/* MODAL */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(5px);}
-.modal-sheet{background:var(--card);border-top:1px solid var(--border);border-radius:22px 22px 0 0;width:100%;max-height:91vh;max-height:91dvh;overflow-y:auto;animation:slideUp .28s ease;}
+.modal-sheet{background:var(--card);border-top:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-height:92vh;max-height:92dvh;overflow-y:auto;animation:slideUp .26s ease;}
 @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
-.m-handle{width:40px;height:4px;background:var(--border);border-radius:2px;margin:11px auto;}
-.m-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:13px 17px 16px;border-bottom:1px solid var(--border);}
+.m-handle{width:38px;height:4px;background:var(--border);border-radius:2px;margin:10px auto;}
+.m-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:12px 16px 14px;border-bottom:1px solid var(--border);}
 .m-day-label{font-size:8px;color:var(--gold);letter-spacing:3px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:3px;}
-.m-title-txt{font-family:'Rajdhani',sans-serif;font-size:clamp(20px,5vw,24px);font-weight:700;line-height:1.1;}
-.m-body{padding:13px 15px 24px;}
-.math-panel{background:#111;border:1px solid var(--border);border-radius:11px;padding:14px;margin:10px 0;}
-.math-row{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--border);font-size:12px;gap:10px;}
+.m-title-txt{font-family:'Rajdhani',sans-serif;font-size:clamp(19px,5vw,23px);font-weight:700;line-height:1.1;}
+.m-body{padding:12px 14px 22px;}
+.math-panel{background:#111;border:1px solid var(--border);border-radius:10px;padding:12px;margin:9px 0;}
+.math-row{display:flex;justify-content:space-between;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;gap:9px;}
 .math-row:last-child{border:none;}
 .math-lbl{color:var(--muted);line-height:1.4;flex:1;}
-.math-formula{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(201,168,76,.5);display:block;margin-top:2px;}
-.math-val{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
-.math-note{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:9px;padding:11px 13px;margin-top:9px;font-size:12px;color:#bbb;line-height:1.8;}
-.ig-option{display:flex;align-items:flex-start;gap:11px;padding:13px;background:#111;border:1px solid var(--border);border-radius:11px;margin-bottom:9px;cursor:pointer;transition:border-color .15s;text-align:left;width:100%;}
-.ig-option:hover{border-color:var(--gold);}
-.ig-icon{font-size:26px;flex-shrink:0;width:32px;text-align:center;}
-.ig-info-txt{flex:1;min-width:0;}
-.ig-title-txt{font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:2px;}
-.ig-desc-txt{font-size:11px;color:var(--muted);line-height:1.4;}
-.copy-box{background:#0a0a0a;border:1px solid var(--border);border-radius:9px;padding:13px;font-size:11px;color:#bbb;line-height:1.9;font-family:'JetBrains Mono',monospace;white-space:pre-wrap;margin:9px 0;word-break:break-word;}
-.copy-btn{width:100%;padding:12px;border:none;border-radius:9px;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;cursor:pointer;text-transform:uppercase;transition:background .2s;}
-.copy-btn.copied{background:var(--green);}
-.share-card{background:linear-gradient(150deg,#1a0008,#0d0d0d 50%,#0a0a00 100%);border:2px solid var(--gold);border-radius:15px;padding:18px 14px;text-align:center;margin:11px 0;}
-.share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:11px 0 9px;}
-.share-stat{background:rgba(255,255,255,.04);border-radius:9px;padding:9px 5px;border:1px solid var(--border);}
-.ss-val{font-family:'Anton',sans-serif;font-size:20px;line-height:1;}
-.ss-lbl{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:2px;}
-.back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:12px;margin-bottom:11px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding:0;display:block;}
+.math-formula{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(201,168,76,.5);display:block;margin-top:2px;}
+.math-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
+.math-note{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:11px;color:#bbb;line-height:1.8;}
+.back-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:11px;margin-bottom:10px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding:0;display:block;}
+/* LOADING */
+.loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
+.loading-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;text-align:center;}
+.spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px;}
+@keyframes spin{to{transform:rotate(360deg);}}
 </style>
 </head>
 <body>
@@ -203,490 +237,593 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 <script type="text/babel">
-const {useState} = React;
-const CURRENT_DAY = 10;
-const TIERS = [
-  {id:"nailed",    label:"Nailed It! \uD83D\uDD25",    subLabel:"Every rep was clean. I pushed the pace and owned the space.", pts:50, color:"#c8102e", emoji:"\uD83D\uDD25"},
-  {id:"tried_best",label:"Gave It My Best \uD83D\uDCAA",subLabel:"I worked hard. Some reps were messy but I kept going.",       pts:25, color:"#c9a84c", emoji:"\uD83D\uDCAA"},
-  {id:"tried_bit", label:"Got Some In \u2705",           subLabel:"Short on time but I showed up and did what I could.",         pts:3,  color:"#666",    emoji:"\u2705"},
-];
-const WALL_BONUSES = [
-  {id:"wall_full", label:"Full School Session \uD83C\uDFEB", subLabel:"Complete 45-min wall programme at a local school.", pts:75, color:"#38b6ff", emoji:"\uD83C\uDFEB",
-   desc:"45-min wall programme: Inside-Outside Rapid Fire (10 min) \u2192 Laces Precision Strikes (10 min) \u2192 One-Touch Wall Rebounds (10 min) \u2192 Two-Touch Pattern Combos (10 min) \u2192 Cool-down Juggling (5 min). All within 3m of a school wall."},
-  {id:"wall_half", label:"Half School Session \uD83E\uDDF1", subLabel:"At least 20 minutes of the wall programme.", pts:35, color:"#7b61ff", emoji:"\uD83E\uDDF1",
-   desc:"Minimum 20 minutes at a school wall: complete at least 2 circuits from the full programme above."},
-  {id:"wall_intro",label:"Wall Drill Try-Out \uD83D\uDC9F", subLabel:"First ever visit to a school wall for this programme.", pts:10, color:"#555", emoji:"\uD83D\uDC9F",
-   desc:"Your first visit to a school wall for this programme. Any amount of time. This bonus applies the first time only."},
-];
-const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555"};
-const TL={1:"TEAM 1",2:"TEAM 2",3:"TEAM 3",4:"TEAM 4"};
-const SQUAD_TARGET=28*15*35;
-const PARENT_THRESH=Math.round(SQUAD_TARGET*0.70);
-const DRILLS=[
-  {day:1,week:1,title:"Cone Square Sole Roll Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"8TH5DAQFR8E",ytLabel:"Joner Football \u00B7 Ball Mastery",desc:"Place 4 objects at corners of your 3m\u00D73m square. Roll the ball with the sole of your foot to each corner in sequence. Right foot clockwise for 10 full laps, left foot anti-clockwise for 10 laps. Ball must never leave the square.",sets:"10 laps CW (right) + 10 laps CCW (left) \u00B7 3 sets \u00B7 Rest 45 sec",cue:"\uD83D\uDD0D BENT KNEES \u2014 Your centre of gravity must feel low. Standing tall kills your balance and reaction time.",tip:"Use the arch of your sole \u2014 not the toe tip, not the heel. The middle gives the most surface area and control.",space:"4 household objects at the 4 corners of a 3m\u00D73m zone."},
-  {day:2,week:1,title:"V-Cut Weave",cat:"Moves",dur:"25 min",diff:3,foot:"Both",yt:"4I6VhcDJqhk",ytLabel:"Skills4G \u00B7 V-Cut Tutorial",desc:"3 objects in a line, 80cm apart. V-cut around each: push ball sideways with outside of foot, cut it sharply back with inside of same foot. Sharp angle \u2014 a curve is not a V-cut. Ball never exits the 3m boundary.",sets:"8 full passes through all 3 objects = 1 rep \u00B7 10 reps \u00B7 3 sets \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D SHOULDER DROP \u2014 Your shoulder drops BEFORE your foot moves. That body signal sends defenders the wrong way.",tip:"The V-cut is a full-body weight shift. Your entire upper body commits to the fake direction first \u2014 the feet follow.",space:"3 objects in a line, 80cm apart, within the 3m length."},
-  {day:3,week:1,title:"Toe Tap Burst",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"6pqOTJCJb14",ytLabel:"Joner Football \u00B7 Toe Tap Drill",desc:"Rapid alternating toe taps on top of the stationary ball for 20 seconds. Then explode diagonally to the opposite corner using the inside of your foot. Stop with sole. Return and repeat.",sets:"6 \u00D7 20-sec tap sequences + diagonal burst \u00B7 3 sets \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D STAY ON YOUR TOES \u2014 Flat-footed players have slow first steps. Every tap light and fast.",tip:"During the burst, your first touch sends the ball 1\u20131.5m ahead. One big touch, then chase \u2014 not 5 scrambling touches.",space:"Full diagonal of 3m\u00D73m. Corner A to corner C."},
-  {day:4,week:1,title:"Scissors Gauntlet",cat:"Advanced Moves",dur:"25 min",diff:3,foot:"Both",yt:"AaFGJkEpL1M",ytLabel:"Freekickerz \u00B7 Scissors Tutorial",desc:"3 objects in a triangle, ~1m between each. Object 1: single scissor. Object 2: double scissor. Object 3: single scissor. Exit with outside of foot. Rule: the ball must NOT move during the scissor \u2014 only your foot circles it.",sets:"1 full triangle lap = 1 rep \u00B7 12 reps \u00B7 3 sets \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D THE BALL IS FROZEN \u2014 Only your foot moves around the stationary ball. If it rolls \u2014 stop, reset, go again.",tip:"Your scissoring foot should circle the ball close to the ground in a tight arc. Tight and fast beats wide and slow.",space:"3 objects in triangle, ~1m between each, inside 3m\u00D73m."},
-  {day:5,week:1,title:"Inside-Outside Cone Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"q1yRK93UMXQ",ytLabel:"Ball Mastery \u00B7 Inside-Outside",desc:"Single object at exact centre of 3m square. Dribble full circles: inside of right foot (1 circle) \u2192 outside of right foot (1 circle) \u2192 inside of left (1 circle) \u2192 outside of left (1 circle). Ball orbits the object \u2014 never more than 30cm away.",sets:"4 full circles (1 per foot surface) = 1 set \u00B7 5 sets \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D CLOSE ORBIT \u2014 Ball never more than 30cm from the object. Further means you\u2019ve lost control.",tip:"Look up periodically. Train your peripheral vision to track the ball without staring directly at it.",space:"1 object at the exact centre of your 3m\u00D73m zone."},
-  {day:6,week:1,title:"Aerial Juggling Pyramid",cat:"Aerials",dur:"25 min",diff:4,foot:"Both",yt:"rGHMGz5yG3s",ytLabel:"Joner Football \u00B7 Juggling",desc:"Build from the bottom: juggle 1 touch, rest. 2 touches, rest. Build up. Drop at any level = restart that level. Surfaces: right foot, left foot, right thigh, left thigh. No hands. Your 3m square is your drop zone.",sets:"Climb to your max level, then descend back to 1 \u00B7 3 full pyramid attempts \u00B7 Rest 60 sec",cue:"\uD83D\uDD0D SOFT ANKLE \u2014 For juggling, your ankle cushions the ball \u2014 not punches it. The opposite of passing.",tip:"Strike through the dead centre of the ball with your laces, toes pointed slightly down.",space:"No objects needed. Free movement within 3m\u00D73m."},
-  {day:7,week:1,title:"Week 1 Combine Benchmark",cat:"Benchmark Test",dur:"30 min",diff:3,foot:"Both",yt:"DNb7gFnbIuk",ytLabel:"Joner Football \u00B7 Full Session",desc:"All 5 core Week 1 drills back-to-back, no stopping. Sole roll circuit (1 lap) \u2192 V-cut weave (3 objects \u00D7 2 passes) \u2192 Toe tap burst (\u00D74) \u2192 Scissors gauntlet (1 triangle lap) \u2192 Inside-outside circuit (2 circles per surface). Time the full circuit \u2014 this is your benchmark.",sets:"Full circuit \u00D7 2 attempts \u00B7 Rest 90 sec between \u00B7 Log your fastest time",cue:"\uD83D\uDD0D COMMIT FULLY \u2014 No half-reps on benchmark day. This number tells you exactly how much you improve.",tip:"Start timer when the first sole roll begins. Stop when the last circle ends. That\u2019s your benchmark.",space:"Full 3m\u00D73m. All corner markers plus 1 centre object."},
-  {day:8,week:2,title:"Marseille 360 Turn",cat:"Advanced Moves",dur:"25 min",diff:4,foot:"Both",yt:"eqvUPgGNDpM",ytLabel:"Skills Tutorial \u00B7 Marseille 360",desc:"Object at centre. Approach at pace: step over with one foot, immediately use the heel of that SAME foot to drag the ball as you spin 180\u00B0. Step-over and heel-drag are ONE connected movement. Practice stationary first for 10 reps.",sets:"10 stationary \u00B7 10 half-speed with approach \u00B7 5 game-speed = 1 set \u00B7 4 sets \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D APPROACH FAST \u2014 Slowing before the turn tells every defender what\u2019s coming. Full speed into the turn.",tip:"Plant your standing foot beside the ball (not behind it). Step-over then heel-drag immediately \u2014 one fluid snap.",space:"1 object at centre of 3m\u00D73m. Approach from 2m inside."},
-  {day:9,week:2,title:"Double Scissors + Step-Over Chain",cat:"Advanced Moves",dur:"25 min",diff:5,foot:"Both",yt:"tZ9hCwO5GOE",ytLabel:"Advanced Soccer Moves",desc:"Chain: double scissor (two consecutive foot circles around stationary ball), then immediately step over in the opposite direction. Three moves in rapid sequence \u2014 rhythm: circle-circle-STEP. Start stationary until rhythm is locked, then add cone approach.",sets:"15 stationary chain reps \u00B7 8 reps with cone approach = 1 set \u00B7 4 sets \u00B7 Rest 45 sec",cue:"\uD83D\uDD0D FIND THE RHYTHM \u2014 This chain has a beat: circle-circle-SHIFT. Lock the rhythm before adding speed.",tip:"The speed of the final directional shift is what causes defenders to commit the wrong way.",space:"1 object at centre of 3m\u00D73m. Approach from the far edge."},
-  {day:10,week:2,title:"Thigh-to-Foot Juggle Sequences",cat:"Aerials",dur:"25 min",diff:4,foot:"Both",yt:"kDKRTCIWiJ4",ytLabel:"Ball Mastery \u00B7 Thigh & Foot",desc:"Three structured patterns. A: Right thigh \u00D73 in a row. B: Right thigh, left foot, alternating (5 cycles). C: Right thigh, left thigh, right foot, left foot rotating (3 rotations). 10 clean reps per pattern before advancing. No hands.",sets:"10 clean reps per pattern \u00B7 3 sets per pattern \u00B7 9 sets total \u00B7 Rest 30 sec",cue:"\uD83D\uDD0D ANGLE YOUR THIGH \u2014 Your thigh is a directional surface. Tilt it to send the ball exactly where needed.",tip:"Keep the ball below shoulder height. Lower juggles = more control.",space:"Free movement within 3m\u00D73m. Throw ball up to begin each pattern."},
-  {day:11,week:2,title:"Tight Box Dribble \u2014 1.5m Square",cat:"Ball Mastery",dur:"20 min",diff:4,foot:"Both",yt:"8TH5DAQFR8E",ytLabel:"Joner Football \u00B7 Tight Spaces",desc:"Create an inner 1.5m\u00D71.5m box using 4 objects inside your 3m square. ALL dribbling stays inside this inner box. Use every move: sole rolls, V-cuts, inside-outside, step-overs, drag-backs. Ball exits inner box = fault.",sets:"3 \u00D7 5-minute continuous sessions inside the 1.5m box \u00B7 Rest 60 sec between sessions",cue:"\uD83D\uDD0D OWN EVERY CENTIMETRE \u2014 Elite players operate under 1 square metre in real match pressure. A 1.5m box is generous.",tip:"Look up as much as possible. Track the ball peripherally \u2014 don\u2019t stare down at it.",space:"Inner 1.5m\u00D71.5m zone inside the outer 3m\u00D73m space."},
-  {day:12,week:3,title:"Elastico at Cone",cat:"Elite Moves",dur:"25 min",diff:5,foot:"Dom.",yt:"4I6VhcDJqhk",ytLabel:"Skills Tutorial \u00B7 Elastico",desc:"Outside of foot pushes ball sideways, IMMEDIATELY the inside of the SAME foot snaps it in the opposite direction. One instant snap \u2014 not two touches. 20 stationary reps to lock the muscle memory, then add cone approach.",sets:"20 stationary reps \u00B7 5 game-speed cone approach reps = 1 set \u00B7 5 sets \u00B7 Rest 45 sec",cue:"\uD83D\uDD0D ZERO PAUSE \u2014 Any visible pause between outside push and inside snap = not an elastico. The snap must be instant.",tip:"Lean your upper body slightly in the fake direction before the snap. The lean sells it. The snap is the escape.",space:"1 object at centre of 3m\u00D73m. Approach from 2m inside."},
-  {day:13,week:3,title:"Hexagon Ball Mastery",cat:"Tight Spaces",dur:"25 min",diff:5,foot:"Both",yt:"6pqOTJCJb14",ytLabel:"Joner Football \u00B7 Hexagon",desc:"6 objects in hexagon inside 3m square, ~80cm between each. Visit each with a different move: sole roll at 1, V-cut at 2, scissor at 3, drag-back at 4, Marseille at 5, step-over at 6. Rotate your starting object each round.",sets:"6 object visits = 1 round \u00B7 8 rounds \u00B7 3 sets \u00B7 Rest 45 sec",cue:"\uD83D\uDD0D DECIDE BEFORE ARRIVAL \u2014 Choose your move 1\u20132 steps before reaching each object, not when you get there.",tip:"Change which move goes to which object every set. Autopilot muscle memory is the enemy of real decisions.",space:"6 objects in hexagon, ~80cm apart, inside 3m\u00D73m."},
-  {day:14,week:3,title:"Speed Slalom + Styled Moves",cat:"Elite Speed",dur:"25 min",diff:5,foot:"Both",yt:"AaFGJkEpL1M",ytLabel:"Speed Dribbling Slalom",desc:"5 objects staggered in a slalom inside 3m space, 50cm apart. Maximum speed. Every alternate object (2nd and 4th) requires a styled move: scissor, elastico, or step-over. 90-second timer. Count full slaloms.",sets:"3 \u00D7 90-second max-speed rounds \u00B7 Rest 60 sec \u00B7 Log slalom count each round",cue:"\uD83D\uDD0D FIND THE SLALOM RHYTHM \u2014 It\u2019s like a beat in music. Players who relax into the rhythm go faster.",tip:"Consistent object spacing = consistent timing = maximum speed. Never move the objects between rounds.",space:"5 objects staggered in slalom inside 3m length. 50cm between each."},
-  {day:15,week:3,title:"Grand Finale \u2014 Full Circuit",cat:"Grand Finale",dur:"30 min",diff:5,foot:"Both",yt:"DNb7gFnbIuk",ytLabel:"Joner Football \u00B7 Full Session",desc:"The complete programme in one timed circuit. No stops. Sole roll (1 lap) \u2192 V-cut weave \u2192 Scissors gauntlet (1 lap) \u2192 Marseille turns (5 clean) \u2192 Aerial pyramid (reach your max) \u2192 Elastico (5 clean) \u2192 Hexagon (1 round) \u2192 Tight box (2 min) \u2192 Speed slalom (90 sec). Log all times. Compare to Day 7.",sets:"Once. Full effort on every element. Log all times and scores immediately after.",cue:"\uD83D\uDD0D THIS IS IT \u2014 You have done every element before. 15 sessions live in your muscle memory. Trust it.",tip:"The gap between Day 7\u2019s time and today\u2019s is exactly what you built. That improvement is yours forever.",space:"Full 3m\u00D73m. All layouts combined. Set up everything before starting the timer."},
-];
-const PLAYERS=[
-  {u:"ayla",    pw:"cheetah01",n:"Ayla T.",    t:1,i:"AT"},
-  {u:"aaliyah", pw:"cheetah02",n:"Aaliyah M.", t:1,i:"AM"},
-  {u:"tessa",   pw:"cheetah03",n:"Tessa R.",   t:1,i:"TR"},
-  {u:"maya",    pw:"cheetah04",n:"Maya K.",    t:1,i:"MK"},
-  {u:"sophia",  pw:"cheetah05",n:"Sophia B.",  t:1,i:"SB"},
-  {u:"emma",    pw:"cheetah06",n:"Emma L.",    t:1,i:"EL"},
-  {u:"olivia",  pw:"cheetah07",n:"Olivia N.",  t:1,i:"ON"},
-  {u:"isabella",pw:"cheetah08",n:"Isabella C.",t:2,i:"IC"},
-  {u:"zara",    pw:"cheetah09",n:"Zara F.",    t:2,i:"ZF"},
-  {u:"isla",    pw:"cheetah10",n:"Isla D.",    t:2,i:"ID"},
-  {u:"cleo",    pw:"cheetah11",n:"Cleo S.",    t:2,i:"CS"},
-  {u:"vera",    pw:"cheetah12",n:"Vera P.",    t:2,i:"VP"},
-  {u:"nadia",   pw:"cheetah13",n:"Nadia V.",   t:2,i:"NV"},
-  {u:"mila",    pw:"cheetah14",n:"Mila E.",    t:2,i:"ME"},
-  {u:"piper",   pw:"cheetah15",n:"Piper Z.",   t:3,i:"PZ"},
-  {u:"freya",   pw:"cheetah16",n:"Freya T.",   t:3,i:"FT"},
-  {u:"aisha",   pw:"cheetah17",n:"Aisha Q.",   t:3,i:"AQ"},
-  {u:"cora",    pw:"cheetah18",n:"Cora X.",    t:3,i:"CX"},
-  {u:"remi",    pw:"cheetah19",n:"Remi U.",    t:3,i:"RU"},
-  {u:"niko",    pw:"cheetah20",n:"Niko I.",    t:3,i:"NI"},
-  {u:"priya",   pw:"cheetah21",n:"Priya N.",   t:3,i:"PN"},
-  {u:"finn",    pw:"cheetah22",n:"Finn O.",    t:4,i:"FO"},
-  {u:"kai",     pw:"cheetah23",n:"Kai W.",     t:4,i:"KW"},
-  {u:"dante",   pw:"cheetah24",n:"Dante A.",   t:4,i:"DA"},
-  {u:"hugo",    pw:"cheetah25",n:"Hugo P.",    t:4,i:"HP"},
-  {u:"rex",     pw:"cheetah26",n:"Rex D.",     t:4,i:"RD"},
-  {u:"leon",    pw:"cheetah27",n:"Leon Y.",    t:4,i:"LY"},
-  {u:"seb",     pw:"cheetah28",n:"Seb M.",     t:4,i:"SM"},
-];
-const DEMO_PTS=(()=>{const rows=[];PLAYERS.forEach((p,pi)=>{const days=pi===0?CURRENT_DAY-1:Math.floor(Math.random()*(CURRENT_DAY-1))+1;let total=0;for(let d=1;d<=days;d++){const r=Math.random();const tier=r>0.5?"nailed":r>0.2?"tried_best":"tried_bit";const pts=tier==="nailed"?50:tier==="tried_best"?25:3;total+=pts;rows.push({...p,day:d,tier,pts,total});}});return rows;})();
-const getStats=u=>{const entries=DEMO_PTS.filter(r=>r.u===u);const days=[...new Set(entries.map(r=>r.day))].sort((a,b)=>a-b);let streak=0;for(let i=days.length-1;i>=0;i--){if(i===days.length-1||days[i]+1===days[i+1])streak++;else break;}const base=entries.reduce((s,r)=>s+r.pts,0);const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;return{days:days.size,streak,base,sb,total:base+sb};};
-function CBLogo({size=80}){const h=Math.round(size*1.15);return React.createElement('svg',{viewBox:"0 0 200 230",width:size,height:h},
-  React.createElement('path',{d:"M100 8 L188 44 L188 145 L100 222 L12 145 L12 44 Z",fill:"#0d0d0d",stroke:"#c9a84c",strokeWidth:"4"}),
-  React.createElement('path',{d:"M100 8 L188 44 L188 100 L12 100 L12 44 Z",fill:"#c9a84c"}),
-  React.createElement('path',{d:"M12 100 L100 100 L100 168 L12 145 Z",fill:"#c8102e"}),
-  React.createElement('path',{d:"M100 100 L188 100 L188 145 L100 168 Z",fill:"#1a1a1a"}),
-  React.createElement('path',{d:"M12 145 L100 168 L188 145 L100 222 Z",fill:"#0a0a0a"}),
-  React.createElement('path',{d:"M100 13 L183 48 L183 144 L100 218 L17 144 L17 48 Z",fill:"none",stroke:"#c9a84c",strokeWidth:"1.5",opacity:".35"}),
-  React.createElement('text',{x:"100",y:"52",fontFamily:"Arial Black,sans-serif",fontSize:"15",fontWeight:"900",fill:"#0d0d0d",textAnchor:"middle",dominantBaseline:"middle",letterSpacing:"3"},"SOCCER CLUB"),
-  React.createElement('text',{x:"100",y:"85",fontFamily:"Arial Black,sans-serif",fontSize:"40",fontWeight:"900",fill:"#0d0d0d",textAnchor:"middle",dominantBaseline:"middle"},"CB"),
-  React.createElement('text',{x:"100",y:"136",fontFamily:"Arial",fontSize:"36",fill:"white",textAnchor:"middle",dominantBaseline:"middle"},"\u2605"),
-  React.createElement('text',{x:"46",y:"134",fontFamily:"Arial Black,sans-serif",fontSize:"11",fontWeight:"900",fill:"#c8102e",textAnchor:"middle",dominantBaseline:"middle"},"EST."),
-  React.createElement('text',{x:"154",y:"134",fontFamily:"Arial Black,sans-serif",fontSize:"11",fontWeight:"900",fill:"#c8102e",textAnchor:"middle",dominantBaseline:"middle"},"2009"),
-  React.createElement('circle',{cx:"100",cy:"196",r:"22",fill:"white",stroke:"#333",strokeWidth:"1.5"}),
-  React.createElement('polygon',{points:"100,175 108,183 100,190 92,183",fill:"#1a1a1a"}),
-  React.createElement('polygon',{points:"121,190 113,182 121,178 126,186",fill:"#1a1a1a"}),
-  React.createElement('polygon',{points:"79,190 87,182 79,178 74,186",fill:"#1a1a1a"}),
-  React.createElement('polygon',{points:"108,207 108,198 115,197 114,208",fill:"#1a1a1a"}),
-  React.createElement('polygon',{points:"92,207 92,198 85,197 86,208",fill:"#1a1a1a"})
-);}
+const {useState,useEffect,useCallback}=React;
 
-function VideoPlayer({ytId,ytLabel}){
-  const [playing,setPlaying]=useState(false);
-  if(playing) return React.createElement('div',{className:"video-wrap"},
-    React.createElement('iframe',{src:`https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1`,title:"drill",allowFullScreen:true,style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}})
-  );
-  return React.createElement('div',{className:"video-wrap"},
-    React.createElement('div',{className:"video-thumb",onClick:()=>setPlaying(true)},
-      React.createElement('div',{className:"play-btn"},"\u25B6"),
-      React.createElement('div',{className:"video-cap"},"Watch Drill Demo"),
-      ytLabel&&React.createElement('div',{className:"video-attr"},ytLabel)
-    )
+// ══════════════════════════════════════════════════════════════════════════════
+// CONFIG — replace with your deployed Apps Script Web App URL
+// ══════════════════════════════════════════════════════════════════════════════
+const APPS_SCRIPT_URL = "YOUR_APPS_SCRIPT_WEBAPP_URL_HERE";
+
+// ── Fallback data (used when offline or before Sheets loads) ─────────────────
+const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
+const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
+
+const TIERS=[
+  {id:"nailed",    label:"Nailed It! 🔥",    subLabel:"Every rep was clean. I pushed the pace and owned the space.", pts:50, color:"#c8102e",emoji:"🔥"},
+  {id:"tried_best",label:"Gave It My Best 💪",subLabel:"I worked hard. Some reps were messy but I kept going.",      pts:25, color:"#c9a84c",emoji:"💪"},
+  {id:"tried_bit", label:"Got Some In ✅",     subLabel:"Short on time but I showed up and did what I could.",        pts:3,  color:"#666",   emoji:"✅"},
+];
+
+const WALL_BONUSES=[
+  {id:"wall_full", label:"Full Session 🏫",  subLabel:"Complete 45-min school wall programme.",pts:200,color:"#38b6ff",emoji:"🏫",
+   desc:"The full 45-minute outside wall programme:\n• Inside-Outside Rapid Fire (10 min)\n• Laces Precision Strikes (10 min)\n• One-Touch Wall Rebounds (10 min)\n• Two-Touch Pattern Combos (10 min)\n• Cool-down Juggling (5 min)\n\nAt a school wall outside. No space constraints."},
+  {id:"wall_30a",  label:"Session A 🧱",     subLabel:"30 minutes — school wall programme.",  pts:150,color:"#7b61ff",emoji:"🧱",
+   desc:"30 minutes at a school wall outside.\nChoose 3 circuits from the full programme.\nNo space constraints — just a school wall."},
+  {id:"wall_30b",  label:"Session B 👟",     subLabel:"Another 30-min school wall session.",  pts:150,color:"#555",   emoji:"👟",
+   desc:"A second 30-minute school wall session.\nDifferent day from Session A.\nChoose 3 circuits from the full programme."},
+];
+
+const SQUAD_TARGET=30*15*35; // 15,750
+const PARENT_THRESH=Math.round(SQUAD_TARGET*0.70);
+
+// ── Fallback drill list (loaded from Sheets in production) ────────────────────
+const FALLBACK_DRILLS=[
+  {day:1,week:1,title:"Cone Square Sole Roll Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"",ytLabel:"Ball Mastery Drill",desc:"Place 4 objects at corners of your 3m×3m square. Roll the ball with the sole of your foot to each corner in sequence.",sets:"10 laps CW (right) + 10 laps CCW (left) · 3 sets · Rest 45 sec",cue:"🔍 BENT KNEES — Your centre of gravity must feel low.",tip:"Use the arch of your sole — not the toe tip, not the heel."},
+  {day:2,week:1,title:"V-Cut Weave",cat:"Moves",dur:"25 min",diff:3,foot:"Both",yt:"",ytLabel:"Moves Drill",desc:"3 objects in a line, 80cm apart. V-cut around each: push ball sideways with outside of foot, cut sharply back with inside.",sets:"8 full passes through all 3 objects = 1 rep · 10 reps · 3 sets",cue:"🔍 SHOULDER DROP — Drops BEFORE your foot moves.",tip:"Full-body weight shift. Upper body commits to the fake first."},
+  {day:3,week:1,title:"Toe Tap Burst",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"",ytLabel:"Ball Mastery Drill",desc:"Rapid alternating toe taps for 20 seconds, then explode diagonally to the opposite corner.",sets:"6 × 20-sec tap sequences + diagonal burst · 3 sets",cue:"🔍 STAY ON YOUR TOES — Flat-footed players have slow first steps.",tip:"First touch in burst sends ball 1–1.5m ahead. One touch, then chase."},
+  {day:4,week:1,title:"Scissors Gauntlet",cat:"Advanced Moves",dur:"25 min",diff:3,foot:"Both",yt:"",ytLabel:"Scissors Drill",desc:"3 objects in a triangle. Object 1: single scissor. Object 2: double scissor. Object 3: single scissor.",sets:"1 full triangle lap = 1 rep · 12 reps · 3 sets",cue:"🔍 THE BALL IS FROZEN — Only your foot moves around it.",tip:"Circle the ball close to the ground in a tight arc."},
+  {day:5,week:1,title:"Inside-Outside Cone Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"",ytLabel:"Ball Mastery Drill",desc:"Single object at exact centre. Dribble full circles: inside right → outside right → inside left → outside left.",sets:"4 full circles = 1 set · 5 sets · Rest 30 sec",cue:"🔍 CLOSE ORBIT — Ball never more than 30cm from the object.",tip:"Look up periodically. Train peripheral vision."},
+  {day:6,week:1,title:"Aerial Juggling Pyramid",cat:"Aerials",dur:"25 min",diff:4,foot:"Both",yt:"",ytLabel:"Juggling Drill",desc:"Build from 1 touch, rest. 2 touches, rest. Build up to your max, then descend back to 1.",sets:"Climb to max, descend to 1 · 3 pyramid attempts · Rest 60 sec",cue:"🔍 SOFT ANKLE — Ankle cushions the ball, does not punch it.",tip:"Strike through the dead centre of ball with laces, toes down."},
+  {day:7,week:1,title:"Week 1 Combine Benchmark",cat:"Benchmark Test",dur:"30 min",diff:3,foot:"Both",yt:"",ytLabel:"Benchmark Session",desc:"All 5 core Week 1 drills back-to-back, no stopping. Time the full circuit — this is your benchmark.",sets:"Full circuit × 2 attempts · Rest 90 sec · Log fastest time",cue:"🔍 COMMIT FULLY — No half-reps on benchmark day.",tip:"Start timer at first sole roll. Stop at last circle. That's your benchmark."},
+  {day:8,week:2,title:"Marseille 360 Turn",cat:"Advanced Moves",dur:"25 min",diff:4,foot:"Both",yt:"",ytLabel:"Advanced Move Drill",desc:"Step over with one foot, immediately use heel of SAME foot to drag ball as you spin 180°.",sets:"10 stationary · 10 half-speed · 5 game-speed = 1 set · 4 sets",cue:"🔍 APPROACH FAST — Slowing before the turn telegraphs everything.",tip:"Plant standing foot beside the ball, not behind it."},
+  {day:9,week:2,title:"Double Scissors + Step-Over Chain",cat:"Advanced Moves",dur:"25 min",diff:5,foot:"Both",yt:"",ytLabel:"Chain Move Drill",desc:"Double scissor (two foot circles), then immediately step over in opposite direction. Rhythm: circle-circle-STEP.",sets:"15 stationary chain reps · 8 with cone approach = 1 set · 4 sets",cue:"🔍 FIND THE RHYTHM — circle-circle-SHIFT. Lock it before adding speed.",tip:"Speed of final shift causes defenders to commit wrong way."},
+  {day:10,week:2,title:"Thigh-to-Foot Juggle Sequences",cat:"Aerials",dur:"25 min",diff:4,foot:"Both",yt:"",ytLabel:"Juggling Drill",desc:"Three patterns: A-right thigh×3. B-right thigh/left foot alternating. C-both thighs/both feet rotating.",sets:"10 clean reps per pattern · 3 sets per pattern · 9 sets total",cue:"🔍 ANGLE YOUR THIGH — It's directional. Tilt to direct the ball.",tip:"Keep ball below shoulder height. Lower juggles = more control."},
+  {day:11,week:2,title:"Tight Box Dribble — 1.5m Square",cat:"Ball Mastery",dur:"20 min",diff:4,foot:"Both",yt:"",ytLabel:"Tight Space Drill",desc:"Inner 1.5m×1.5m box. ALL dribbling inside. Use every move. Ball exits = fault.",sets:"3 × 5-minute continuous sessions · Rest 60 sec between",cue:"🔍 OWN EVERY CENTIMETRE — Elite players operate under 1 sq metre.",tip:"Track ball peripherally — don't stare down at it."},
+  {day:12,week:3,title:"Elastico at Cone",cat:"Elite Moves",dur:"25 min",diff:5,foot:"Dominant",yt:"",ytLabel:"Elite Move Drill",desc:"Outside of foot pushes sideways, IMMEDIATELY inside of SAME foot snaps opposite direction. One instant snap.",sets:"20 stationary reps · 5 game-speed = 1 set · 5 sets · Rest 45 sec",cue:"🔍 ZERO PAUSE — Any visible pause = not an elastico.",tip:"Lean upper body in fake direction before snap. Lean sells it."},
+  {day:13,week:3,title:"Hexagon Ball Mastery",cat:"Tight Spaces",dur:"25 min",diff:5,foot:"Both",yt:"",ytLabel:"Hexagon Drill",desc:"6 objects in hexagon. Visit each with a different move: sole roll, V-cut, scissor, drag-back, Marseille, step-over.",sets:"6 object visits = 1 round · 8 rounds · 3 sets · Rest 45 sec",cue:"🔍 DECIDE BEFORE ARRIVAL — Choose move 1-2 steps before reaching.",tip:"Change which move goes to which object every set."},
+  {day:14,week:3,title:"Speed Slalom + Styled Moves",cat:"Elite Speed",dur:"25 min",diff:5,foot:"Both",yt:"",ytLabel:"Speed Drill",desc:"5 objects in slalom, 50cm apart. Max speed. Every alternate object requires a styled move.",sets:"3 × 90-second max-speed rounds · Rest 60 sec · Log slalom count",cue:"🔍 FIND THE SLALOM RHYTHM — Relax into the beat.",tip:"Consistent spacing = consistent timing = maximum speed."},
+  {day:15,week:3,title:"Grand Finale — Full Circuit",cat:"Grand Finale",dur:"30 min",diff:5,foot:"Both",yt:"",ytLabel:"Grand Finale",desc:"The complete programme in one timed circuit. No stops. Every element. Compare to Day 7.",sets:"Once. Full effort on every element. Log all times immediately after.",cue:"🔍 THIS IS IT — 15 sessions live in your muscle memory. Trust it.",tip:"The gap between Day 7 time and today's is exactly what you built."},
+];
+
+// ── API helper ────────────────────────────────────────────────────────────────
+async function callAPI(action, data={}) {
+  if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return {ok:false,error:"No API configured"};
+  try {
+    const params=new URLSearchParams({action,...data});
+    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{method:"GET"});
+    return await r.json();
+  } catch(e) { return {ok:false,error:e.message}; }
+}
+
+// ── CB Logo ───────────────────────────────────────────────────────────────────
+function CBLogo({size=80}) {
+  const h=Math.round(size*1.15);
+  return React.createElement("svg",{viewBox:"0 0 200 230",width:size,height:h},
+    React.createElement("path",{d:"M100 8 L188 44 L188 145 L100 222 L12 145 L12 44 Z",fill:"#0d0d0d",stroke:"#c9a84c",strokeWidth:"4"}),
+    React.createElement("path",{d:"M100 8 L188 44 L188 100 L12 100 L12 44 Z",fill:"#c9a84c"}),
+    React.createElement("path",{d:"M12 100 L100 100 L100 168 L12 145 Z",fill:"#c8102e"}),
+    React.createElement("path",{d:"M100 100 L188 100 L188 145 L100 168 Z",fill:"#1a1a1a"}),
+    React.createElement("path",{d:"M12 145 L100 168 L188 145 L100 222 Z",fill:"#0a0a0a"}),
+    React.createElement("path",{d:"M100 13 L183 48 L183 144 L100 218 L17 144 L17 48 Z",fill:"none",stroke:"#c9a84c",strokeWidth:"1.5",opacity:".35"}),
+    React.createElement("text",{x:"100",y:"52",fontFamily:"Arial Black,sans-serif",fontSize:"15",fontWeight:"900",fill:"#0d0d0d",textAnchor:"middle",dominantBaseline:"middle",letterSpacing:"3"},"SOCCER CLUB"),
+    React.createElement("text",{x:"100",y:"85",fontFamily:"Arial Black,sans-serif",fontSize:"40",fontWeight:"900",fill:"#0d0d0d",textAnchor:"middle",dominantBaseline:"middle"},"CB"),
+    React.createElement("text",{x:"100",y:"136",fontFamily:"Arial",fontSize:"36",fill:"white",textAnchor:"middle",dominantBaseline:"middle"},"★"),
+    React.createElement("text",{x:"46",y:"134",fontFamily:"Arial Black,sans-serif",fontSize:"11",fontWeight:"900",fill:"#c8102e",textAnchor:"middle",dominantBaseline:"middle"},"EST."),
+    React.createElement("text",{x:"154",y:"134",fontFamily:"Arial Black,sans-serif",fontSize:"11",fontWeight:"900",fill:"#c8102e",textAnchor:"middle",dominantBaseline:"middle"},"2009"),
+    React.createElement("circle",{cx:"100",cy:"196",r:"22",fill:"white",stroke:"#333",strokeWidth:"1.5"}),
+    React.createElement("polygon",{points:"100,175 108,183 100,190 92,183",fill:"#1a1a1a"}),
+    React.createElement("polygon",{points:"121,190 113,182 121,178 126,186",fill:"#1a1a1a"}),
+    React.createElement("polygon",{points:"79,190 87,182 79,178 74,186",fill:"#1a1a1a"}),
+    React.createElement("polygon",{points:"108,207 108,198 115,197 114,208",fill:"#1a1a1a"}),
+    React.createElement("polygon",{points:"92,207 92,198 85,197 86,208",fill:"#1a1a1a"})
   );
 }
 
-function App(){
+function VideoPlayer({ytId,ytLabel}) {
+  const [playing,setPlaying]=useState(false);
+  const [err,setErr]=useState(false);
+  const id=(ytId||"").trim();
+  if(!id) return React.createElement("div",{className:"video-wrap"},
+    React.createElement("div",{className:"video-thumb"},
+      React.createElement("div",{className:"video-cap"},"No video assigned — check Drills sheet")));
+  if(playing) return React.createElement("div",{className:"video-wrap"},
+    React.createElement("iframe",{src:`https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`,title:"drill",allowFullScreen:true,allow:"autoplay",style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}));
+  return React.createElement("div",{className:"video-wrap"},
+    React.createElement("div",{className:"video-thumb",onClick:()=>setPlaying(true)},
+      React.createElement("div",{className:"play-btn"},"▶"),
+      React.createElement("div",{className:"video-cap"},"Watch Drill Demo"),
+      ytLabel&&React.createElement("div",{className:"video-attr"},ytLabel),
+      React.createElement("div",{className:"video-attr",style:{color:"rgba(255,255,255,.15)",marginTop:3}},"If video unavailable, coach can update ID in Drills sheet")));
+}
+
+// ══════════════════════════════════════════════════════════════════════════════
+function App() {
   const [user,setUser]=useState(null);
   const [tab,setTab]=useState("home");
   const [wf,setWf]=useState(1);
   const [fade,setFade]=useState(true);
+
+  // login
   const [lu,setLu]=useState("");
   const [lp,setLp]=useState("");
   const [lerr,setLerr]=useState("");
+  const [lok,setLok]=useState("");
   const [lloading,setLloading]=useState(false);
+  const [forgotMode,setForgotMode]=useState(false);
+  const [forgotUser,setForgotUser]=useState("");
+
+  // data from Sheets
+  const [drills,setDrills]=useState(FALLBACK_DRILLS);
+  const [allSessions,setAllSessions]=useState([]);
+  const [config,setConfig]=useState({current_day:10,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0});
+  const [dataLoading,setDataLoading]=useState(false);
+
+  // today
   const [selTier,setSelTier]=useState(null);
   const [submitted,setSubmitted]=useState(false);
   const [doneDays,setDoneDays]=useState(new Set([1,2,3,4,5,6,7,8,9]));
+
+  // wall
   const [wallDone,setWallDone]=useState(new Set());
   const [wallModal,setWallModal]=useState(null);
+
+  // modals
   const [drillModal,setDrillModal]=useState(null);
   const [mathModal,setMathModal]=useState(false);
-  const [igModal,setIgModal]=useState(false);
-  const [igView,setIgView]=useState(null);
-  const [copied,setCopied]=useState(false);
 
-  const today=DRILLS[CURRENT_DAY-1];
+  const CURRENT_DAY=config.current_day||10;
+  const today=drills[CURRENT_DAY-1]||drills[0];
+
+  // Load data from Apps Script
+  useEffect(()=>{
+    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
+    setDataLoading(true);
+    Promise.all([
+      callAPI("getDrills"),
+      callAPI("getConfig"),
+      callAPI("getAllSessions"),
+    ]).then(([dr,cfg,sess])=>{
+      if(dr.ok&&dr.drills?.length) setDrills(dr.drills);
+      if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
+      if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
+    }).finally(()=>setDataLoading(false));
+  },[]);
+
+  // Reload sessions after login
+  useEffect(()=>{
+    if(!user||APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
+    callAPI("getPlayerSessions",{username:user.u}).then(r=>{
+      if(r.ok&&r.sessions){
+        const d=new Set(r.sessions.map(s=>Number(s.day)));
+        setDoneDays(d);
+        const todayDone=r.sessions.some(s=>Number(s.day)===CURRENT_DAY);
+        if(todayDone){setSubmitted(true);const t=r.sessions.find(s=>Number(s.day)===CURRENT_DAY);if(t)setSelTier(t.tier);}
+      }
+    });
+  },[user]);
+
+  // ── Computed ──────────────────────────────────────────────────────────────
   const todayPts=selTier?(TIERS.find(t=>t.id===selTier)?.pts??0):0;
-  const myStats=user?getStats(user.u):null;
-  const totalDays=(myStats?.days??0)+(submitted?1:0);
-  const base=(myStats?.base??0)+(submitted?todayPts:0);
-  const streak=(myStats?.streak??0)+(submitted?1:0);
+
+  // compute per-player stats from allSessions
+  const getStats=useCallback(u=>{
+    const entries=allSessions.filter(s=>s.username===u);
+    const days=[...new Set(entries.map(s=>Number(s.day)))].sort((a,b)=>a-b);
+    let streak=0;
+    for(let i=days.length-1;i>=0;i--){if(i===days.length-1||days[i]+1===days[i+1])streak++;else break;}
+    const base=entries.reduce((s,r)=>s+(Number(r.ptsEarned)||0),0);
+    const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
+    return{days:days.length,streak,base,sb,total:base+sb};
+  },[allSessions]);
+
+  const myStats=user?getStats(user.u):{days:0,streak:0,base:0,sb:0,total:0};
+  const totalDays=(doneDays.size)+(submitted&&!doneDays.has(CURRENT_DAY)?1:0);
+  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user?.u&&Number(s.day)===CURRENT_DAY)?todayPts:0);
+  const streak=(myStats.streak||0)+(submitted&&myStats.streak===0?1:myStats.streak>0&&!doneDays.has(CURRENT_DAY)?1:0);
   const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
   const wpts=[...wallDone].reduce((s,id)=>s+(WALL_BONUSES.find(w=>w.id===id)?.pts??0),0);
-  const myTotal=base+sb+wpts;
-  const allStats=PLAYERS.map(p=>({...p,...getStats(p.u)})).sort((a,b)=>b.total-a.total);
-  const myRank=user?allStats.findIndex(p=>p.u===user.u)+1:"—";
-  const teams=[1,2,3,4].map(tid=>({tid,label:TL[tid],color:TC[tid],pts:allStats.filter(p=>p.t===tid).reduce((s,p)=>s+p.total,0),players:allStats.filter(p=>p.t===tid)})).sort((a,b)=>b.pts-a.pts);
-  const grandTotal=allStats.reduce((s,p)=>s+p.total,0);
-  const grandPct=Math.round((grandTotal/SQUAD_TARGET)*100);
+  const myTotal=basePts+sb+wpts;
+
+  // Fallback fake squad data when no sessions loaded
+  const fakeSessions=[];
+  const playerList=user?[user]:[];
+
+  // Build leaderboard from sessions
+  const buildLeaderboard=()=>{
+    const map={};
+    allSessions.forEach(s=>{
+      if(!map[s.username]) map[s.username]={u:s.username,n:s.fullName||s.username,t:Number(s.team)||1,i:(s.fullName||s.username).split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase(),days:new Set(),base:0,streak:0};
+      map[s.username].days.add(Number(s.day));
+      map[s.username].base+=(Number(s.ptsEarned)||0);
+    });
+    return Object.values(map).map(p=>{
+      const days=[...p.days].sort((a,b)=>a-b);
+      let streak=0;for(let i=days.length-1;i>=0;i--){if(i===days.length-1||days[i]+1===days[i+1])streak++;else break;}
+      const sb2=streak>=7?500:streak>=5?250:streak>=3?100:0;
+      return{...p,days:days.length,streak,sb:sb2,total:p.base+sb2};
+    }).sort((a,b)=>b.total-a.total);
+  };
+
+  const lb=buildLeaderboard();
+  // ensure logged-in user appears
+  if(user&&!lb.find(p=>p.u===user.u)){
+    lb.push({u:user.u,n:user.n,t:user.t,i:user.i,days:doneDays.size+(submitted?1:0),streak,base:basePts,sb,total:myTotal});
+    lb.sort((a,b)=>b.total-a.total);
+  } else if(user){
+    const me=lb.find(p=>p.u===user.u);
+    if(me){me.total=myTotal;me.days=totalDays;me.streak=streak;}
+    lb.sort((a,b)=>b.total-a.total);
+  }
+
+  const myRank=user?lb.findIndex(p=>p.u===user.u)+1:"—";
+
+  const teams=[1,2,3,4,5].map(tid=>{
+    const players=lb.filter(p=>p.t===tid);
+    return{tid,label:TL[tid],color:TC[tid],pts:players.reduce((s,p)=>s+p.total,0),players};
+  }).sort((a,b)=>b.pts-a.pts);
+
+  const grandTotal=lb.reduce((s,p)=>s+p.total,0);
+  const squadTarget=config.squad_target||SQUAD_TARGET;
+  const parentThresh=Math.round(squadTarget*(config.parent_game_pct||.7));
+  const grandPct=Math.round((grandTotal/squadTarget)*100);
 
   const goTab=t=>{setFade(false);setTimeout(()=>{setTab(t);setFade(true);},130);};
-  const doLogin=()=>{
-    if(!lu.trim()||!lp.trim()){setLerr("Please enter your username and password.");return;}
-    setLloading(true);setLerr("");
-    setTimeout(()=>{const f=PLAYERS.find(p=>p.u===lu.trim().toLowerCase()&&p.pw===lp.trim());if(f)setUser(f);else setLerr("Incorrect login. Ask your coach if you've forgotten.");setLloading(false);},500);
-  };
-  const doSubmit=()=>{if(!selTier)return;setSubmitted(true);setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));};
-  const doWall=wid=>{setWallDone(prev=>new Set([...prev,wid]));setWallModal(null);};
-  const getShare=style=>{
-    const tl=TIERS.find(t=>t.id===selTier)?.label??"Completed today's session";
-    const tp=teams.find(t=>t.tid===user?.t)?.pts??0;
-    if(style==="story")return["🐆 CB CHEETAHS BALL MASTERY","",`Day ${CURRENT_DAY}/15 ✅`,`Today: ${today.title}`,tl,"",`${TL[user?.t]} team: ${tp.toLocaleString()} pts`,`My total: ${myTotal.toLocaleString()} pts`,"","3m × 3m. 15 days. All Cheetahs.","#CherryBeachCheetahs #BallMastery #CBCheetahs"].join("\n");
-    return[`Day ${CURRENT_DAY} of the Cherry Beach Cheetahs 15-Day Ball Mastery Challenge ✅`,"",`Today's drill: ${today.title} 🐆`,tl,"","All training in a 3m×3m space — no excuses, just reps 💪","",streak>=3?`🔥 ${streak}-day streak active!`:"Grinding every day!",`My points: ${myTotal.toLocaleString()} | ${TL[user?.t]}: ${tp.toLocaleString()}`,"","#CherryBeachCheetahs #BallMastery #U15Soccer #CBCheetahs #TorontoSoccer"].join("\n");
-  };
-  const doCopy=text=>{if(navigator.clipboard)navigator.clipboard.writeText(text).catch(()=>{});setCopied(true);setTimeout(()=>setCopied(false),2000);};
 
-  // LOGIN
-  if(!user) return React.createElement('div',{className:"login-page"},
-    React.createElement('div',{className:"login-grid"}),
-    React.createElement('div',{className:"login-glow"}),
-    React.createElement('div',{className:"login-card"},
-      React.createElement('div',{className:"login-logo"},React.createElement(CBLogo,{size:80}),
-        React.createElement('div',{className:"login-club"},"CHERRY BEACH CHEETAHS"),
-        React.createElement('div',{className:"login-sub"},"U15 Ball Mastery Challenge"),
-        React.createElement('div',{className:"login-prog"},"15-Day Indoor Programme · 3m × 3m")),
-      lerr&&React.createElement('div',{className:"login-err"},"\u26A0 "+lerr),
-      React.createElement('div',{className:"form-group"},
-        React.createElement('label',{className:"form-label"},"Username"),
-        React.createElement('input',{className:"form-input",placeholder:"your username",value:lu,onChange:e=>setLu(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin(),autoCapitalize:"none",autoCorrect:"off",inputMode:"text"})),
-      React.createElement('div',{className:"form-group"},
-        React.createElement('label',{className:"form-label"},"Password"),
-        React.createElement('input',{className:"form-input",type:"password",placeholder:"••••••••",value:lp,onChange:e=>setLp(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin()})),
-      React.createElement('button',{className:"login-btn",onClick:doLogin,disabled:lloading},lloading?"SIGNING IN…":"SIGN IN →"),
-      React.createElement('div',{className:"login-hint"},"Demo: ",React.createElement('code',null,"ayla")," / ",React.createElement('code',null,"cheetah01"),React.createElement('br',null),"Contact your coach if you've forgotten.")
+  // ── LOGIN ──────────────────────────────────────────────────────────────────
+  const doLogin=async()=>{
+    if(!lu.trim()||!lp.trim()){setLerr("Enter your username and password.");return;}
+    setLloading(true);setLerr("");
+    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+      // Demo mode fallback
+      const demos=[
+        {u:"aylah",    pw:"cheetah736",n:"Ayla Hanna",           t:5,i:"AH"},
+        {u:"ellac",    pw:"cheetah951",n:"Ella Childs",           t:1,i:"EC"},
+        {u:"aaliyahm", pw:"cheetah663",n:"Aaliyah Milne",         t:2,i:"AM"},
+        {u:"gemmaf",   pw:"cheetah480",n:"Gemma Feetham",         t:3,i:"GF"},
+        {u:"emmae",    pw:"cheetah817",n:"Emma Evdemon",          t:4,i:"EE"},
+      ];
+      const f=demos.find(p=>p.u===lu.trim().toLowerCase()&&p.pw===lp.trim());
+      if(f){setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
+      setLloading(false);return;
+    }
+    const r=await callAPI("login",{username:lu.trim().toLowerCase(),password:lp.trim()});
+    setLloading(false);
+    if(r.ok&&r.user){
+      setUser({u:r.user.username,n:r.user.name,t:Number(r.user.team),i:(r.user.name||"").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase()});
+    } else {
+      setLerr(r.error||"Incorrect login — all lowercase. Contact your coach.");
+    }
+  };
+
+  const doForgot=async()=>{
+    if(!forgotUser.trim()){setLerr("Enter your username.");return;}
+    setLloading(true);setLerr("");setLok("");
+    const r=await callAPI("forgotPassword",{username:forgotUser.trim().toLowerCase()});
+    setLloading(false);
+    if(r.ok) setLok("Password sent to your email! Check your inbox.");
+    else setLerr(r.error||"Username not found. Check with your coach.");
+  };
+
+  const doSubmit=async()=>{
+    if(!selTier||!user)return;
+    setSubmitted(true);
+    setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
+    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+      callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
+    }
+  };
+
+  const doWall=async(wid)=>{
+    if(!user)return;
+    setWallDone(prev=>new Set([...prev,wid]));
+    setWallModal(null);
+    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+      const b=WALL_BONUSES.find(w=>w.id===wid);
+      callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?.pts||0,team:user.t});
+    }
+  };
+
+  // ── LOGIN PAGE ─────────────────────────────────────────────────────────────
+  if(!user) return React.createElement("div",{className:"login-page"},
+    React.createElement("div",{className:"login-grid"}),
+    React.createElement("div",{className:"login-glow"}),
+    React.createElement("div",{className:"login-card"},
+      React.createElement("div",{className:"login-logo"},
+        React.createElement(CBLogo,{size:78}),
+        React.createElement("div",{className:"login-club"},"CHERRY BEACH CHEETAHS"),
+        React.createElement("div",{className:"login-sub"},"U15 Ball Mastery Challenge"),
+        React.createElement("div",{className:"login-prog"},"15-Day Indoor Programme · 3m × 3m")),
+      React.createElement("div",{className:"lc-note"},"👤 Username: firstname + last initial  |  All lowercase"),
+      lerr&&React.createElement("div",{className:"login-err"},"⚠ "+lerr),
+      lok&&React.createElement("div",{className:"login-ok"},"✓ "+lok),
+      !forgotMode?React.createElement("div",null,
+        React.createElement("div",{className:"form-group"},
+          React.createElement("label",{className:"form-label"},"Username"),
+          React.createElement("input",{className:"form-input",placeholder:"e.g. aylah or ellac",value:lu,onChange:e=>setLu(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin(),autoCapitalize:"none",autoCorrect:"off",spellCheck:"false",inputMode:"text"})),
+        React.createElement("div",{className:"form-group"},
+          React.createElement("label",{className:"form-label"},"Password"),
+          React.createElement("input",{className:"form-input",type:"password",placeholder:"cheetah + 3 numbers",value:lp,onChange:e=>setLp(e.target.value),onKeyDown:e=>e.key==="Enter"&&doLogin()})),
+        React.createElement("button",{className:"login-btn",onClick:doLogin,disabled:lloading},lloading?"SIGNING IN…":"SIGN IN →"),
+        React.createElement("div",{className:"forgot-link"},"Forgotten your password? ",React.createElement("a",{onClick:()=>{setForgotMode(true);setLerr("");setLok("");}},"Get it sent to your email"))):
+      React.createElement("div",null,
+        React.createElement("div",{className:"form-group"},
+          React.createElement("label",{className:"form-label"},"Your Username (all lowercase)</label>"),
+          React.createElement("input",{className:"form-input",placeholder:"e.g. aylah",value:forgotUser,onChange:e=>setForgotUser(e.target.value),onKeyDown:e=>e.key==="Enter"&&doForgot(),autoCapitalize:"none",autoCorrect:"off",inputMode:"text"})),
+        React.createElement("button",{className:"login-btn",onClick:doForgot,disabled:lloading},lloading?"SENDING…":"SEND MY PASSWORD →"),
+        React.createElement("div",{className:"forgot-link"},React.createElement("a",{onClick:()=>{setForgotMode(false);setLerr("");setLok("");}},"← Back to login")))
     )
   );
 
-  // HOME content
+  // ── HOME ───────────────────────────────────────────────────────────────────
   const HomeContent=()=>{
     const td=teams.find(t=>t.tid===user.t);
-    return React.createElement('div',null,
-      React.createElement('div',{className:"hero"},
-        React.createElement('div',{className:"day-pill"},`⚡ Day ${CURRENT_DAY} of 15`),
-        React.createElement('div',{className:"hero-greet"},"Welcome back,"),
-        React.createElement('div',{className:"hero-name"},user.n.toUpperCase()),
-        streak>=3&&React.createElement('div',{className:"streak-pill"},`🔥 ${streak}-DAY STREAK`),
-        React.createElement('div',{className:"prog-wrap"},
-          React.createElement('div',{className:"prog-meta"},React.createElement('span',null,"Progress"),React.createElement('span',null,`${Math.round((totalDays/15)*100)}%`)),
-          React.createElement('div',{className:"prog-track"},React.createElement('div',{className:"prog-fill",style:{width:`${(totalDays/15)*100}%`}})))),
-      React.createElement('div',{className:"stats-grid"},
-        React.createElement('div',{className:"stat-card"},React.createElement('div',{className:"stat-val",style:{color:"var(--red)"}},totalDays),React.createElement('div',{className:"stat-lbl"},"Days Done")),
-        React.createElement('div',{className:"stat-card"},React.createElement('div',{className:"stat-val",style:{color:"var(--gold)"}},`#${myRank}`),React.createElement('div',{className:"stat-lbl"},"Your Rank")),
-        React.createElement('div',{className:"stat-card"},React.createElement('div',{className:"stat-val"},myTotal.toLocaleString()),React.createElement('div',{className:"stat-lbl"},"Total Pts"))),
+    return React.createElement("div",null,
+      React.createElement("div",{className:"hero"},
+        React.createElement("div",{className:"day-pill"},"⚡ Day "+CURRENT_DAY+" of 15"),
+        React.createElement("div",{className:"hero-greet"},"Welcome back,"),
+        React.createElement("div",{className:"hero-name"},user.n.split(" ")[0].toUpperCase()),
+        streak>=3&&React.createElement("div",{className:"streak-pill"},"🔥 "+streak+"-DAY STREAK"),
+        React.createElement("div",{className:"prog-wrap"},
+          React.createElement("div",{className:"prog-meta"},React.createElement("span",null,"Progress"),React.createElement("span",null,Math.round((totalDays/15)*100)+"%")),
+          React.createElement("div",{className:"prog-track"},React.createElement("div",{className:"prog-fill",style:{width:(totalDays/15)*100+"%"}})))),
+      React.createElement("div",{className:"stats-grid"},
+        React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val",style:{color:"var(--red)"}},totalDays),React.createElement("div",{className:"stat-lbl"},"Days Done")),
+        React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val",style:{color:"var(--gold)"}},"#"+myRank),React.createElement("div",{className:"stat-lbl"},"Your Rank")),
+        React.createElement("div",{className:"stat-card"},React.createElement("div",{className:"stat-val"},myTotal.toLocaleString()),React.createElement("div",{className:"stat-lbl"},"Total Pts"))),
       !submitted?
-        React.createElement('div',{onClick:()=>goTab("today"),style:{display:"flex",alignItems:"center",gap:12,padding:"13px 14px",background:"linear-gradient(135deg,#1a0008,#1c1c1c)",border:"1px solid rgba(200,16,46,.28)",borderRadius:13,cursor:"pointer",marginBottom:12}},
-          React.createElement('div',{style:{flex:1}},
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:9,color:"var(--red)",letterSpacing:3,fontWeight:700,textTransform:"uppercase",marginBottom:3}},"Today's Drill"),
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700}},today.title),
-            React.createElement('div',{style:{fontSize:11,color:"var(--muted)",marginTop:3}},"Tap to watch the video and log your session →")),
-          React.createElement('span',{style:{fontSize:28,color:"var(--red)"}},"▶")):
-        React.createElement('div',{className:"card",style:{border:"2px solid var(--green)",marginBottom:12,textAlign:"center"}},
-          React.createElement('div',{className:"card-body",style:{padding:"18px 14px"}},
-            React.createElement('div',{style:{fontSize:34,marginBottom:5}},"✅"),
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:18,fontWeight:700,color:"var(--green)"}},"TODAY COMPLETE!"),
-            React.createElement('div',{style:{fontSize:12,color:"var(--muted)",marginTop:3}},`${TIERS.find(t=>t.id===selTier)?.label} · +${todayPts} pts`))),
-      React.createElement('div',{className:"sec"},"School Wall Drill Bonus"),
-      React.createElement('div',{className:"wall-section"},
-        React.createElement('div',{className:"wall-hdr"},
-          React.createElement('div',{className:"wall-title"},"🏫 Local School Wall Programme"),
-          React.createElement('div',{className:"wall-subtitle"},"45-min wall drill programme at any school — extra points awarded")),
-        WALL_BONUSES.map(w=>{const done=wallDone.has(w.id);return React.createElement('button',{key:w.id,className:`wall-btn ${done?"wdone":""}`,onClick:()=>!done&&setWallModal(w)},
-          React.createElement('span',{className:"wall-emo"},w.emoji),
-          React.createElement('div',{className:"wall-info-txt"},React.createElement('div',{className:"wall-name",style:{color:w.color}},w.label),React.createElement('div',{className:"wall-sub2"},w.subLabel)),
-          done?React.createElement('span',{className:"wall-done-badge"},"✓ DONE"):React.createElement('span',{className:"wall-pts"},`+${w.pts}`)
-        );})),
-      React.createElement('div',{className:"sec"},"Points Breakdown"),
-      React.createElement('div',{className:"card"},
-        React.createElement('div',{className:"rule-row"},React.createElement('span',null,`Sessions (${totalDays} days)`),React.createElement('span',{className:"rule-val",style:{color:"var(--green)"}},base)),
-        sb>0&&React.createElement('div',{className:"rule-row"},React.createElement('span',null,`🔥 ${streak}-day streak bonus`),React.createElement('span',{className:"rule-val",style:{color:"#ff6b35"}},sb)),
-        wpts>0&&React.createElement('div',{className:"rule-row"},React.createElement('span',null,"🏫 Wall drill bonuses"),React.createElement('span',{className:"rule-val",style:{color:"var(--blue)"}},wpts)),
-        React.createElement('div',{className:"rule-row",style:{fontWeight:700}},React.createElement('span',null,"TOTAL"),React.createElement('span',{className:"rule-val",style:{color:"var(--white)",fontSize:18}},myTotal.toLocaleString()))),
-      React.createElement('div',{className:"sec"},`${TL[user.t]} Standing`),
-      React.createElement('div',{className:"card",style:{borderTop:`3px solid ${TC[user.t]}`,marginBottom:12}},
-        React.createElement('div',{className:"card-body",style:{display:"flex",justifyContent:"space-between",alignItems:"center",gap:10}},
-          React.createElement('div',null,React.createElement('div',{style:{fontFamily:"Anton,sans-serif",fontSize:18,color:TC[user.t]}},TL[user.t]),React.createElement('div',{style:{fontSize:10,color:"var(--muted)"}},`Rank #${teams.findIndex(t=>t.tid===user.t)+1} of 4`)),
-          React.createElement('div',{style:{textAlign:"right"}},React.createElement('div',{style:{fontFamily:"Anton,sans-serif",fontSize:28}},td?.pts.toLocaleString()),React.createElement('div',{style:{fontSize:9,color:"var(--muted)"}},"team points")))),
-      React.createElement('button',{className:"ig-option",onClick:()=>setIgModal(true),style:{width:"100%",border:"1px solid rgba(201,168,76,.28)",background:"rgba(201,168,76,.04)"}},
-        React.createElement('span',{className:"ig-icon"},"📸"),
-        React.createElement('div',{className:"ig-info-txt"},React.createElement('div',{className:"ig-title-txt"},"Share Progress on Instagram"),React.createElement('div',{className:"ig-desc-txt"},"Story captions, feed posts, and score card ready to copy & post")),
-        React.createElement('span',{style:{color:"var(--gold)",fontSize:16}},"→"))
-    );
+        React.createElement("div",{onClick:()=>goTab("today"),style:{display:"flex",alignItems:"center",gap:11,padding:"12px 13px",background:"linear-gradient(135deg,#1a0008,#1c1c1c)",border:"1px solid rgba(200,16,46,.28)",borderRadius:12,cursor:"pointer",marginBottom:11}},
+          React.createElement("div",{style:{flex:1}},
+            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:8,color:"var(--red)",letterSpacing:3,fontWeight:700,textTransform:"uppercase",marginBottom:3}},"Today's Drill"),
+            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:16,fontWeight:700}},today.title),
+            React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:3}},"Tap to watch and log your session →")),
+          React.createElement("span",{style:{fontSize:26,color:"var(--red)"}},"▶")):
+        React.createElement("div",{className:"card",style:{border:"2px solid var(--green)",marginBottom:11,textAlign:"center"}},
+          React.createElement("div",{className:"card-body",style:{padding:"16px 13px"}},
+            React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
+            React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"TODAY COMPLETE!"),
+            React.createElement("div",{style:{fontSize:11,color:"var(--muted)",marginTop:3}},(TIERS.find(t=>t.id===selTier)?.label||"")+" · +"+todayPts+" pts"))),
+      React.createElement("div",{className:"sec"},"School Wall Drill Bonus"),
+      React.createElement("div",{className:"wall-section"},
+        React.createElement("div",{className:"wall-hdr"},
+          React.createElement("div",{className:"wall-title"},"🏫 Outside School Wall Programme"),
+          React.createElement("div",{className:"wall-subtitle"},"Done outside at any school wall — no space constraints")),
+        WALL_BONUSES.map(w=>{
+          const done=wallDone.has(w.id);
+          return React.createElement("button",{key:w.id,className:"wall-btn "+(done?"wdone":""),onClick:()=>!done&&setWallModal(w)},
+            React.createElement("span",{className:"wall-emo"},w.emoji),
+            React.createElement("div",{className:"wall-info-txt"},React.createElement("div",{className:"wall-name",style:{color:w.color}},w.label),React.createElement("div",{className:"wall-sub2"},w.subLabel)),
+            done?React.createElement("span",{className:"wall-done-badge"},"✓ DONE"):React.createElement("span",{className:"wall-pts"},"+"+w.pts));
+        })),
+      React.createElement("div",{className:"sec"},"Points Breakdown"),
+      React.createElement("div",{className:"card"},
+        React.createElement("div",{className:"rule-row"},React.createElement("span",null,"Sessions ("+totalDays+" days)"),React.createElement("span",{className:"rule-val",style:{color:"var(--green)"}},basePts)),
+        sb>0&&React.createElement("div",{className:"rule-row"},React.createElement("span",null,"🔥 "+streak+"-day streak bonus"),React.createElement("span",{className:"rule-val",style:{color:"var(--orange)"}},sb)),
+        wpts>0&&React.createElement("div",{className:"rule-row"},React.createElement("span",null,"🏫 Wall drill bonuses"),React.createElement("span",{className:"rule-val",style:{color:"var(--blue)"}},wpts)),
+        React.createElement("div",{className:"rule-row",style:{fontWeight:700}},React.createElement("span",null,"TOTAL"),React.createElement("span",{className:"rule-val",style:{color:"var(--white)",fontSize:17}},myTotal.toLocaleString()))),
+      React.createElement("div",{className:"sec"},TL[user.t]+" Standing"),
+      React.createElement("div",{className:"card",style:{borderTop:"3px solid "+TC[user.t],marginBottom:11}},
+        React.createElement("div",{className:"card-body",style:{display:"flex",justifyContent:"space-between",alignItems:"center",gap:9}},
+          React.createElement("div",null,React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:TC[user.t]}},TL[user.t]),React.createElement("div",{style:{fontSize:9,color:"var(--muted)"}},["—","🥇","🥈","🥉","4th","5th"][teams.findIndex(t=>t.tid===user.t)+1]||""," of 5 teams")),
+          React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:26,color:TC[user.t]}},(td?.pts||0).toLocaleString()),React.createElement("div",{style:{fontSize:8,color:"var(--muted)"}},"team points")))));
   };
 
-  // TODAY content
-  const TodayContent=()=>React.createElement('div',null,
-    React.createElement('div',{className:"drill-hero"},
-      React.createElement('div',{className:"dh-top"},
-        React.createElement('div',{className:"dh-day"},`Day ${CURRENT_DAY} of 15 · ${today.cat} · Week ${today.week}`),
-        React.createElement('div',{className:"dh-name"},today.title)),
+  // ── TODAY ──────────────────────────────────────────────────────────────────
+  const TodayContent=()=>React.createElement("div",null,
+    React.createElement("div",{className:"drill-hero"},
+      React.createElement("div",{className:"dh-top"},
+        React.createElement("div",{className:"dh-day"},"Day "+CURRENT_DAY+" of 15 · "+today.cat+" · Week "+today.week),
+        React.createElement("div",{className:"dh-name"},today.title)),
       React.createElement(VideoPlayer,{ytId:today.yt,ytLabel:today.ytLabel}),
-      React.createElement('div',{className:"dtags"},
-        React.createElement('span',{className:"dtag"},`⏱ ${today.dur}`),
-        React.createElement('span',{className:"dtag red"},"📐 3m×3m"),
-        React.createElement('span',{className:"dtag gold"},`👟 ${today.foot}`),
-        React.createElement('span',{className:"dtag"},"⚽".repeat(today.diff))),
-      React.createElement('div',{className:"cue-box"},today.cue),
-      React.createElement('div',{className:"sec-title-inner"},"📋 The Drill"),
-      React.createElement('div',{className:"drill-desc-txt"},today.desc),
-      React.createElement('div',{className:"drill-sets-txt"},today.sets),
-      React.createElement('div',{className:"tip-box"},"💡 ",React.createElement('strong',null,"Pro Tip:")," ",today.tip),
-      React.createElement('div',{className:"space-box"},React.createElement('span',null,"📐"),React.createElement('div',null,React.createElement('strong',null,"Space Setup:")," ",today.space)),
-      !submitted?React.createElement('div',null,
-        React.createElement('div',{className:"tier-section",style:{paddingTop:14}},
-          React.createElement('div',{className:"tier-lbl"},"How did today's session go?"),
-          TIERS.map(tier=>React.createElement('button',{key:tier.id,className:`tier-btn ${selTier===tier.id?"sel":""}`,style:{borderColor:selTier===tier.id?tier.color:"var(--border)"},onClick:()=>setSelTier(tier.id)},
-            React.createElement('span',{className:"tier-emo"},tier.emoji),
-            React.createElement('div',{className:"tier-info"},
-              React.createElement('div',{className:"tier-name",style:{color:selTier===tier.id?tier.color:"var(--white)"}},tier.label),
-              React.createElement('div',{className:"tier-sub"},tier.subLabel)),
-            React.createElement('span',{className:"tier-pts",style:{color:selTier===tier.id?tier.color:"var(--muted)"}},`+${tier.pts}`)
-          ))),
-        React.createElement('button',{className:`submit-btn ${selTier?"go":"dim"}`,onClick:selTier?doSubmit:undefined},selTier?`✓ LOG MY SESSION · +${todayPts} PTS`:"↑ Select How It Went First"),
-        selTier&&React.createElement('div',{className:"submit-hint"},`Counts toward streak · ${TL[user.t]} points · Squad challenge`)):
-      React.createElement('div',{style:{padding:"14px 15px"}},
-        React.createElement('div',{style:{background:"rgba(0,201,122,.07)",border:"2px solid var(--green)",borderRadius:13,padding:"16px 14px",textAlign:"center"}},
-          React.createElement('div',{style:{fontSize:34,marginBottom:5}},"✅"),
-          React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:18,fontWeight:700,color:"var(--green)"}},"SESSION LOGGED!"),
-          React.createElement('div',{style:{fontFamily:"Anton,sans-serif",fontSize:26,color:"var(--gold)",marginTop:3}},`+${todayPts} PTS EARNED`),
-          React.createElement('div',{style:{fontSize:11,color:"var(--muted)",marginTop:5}},TIERS.find(t=>t.id===selTier)?.label)),
-        React.createElement('button',{className:"ig-option",onClick:()=>setIgModal(true),style:{width:"100%",marginTop:9,border:"1px solid rgba(201,168,76,.28)",background:"rgba(201,168,76,.04)"}},
-          React.createElement('span',{className:"ig-icon"},"📸"),
-          React.createElement('div',{className:"ig-info-txt"},React.createElement('div',{className:"ig-title-txt"},"Share on Instagram"),React.createElement('div',{className:"ig-desc-txt"},"3 share styles ready")),
-          React.createElement('span',{style:{color:"var(--gold)"}},"→")))
-    )
-  );
+      React.createElement("div",{className:"dtags"},
+        React.createElement("span",{className:"dtag"},"⏱ "+today.dur),
+        React.createElement("span",{className:"dtag red"},"📐 3m×3m"),
+        React.createElement("span",{className:"dtag gold"},"👟 "+today.foot),
+        React.createElement("span",{className:"dtag"},"⚽".repeat(today.diff))),
+      React.createElement("div",{className:"cue-box"},today.cue),
+      React.createElement("div",{className:"sec-title-inner"},"📋 The Drill"),
+      React.createElement("div",{className:"drill-desc-txt"},today.desc),
+      React.createElement("div",{className:"drill-sets-txt"},today.sets),
+      React.createElement("div",{className:"tip-box"},"💡 ",React.createElement("strong",null,"Pro Tip:")," ",today.tip),
+      !submitted?React.createElement("div",null,
+        React.createElement("div",{className:"tier-section",style:{paddingTop:13}},
+          React.createElement("div",{className:"tier-lbl"},"How did today's session go?"),
+          TIERS.map(tier=>React.createElement("button",{key:tier.id,className:"tier-btn "+(selTier===tier.id?"sel":""),style:{borderColor:selTier===tier.id?tier.color:"var(--border)"},onClick:()=>setSelTier(tier.id)},
+            React.createElement("span",{className:"tier-emo"},tier.emoji),
+            React.createElement("div",{className:"tier-info"},React.createElement("div",{className:"tier-name",style:{color:selTier===tier.id?tier.color:"var(--white)"}},tier.label),React.createElement("div",{className:"tier-sub"},tier.subLabel)),
+            React.createElement("span",{className:"tier-pts",style:{color:selTier===tier.id?tier.color:"var(--muted)"}},"+"+tier.pts))),
+        React.createElement("button",{className:"submit-btn "+(selTier?"go":"dim"),onClick:selTier?doSubmit:undefined},selTier?"✓ LOG MY SESSION · +"+todayPts+" PTS":"↑ Select How It Went First"),
+        selTier&&React.createElement("div",{className:"submit-hint"},"Counts toward streak · "+TL[user.t]+" points · Squad challenge")):
+      React.createElement("div",{style:{padding:"13px 14px"}},
+        React.createElement("div",{style:{background:"rgba(0,201,122,.07)",border:"2px solid var(--green)",borderRadius:12,padding:"15px 13px",textAlign:"center"}},
+          React.createElement("div",{style:{fontSize:30,marginBottom:4}},"✅"),
+          React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:17,fontWeight:700,color:"var(--green)"}},"SESSION LOGGED!"),
+          React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--gold)",marginTop:3}},"+"+todayPts+" PTS EARNED"),
+          React.createElement("div",{style:{fontSize:10,color:"var(--muted)",marginTop:4}},TIERS.find(t=>t.id===selTier)?.label)))));
 
-  // DRILLS content
-  const DrillsContent=()=>React.createElement('div',null,
-    React.createElement('div',{className:"week-nav"},
-      [1,2,3].map(w=>{const has=DRILLS.some(d=>d.week===w&&d.day<=CURRENT_DAY);return React.createElement('button',{key:w,className:`week-btn ${wf===w?"active":""}`,onClick:()=>setWf(w),style:{opacity:has?1:0.32}},`WK ${w}`,React.createElement('br',null),React.createElement('span',{style:{fontSize:"8px",opacity:.7}},w===1?"FOUND.":w===2?"BUILD":"ELITE"));})),
-    React.createElement('div',{className:"sec"},`Week ${wf} · ${wf===1?"Foundation":wf===2?"Building":"Elite Phase"}`),
-    DRILLS.filter(d=>d.week===wf).map(drill=>{
+  // ── DRILLS ─────────────────────────────────────────────────────────────────
+  const DrillsContent=()=>React.createElement("div",null,
+    React.createElement("div",{className:"week-nav"},
+      [1,2,3].map(w=>{const has=drills.some(d=>d.week===w&&d.day<=CURRENT_DAY);return React.createElement("button",{key:w,className:"week-btn "+(wf===w?"active":""),onClick:()=>setWf(w),style:{opacity:has?1:.32}},"WK "+w,React.createElement("br",null),React.createElement("span",{style:{fontSize:"7px",opacity:.7}},w===1?"FOUND.":w===2?"BUILD":"ELITE"));})),
+    React.createElement("div",{className:"sec"},"Week "+wf+" · "+(wf===1?"Foundation":wf===2?"Building":"Elite Phase")),
+    drills.filter(d=>d.week===wf).map(drill=>{
       const locked=drill.day>CURRENT_DAY;
       const done=doneDays.has(drill.day)||(drill.day===CURRENT_DAY&&submitted);
       const isToday=drill.day===CURRENT_DAY;
-      if(locked)return React.createElement('div',{key:drill.day,className:"drill-row locked"},
-        React.createElement('div',{className:"dd dlocked"},React.createElement('div',{className:"ddnum",style:{color:"var(--border)",fontSize:18}},"🔒"),React.createElement('div',{className:"ddlbl"},`D${drill.day}`)),
-        React.createElement('div',{className:"db"},React.createElement('div',{className:"dcat"},"LOCKED"),React.createElement('div',{className:"dtitle",style:{color:"var(--border)"}},`Unlocks Day ${drill.day}`),React.createElement('div',{className:"dmeta"},React.createElement('span',null,`Available in ${drill.day-CURRENT_DAY} day${drill.day-CURRENT_DAY!==1?"s":""}`))),
-        React.createElement('div',{className:"dstat"},React.createElement('span',{style:{fontSize:14,color:"var(--border)"}},"🔒")));
-      return React.createElement('div',{key:drill.day,className:"drill-row",onClick:()=>setDrillModal(drill)},
-        React.createElement('div',{className:`dd ${done?"ddone":isToday?"dtoday":""}`},React.createElement('div',{className:"ddnum",style:{color:done?"var(--green)":isToday?"var(--red)":"var(--muted)"}},drill.day),React.createElement('div',{className:"ddlbl"},"DAY")),
-        React.createElement('div',{className:"db"},React.createElement('div',{className:"dcat"},drill.cat),React.createElement('div',{className:"dtitle"},drill.title),React.createElement('div',{className:"dmeta"},React.createElement('span',null,`⏱${drill.dur}`),React.createElement('span',null,"⚽".repeat(drill.diff)),React.createElement('span',null,"3m×3m"))),
-        React.createElement('div',{className:"dstat"},done?React.createElement('span',{style:{color:"var(--green)",fontSize:16}},"✓"):isToday?React.createElement('span',{style:{color:"var(--red)",fontSize:8,fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:1,textAlign:"center"}},"TODAY"):React.createElement('span',{style:{color:"var(--border)",fontSize:16}},"○")));
-    }),
-    DRILLS.filter(d=>d.week===wf&&d.day>CURRENT_DAY).length>0&&React.createElement('div',{style:{textAlign:"center",padding:"8px 0",fontFamily:"Rajdhani,sans-serif",fontSize:9,color:"var(--muted)",letterSpacing:2,textTransform:"uppercase"}},`🔒 ${DRILLS.filter(d=>d.week===wf&&d.day>CURRENT_DAY).length} more drills unlock day by day`)
-  );
+      if(locked) return React.createElement("div",{key:drill.day,className:"drill-row locked"},
+        React.createElement("div",{className:"dd dlocked"},React.createElement("div",{className:"ddnum",style:{color:"var(--border)",fontSize:16}},"🔒"),React.createElement("div",{className:"ddlbl"},"D"+drill.day)),
+        React.createElement("div",{className:"db"},React.createElement("div",{className:"dcat"},"LOCKED"),React.createElement("div",{className:"dtitle",style:{color:"var(--border)"}},"Unlocks Day "+drill.day),React.createElement("div",{className:"dmeta"},React.createElement("span",null,(drill.day-CURRENT_DAY)+" day"+(drill.day-CURRENT_DAY!==1?"s":"")+" away"))),
+        React.createElement("div",{className:"dstat"},React.createElement("span",{style:{color:"var(--border)"}},"🔒")));
+      return React.createElement("div",{key:drill.day,className:"drill-row",onClick:()=>setDrillModal(drill)},
+        React.createElement("div",{className:"dd "+(done?"ddone":isToday?"dtoday":"")},React.createElement("div",{className:"ddnum",style:{color:done?"var(--green)":isToday?"var(--red)":"var(--muted)"}},drill.day),React.createElement("div",{className:"ddlbl"},"DAY")),
+        React.createElement("div",{className:"db"},React.createElement("div",{className:"dcat"},drill.cat),React.createElement("div",{className:"dtitle"},drill.title),React.createElement("div",{className:"dmeta"},React.createElement("span",null,"⏱"+drill.dur),React.createElement("span",null,"⚽".repeat(drill.diff)))),
+        React.createElement("div",{className:"dstat"},done?React.createElement("span",{style:{color:"var(--green)",fontSize:15}},"✓"):isToday?React.createElement("span",{style:{color:"var(--red)",fontSize:7,fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,textAlign:"center"}},"TODAY"):React.createElement("span",{style:{color:"var(--border)",fontSize:15}},"○")));
+    }));
 
-  // STANDINGS content
-  const StandingsContent=()=>React.createElement('div',null,
-    React.createElement('div',{className:"grand-card"},
-      React.createElement('div',{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:10}},
-        React.createElement('div',null,React.createElement('div',{className:"grand-title-txt"},"SQUAD CHALLENGE"),React.createElement('div',{className:"grand-sub-txt"},"All 28 Cheetahs United")),
-        React.createElement('div',{className:"grand-pct"},`${grandPct}%`)),
-      React.createElement('div',{className:"grand-track"},React.createElement('div',{className:"grand-fill",style:{width:`${Math.min(100,grandPct)}%`}})),
-      React.createElement('div',{style:{display:"flex",justifyContent:"space-between",fontSize:9,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,marginBottom:6}},
-        React.createElement('span',null,`${grandTotal.toLocaleString()} pts`),React.createElement('span',null,`Target: ${SQUAD_TARGET.toLocaleString()}`)),
-      React.createElement('div',{className:`reward-card ${grandPct>=70?"rwd-unlock":"rwd-locked"}`},React.createElement('strong',null,grandPct>=70?"🎮 UNLOCKED!":"🎮 At 70%:")," Parents vs Players Game — a full friendly match, parents take on the whole squad!",grandPct<70&&` ${(PARENT_THRESH-grandTotal).toLocaleString()} pts needed.`),
-      React.createElement('div',{className:`reward-card ${grandPct>=100?"rwd-unlock":"rwd-locked"}`},React.createElement('strong',null,grandPct>=100?"🍕 UNLOCKED!":"🍕 At 100%:")," Pizza Party for all 28 players — everyone celebrates together!",grandPct<100&&` ${(SQUAD_TARGET-grandTotal).toLocaleString()} pts still needed.`),
-      React.createElement('div',{className:"math-link",onClick:()=>setMathModal(true)},"📊 How is this calculated? →")),
-    React.createElement('div',{className:"sec"},"Team Standings"),
-    teams.map((t,i)=>React.createElement('div',{key:t.tid,className:"team-card"},
-      React.createElement('div',{className:"team-top",style:{background:`linear-gradient(135deg,${t.color}18,${t.color}06)`}},
-        React.createElement('div',null,React.createElement('div',{className:"team-nbig",style:{color:t.color}},t.label),React.createElement('div',{style:{fontSize:9,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},`7 PLAYERS · AVG ${Math.round(t.pts/7).toLocaleString()} PTS`)),
-        React.createElement('div',{style:{textAlign:"right"}},React.createElement('div',{className:"team-pbig",style:{color:t.color}},t.pts.toLocaleString()),i===0&&React.createElement('div',{style:{background:t.color,color:"#000",fontSize:8,fontWeight:700,padding:"2px 7px",borderRadius:999,fontFamily:"Rajdhani,sans-serif",letterSpacing:1,display:"inline-block"}},"LEADING"))),
-      React.createElement('div',{className:"tbar-wrap"},React.createElement('div',{className:"tbar-track"},React.createElement('div',{className:"tbar-fill",style:{width:`${(t.pts/teams[0].pts)*100}%`,background:t.color}}))),
-      React.createElement('div',{className:"tchips"},t.players.map(p=>React.createElement('span',{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i))))),
-    React.createElement('div',{className:"sec"},"Individual Rankings"),
-    allStats.map((p,i)=>React.createElement('div',{key:p.u,className:`lb-row ${p.u===user.u?"me":""}`},
-      React.createElement('div',{className:`lb-rank ${i<3?"top":""}`},i===0?"🥇":i===1?"🥈":i===2?"🥉":`#${i+1}`),
-      React.createElement('div',{className:"lb-av",style:{background:TC[p.t]}},p.i),
-      React.createElement('div',{className:"lb-info"},
-        React.createElement('div',{className:"lb-name"},p.n,(p.u===user.u?" (You)":"")),
-        React.createElement('div',{className:"lb-meta"},React.createElement('span',{style:{color:TC[p.t]}},TL[p.t]),React.createElement('span',null,"·"),React.createElement('span',null,`${p.days}/15`),p.streak>=3&&React.createElement('span',{style:{color:"#ff6b35"}},`🔥${p.streak}`))),
-      React.createElement('div',{className:"lb-pts"},p.total.toLocaleString())))
-  );
+  // ── STANDINGS ──────────────────────────────────────────────────────────────
+  const StandingsContent=()=>React.createElement("div",null,
+    React.createElement("div",{className:"grand-card"},
+      React.createElement("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"flex-start",gap:9}},
+        React.createElement("div",null,React.createElement("div",{className:"grand-title-txt"},"SQUAD CHALLENGE"),React.createElement("div",{className:"grand-sub-txt"},"All 30 Cheetahs — 5 Teams")),
+        React.createElement("div",{className:"grand-pct"},grandPct+"%")),
+      React.createElement("div",{className:"grand-track"},React.createElement("div",{className:"grand-fill",style:{width:Math.min(100,grandPct)+"%"}})),
+      React.createElement("div",{style:{display:"flex",justifyContent:"space-between",fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,marginBottom:5}},
+        React.createElement("span",null,grandTotal.toLocaleString()+" pts"),React.createElement("span",null,"Target: "+squadTarget.toLocaleString())),
+      React.createElement("div",{className:"reward-card "+(grandPct>=70?"rwd-unlock":"rwd-locked")},React.createElement("strong",null,grandPct>=70?"🎮 UNLOCKED!":"🎮 At 70%:")," Parents vs Players Game!",grandPct<70&&" "+(parentThresh-grandTotal).toLocaleString()+" pts needed."),
+      React.createElement("div",{className:"reward-card "+(grandPct>=100?"rwd-unlock":"rwd-locked")},React.createElement("strong",null,grandPct>=100?"🍕 UNLOCKED!":"🍕 At 100%:")," Pizza Party for all 30!",grandPct<100&&" "+(squadTarget-grandTotal).toLocaleString()+" pts still needed."),
+      React.createElement("div",{className:"math-link",onClick:()=>setMathModal(true)},"📊 How is this calculated? →")),
+    React.createElement("div",{className:"sec"},"Score Card"),
+    React.createElement("div",{className:"scorecard-wrap"},
+      React.createElement("div",{className:"scorecard"},
+        React.createElement("div",{className:"sc-header"},
+          React.createElement(CBLogo,{size:42}),
+          React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{className:"sc-club"},"CB CHEETAHS"),React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:9,color:"rgba(201,168,76,.5)",letterSpacing:2,textTransform:"uppercase",marginTop:3}},"BALL MASTERY"))),
+        React.createElement("div",{style:{position:"relative",zIndex:1}},
+          React.createElement("div",{className:"sc-day-badge"},"Day "+CURRENT_DAY+" of 15"),
+          React.createElement("div",{className:"sc-drill"},today.title),
+          React.createElement("div",{className:"sc-tier",style:{color:TIERS.find(t=>t.id===selTier)?.color||"var(--muted)"}},TIERS.find(t=>t.id===selTier)?.label||"Log today's session to update card")),
+        React.createElement("div",{className:"sc-divider"}),
+        React.createElement("div",{className:"sc-stats"},
+          [{l:"MY PTS",v:myTotal.toLocaleString(),c:"var(--gold)"},{l:"RANK",v:"#"+myRank,c:"var(--red)"},{l:"STREAK",v:streak>=1?"🔥"+streak:"—",c:"var(--orange)"}].map(s=>
+            React.createElement("div",{key:s.l,className:"sc-stat"},React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),React.createElement("div",{className:"sc-stat-lbl"},s.l)))),
+        React.createElement("div",{className:"sc-team-bar"},
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
+            React.createElement("div",{style:{width:8,height:8,borderRadius:"50%",background:TC[user.t]}}),
+            React.createElement("div",{className:"sc-team-name",style:{color:TC[user.t]}},TL[user.t])),
+          React.createElement("div",{className:"sc-team-pts"},(teams.find(t=>t.tid===user.t)?.pts||0).toLocaleString()+" pts")),
+        React.createElement("div",{className:"sc-footer"},
+          React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
+    React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
+    React.createElement("div",{className:"sec"},"Team Standings"),
+    teams.map((t,i)=>React.createElement("div",{key:t.tid,className:"team-card"},
+      React.createElement("div",{className:"team-top",style:{background:"linear-gradient(135deg,"+t.color+"18,"+t.color+"06)"}},
+        React.createElement("div",null,React.createElement("div",{className:"team-nbig",style:{color:t.color}},t.label),React.createElement("div",{style:{fontSize:8,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"6 PLAYERS"+(t.players.length>0?" · AVG "+(Math.round(t.pts/Math.max(t.players.length,1))).toLocaleString()+" PTS":""))),
+        React.createElement("div",{style:{textAlign:"right"}},React.createElement("div",{className:"team-pbig",style:{color:t.color}},t.pts.toLocaleString()),i===0&&React.createElement("div",{style:{background:t.color,color:"#000",fontSize:7,fontWeight:700,padding:"2px 6px",borderRadius:999,fontFamily:"Rajdhani,sans-serif",letterSpacing:1,display:"inline-block"}},"LEADING"))),
+      React.createElement("div",{className:"tbar-wrap"},React.createElement("div",{className:"tbar-track"},React.createElement("div",{className:"tbar-fill",style:{width:(teams[0].pts>0?(t.pts/teams[0].pts)*100:0)+"%",background:t.color}}))),
+      React.createElement("div",{className:"tchips"},t.players.map(p=>React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i))))),
+    React.createElement("div",{className:"sec"},"Individual Rankings"),
+    lb.map((p,i)=>React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
+      React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+      React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
+      React.createElement("div",{className:"lb-info"},
+        React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
+        React.createElement("div",{className:"lb-meta"},React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),React.createElement("span",null,"·"),React.createElement("span",null,p.days+"/15"),p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
+      React.createElement("div",{className:"lb-pts"},p.total.toLocaleString()))));
 
-  // POINTS content
+  // ── POINTS ──────────────────────────────────────────────────────────────────
   const PointsContent=()=>{
     const rules=[
       {i:"🔥",l:"Nailed It — clean reps, pushed pace",v:"+50",c:"var(--red)"},
       {i:"💪",l:"Gave It My Best — worked hard, kept going",v:"+25",c:"var(--gold)"},
       {i:"✅",l:"Got Some In — showed up, did what I could",v:"+3",c:"var(--muted)"},
-      {i:"🏫",l:"Full School Wall Session (45 min)",v:"+75",c:"var(--blue)"},
-      {i:"🧱",l:"Half School Wall Session (20+ min)",v:"+35",c:"var(--purple)"},
-      {i:"👟",l:"First Wall Try-Out (any time)",v:"+10",c:"var(--muted)"},
-      {i:"🔥",l:"3-day streak bonus",v:"+100",c:"#ff6b35"},
-      {i:"🔥🔥",l:"5-day streak bonus",v:"+250",c:"#ff6b35"},
-      {i:"🔥🔥🔥",l:"7-day streak bonus (biggest!)",v:"+500",c:"#ff6b35"},
+      {i:"🏫",l:"Full School Wall Session (45 min, outside)",v:"+200",c:"var(--blue)"},
+      {i:"🧱",l:"Wall Session A (30 min, outside)",v:"+150",c:"var(--purple)"},
+      {i:"👟",l:"Wall Session B (30 min, outside)",v:"+150",c:"var(--muted)"},
+      {i:"🔥",l:"3-day streak bonus",v:"+100",c:"var(--orange)"},
+      {i:"🔥🔥",l:"5-day streak bonus",v:"+250",c:"var(--orange)"},
+      {i:"🔥🔥🔥",l:"7-day streak bonus (biggest!)",v:"+500",c:"var(--orange)"},
       {i:"📅",l:"Perfect full 7-day week",v:"+200",c:"var(--gold)"},
       {i:"🏆",l:"Final circuit beats your Day 7 time",v:"+300",c:"var(--gold)"},
     ];
-    return React.createElement('div',null,
-      React.createElement('div',{className:"sec"},"How Points Work"),
-      React.createElement('div',{className:"card"},rules.map((r,i)=>React.createElement('div',{key:i,className:"rule-row"},
-        React.createElement('div',{style:{display:"flex",gap:8,alignItems:"center",flex:1,minWidth:0}},React.createElement('span',{style:{fontSize:14,flexShrink:0}},r.i),React.createElement('span',{style:{fontSize:12,color:"#bbb",lineHeight:1.4}},r.l)),
-        React.createElement('span',{className:"rule-val",style:{color:r.c}},r.v)))),
-      React.createElement('div',{className:"sec"},"Submission Levels"),
-      React.createElement('div',{className:"card"},React.createElement('div',{className:"card-body",style:{padding:"2px 12px"}},
-        TIERS.map((t,i)=>React.createElement('div',{key:t.id,style:{padding:"11px 0",borderBottom:i<2?"1px solid var(--border)":"none"}},
-          React.createElement('div',{style:{display:"flex",alignItems:"center",gap:8,marginBottom:3}},
-            React.createElement('span',{style:{fontSize:18}},t.emoji),
-            React.createElement('span',{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:14,color:t.color,flex:1}},t.label),
-            React.createElement('span',{style:{fontFamily:"Anton,sans-serif",fontSize:18,color:t.color}},`+${t.pts}`)),
-          React.createElement('div',{style:{fontSize:12,color:"var(--muted)",lineHeight:1.5,paddingLeft:26}},t.subLabel))))),
-      React.createElement('div',{className:"sec"},"Squad Rewards"),
-      React.createElement('div',{className:"card"},React.createElement('div',{className:"card-body",style:{fontSize:13,color:"#999",lineHeight:1.8}},
-        "🎮 ",React.createElement('strong',{style:{color:"var(--gold)"}},"70%")," → Parents vs Players Game",React.createElement('br',null),
-        "🍕 ",React.createElement('strong',{style:{color:"var(--green)"}},"100%")," → Pizza Party for all 28",React.createElement('br',null),
-        "Both need the whole squad contributing.",
-        React.createElement('div',{className:"math-link",style:{marginTop:9},onClick:()=>setMathModal(true)},"📊 Show squad maths →"))),
-      React.createElement('div',{className:"sec"},"Streak Rules"),
-      React.createElement('div',{className:"card"},React.createElement('div',{className:"card-body",style:{fontSize:13,color:"#999",lineHeight:1.8}},"Log at least one session each day to maintain your streak. Even \"Got Some In\" (+3 pts) keeps your streak alive. The 7-day streak bonus (+500 pts) is the single biggest multiplier in the programme.")));
+    return React.createElement("div",null,
+      React.createElement("div",{className:"sec"},"How Points Work"),
+      React.createElement("div",{className:"card"},rules.map((r,i)=>React.createElement("div",{key:i,className:"rule-row"},
+        React.createElement("div",{style:{display:"flex",gap:7,alignItems:"center",flex:1,minWidth:0}},React.createElement("span",{style:{fontSize:13,flexShrink:0}},r.i),React.createElement("span",{style:{fontSize:11,color:"#bbb",lineHeight:1.4}},r.l)),
+        React.createElement("span",{className:"rule-val",style:{color:r.c}},r.v)))),
+      React.createElement("div",{className:"sec"},"Submission Levels"),
+      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{padding:"2px 11px"}},
+        TIERS.map((t,i)=>React.createElement("div",{key:t.id,style:{padding:"10px 0",borderBottom:i<2?"1px solid var(--border)":"none"}},
+          React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7,marginBottom:2}},React.createElement("span",{style:{fontSize:17}},t.emoji),React.createElement("span",{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:t.color,flex:1}},t.label),React.createElement("span",{style:{fontFamily:"Anton,sans-serif",fontSize:17,color:t.color}},"+"+t.pts)),
+          React.createElement("div",{style:{fontSize:11,color:"var(--muted)",lineHeight:1.5,paddingLeft:24}},t.subLabel))))),
+      React.createElement("div",{className:"sec"},"Outside Wall Programme"),
+      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
+        "Done outside at any school wall. No space constraints — just find a solid wall and a ball.",React.createElement("br",null),React.createElement("br",null),
+        React.createElement("strong",{style:{color:"var(--blue)"}},"Full Session (45 min) +200 pts"),React.createElement("br",null),"All 5 circuits: Inside-Outside Rapid Fire, Laces Precision Strikes, One-Touch Rebounds, Two-Touch Combos, Cool-down Juggling.",React.createElement("br",null),React.createElement("br",null),
+        React.createElement("strong",{style:{color:"var(--purple)"}},"Session A (30 min) +150 pts"),React.createElement("br",null),"Choose 3 circuits from the full programme.",React.createElement("br",null),React.createElement("br",null),
+        React.createElement("strong",{style:{color:"var(--muted)"}},"Session B (30 min) +150 pts"),React.createElement("br",null),"Another 30-minute session on a different day.")),
+      React.createElement("div",{className:"sec"},"Squad Rewards"),
+      React.createElement("div",{className:"card"},React.createElement("div",{className:"card-body",style:{fontSize:12,color:"#999",lineHeight:1.8}},
+        "🎮 ",React.createElement("strong",{style:{color:"var(--gold)"}},"70%")," → Parents vs Players Game",React.createElement("br",null),
+        "🍕 ",React.createElement("strong",{style:{color:"var(--green)"}},"100%")," → Pizza Party for all 30 players",React.createElement("br",null),"Every session by every player counts.",
+        React.createElement("div",{className:"math-link",style:{marginTop:8},onClick:()=>setMathModal(true)},"📊 Squad maths →"))));
   };
-  // MATH MODAL
-  const MathModal=()=>React.createElement('div',{className:"overlay",onClick:()=>setMathModal(false)},
-    React.createElement('div',{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement('div',{className:"m-handle"}),
-      React.createElement('div',{className:"m-top"},React.createElement('div',{className:"m-day-label"},"Squad Challenge Maths"),React.createElement('div',{className:"m-title-txt"},"📊 How the Target is Calculated")),
-      React.createElement('div',{className:"m-body"},
-        React.createElement('div',{className:"math-panel"},
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Players in squad",React.createElement('span',{className:"math-formula"},"28 players total")),React.createElement('div',{className:"math-val"},"28")),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Total sessions",React.createElement('span',{className:"math-formula"},"28 players × 15 days = 420 sessions")),React.createElement('div',{className:"math-val"},"420")),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Weighted avg pts/session",React.createElement('span',{className:"math-formula"},"Nailed(50)×40% + Best(25)×45% + Bit(3)×15% ≈ 35")),React.createElement('div',{className:"math-val"},"≈ 35 pts")),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Squad target",React.createElement('span',{className:"math-formula"},`28 × 15 × 35 = ${SQUAD_TARGET.toLocaleString()}`)),React.createElement('div',{className:"math-val"},`${SQUAD_TARGET.toLocaleString()} pts`))),
-        React.createElement('div',{className:"math-panel"},
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"🎮 Parent Game (70%)",React.createElement('span',{className:"math-formula"},`${SQUAD_TARGET.toLocaleString()} × 0.70 = ${PARENT_THRESH.toLocaleString()}`)),React.createElement('div',{className:"math-val"},PARENT_THRESH.toLocaleString())),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"🍕 Pizza Party (100%)",React.createElement('span',{className:"math-formula"},"Full squad target")),React.createElement('div',{className:"math-val"},SQUAD_TARGET.toLocaleString()))),
-        React.createElement('div',{className:"math-panel"},
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Earned so far"),React.createElement('div',{className:"math-val",style:{color:"var(--green)"}},grandTotal.toLocaleString())),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Progress"),React.createElement('div',{className:"math-val",style:{color:grandPct>=100?"var(--green)":grandPct>=70?"var(--gold)":"var(--red)"}},`${grandPct}%`)),
-          React.createElement('div',{className:"math-row"},React.createElement('div',{className:"math-lbl"},"Still needed for Pizza Party"),React.createElement('div',{className:"math-val",style:{color:"var(--muted)"}},Math.max(0,SQUAD_TARGET-grandTotal).toLocaleString()))),
-        React.createElement('div',{className:"math-note"},React.createElement('strong',{style:{color:"var(--gold)"}},"💡 Every player matters:"),React.createElement('br',null),"If all 28 log \"Nailed It\" every day: 28×15×50 = ",React.createElement('strong',null,"21,000 pts")," — well above target.",React.createElement('br',null),"Even \"Got Some In\" every day: 28×15×3 = ",React.createElement('strong',null,"1,260 pts"),"."))
-    ));
 
-  // WALL MODAL
-  const WallModalComp=()=>!wallModal?null:React.createElement('div',{className:"overlay",onClick:()=>setWallModal(null)},
-    React.createElement('div',{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement('div',{className:"m-handle"}),
-      React.createElement('div',{className:"m-top"},React.createElement('div',{className:"m-day-label"},"School Wall Bonus"),React.createElement('div',{className:"m-title-txt"},`${wallModal.emoji} ${wallModal.label}`),React.createElement('div',{style:{fontFamily:"Anton,sans-serif",fontSize:26,color:"var(--blue)",marginTop:2}},`+${wallModal.pts} pts`)),
-      React.createElement('div',{className:"m-body"},
-        React.createElement('div',{style:{background:"rgba(56,182,255,.05)",border:"1px solid rgba(56,182,255,.18)",borderRadius:11,padding:"13px",marginBottom:12}},
-          React.createElement('div',{style:{fontWeight:700,fontSize:13,color:"var(--blue)",marginBottom:5,fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"📋 What counts"),
-          React.createElement('div',{style:{fontSize:13,color:"#bbb",lineHeight:1.8}},wallModal.desc)),
-        React.createElement('div',{style:{background:"rgba(201,168,76,.05)",border:"1px solid rgba(201,168,76,.18)",borderRadius:11,padding:"11px",marginBottom:13}},
-          React.createElement('div',{style:{fontSize:12,color:"#d4a84c",lineHeight:1.7}},"⚠ ",React.createElement('strong',null,"Honour system:")," Only log this bonus if you genuinely completed it.")),
-        React.createElement('button',{className:"submit-btn go",style:{margin:0,width:"100%"},onClick:()=>doWall(wallModal.id)},"✓ CONFIRM — I COMPLETED THIS"),
-        React.createElement('div',{style:{textAlign:"center",fontSize:10,color:"var(--muted)",marginTop:9,fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"Each level can only be claimed once."))));
+  // ── MATH MODAL ─────────────────────────────────────────────────────────────
+  const MathModal=()=>React.createElement("div",{className:"overlay",onClick:()=>setMathModal(false)},
+    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
+      React.createElement("div",{className:"m-handle"}),
+      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Squad Challenge Maths"),React.createElement("div",{className:"m-title-txt"},"📊 Target Calculation")),
+      React.createElement("div",{className:"m-body"},
+        React.createElement("div",{className:"math-panel"},
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Players in squad",React.createElement("span",{className:"math-formula"},"30 players total")),React.createElement("div",{className:"math-val"},"30")),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Total sessions",React.createElement("span",{className:"math-formula"},"30 × 15 days = 450 sessions")),React.createElement("div",{className:"math-val"},"450")),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Weighted avg pts/session",React.createElement("span",{className:"math-formula"},"Nailed(50)×40% + Best(25)×45% + Bit(3)×15% ≈ 35")),React.createElement("div",{className:"math-val"},"≈35 pts")),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Squad target",React.createElement("span",{className:"math-formula"},"30 × 15 × 35 = "+squadTarget.toLocaleString())),React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()+" pts"))),
+        React.createElement("div",{className:"math-panel"},
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"🎮 Parent Game (70%)",React.createElement("span",{className:"math-formula"},squadTarget.toLocaleString()+" × 0.70 = "+parentThresh.toLocaleString())),React.createElement("div",{className:"math-val"},parentThresh.toLocaleString())),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"🍕 Pizza Party (100%)"),React.createElement("div",{className:"math-val"},squadTarget.toLocaleString()))),
+        React.createElement("div",{className:"math-panel"},
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Earned so far"),React.createElement("div",{className:"math-val",style:{color:"var(--green)"}},grandTotal.toLocaleString())),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Progress"),React.createElement("div",{className:"math-val",style:{color:grandPct>=100?"var(--green)":grandPct>=70?"var(--gold)":"var(--red)"}},grandPct+"%")),
+          React.createElement("div",{className:"math-row"},React.createElement("div",{className:"math-lbl"},"Still needed"),React.createElement("div",{className:"math-val",style:{color:"var(--muted)"}},Math.max(0,squadTarget-grandTotal).toLocaleString()))),
+        React.createElement("div",{className:"math-note"},React.createElement("strong",{style:{color:"var(--gold)"}},"💡 Every player matters:"),React.createElement("br",null),"All Nailed It every day: 30×15×50 = ",React.createElement("strong",null,"22,500 pts"),React.createElement("br",null),"The target is reachable with honest mixed effort."))));
 
-  // DRILL MODAL
-  const DrillModalComp=()=>!drillModal?null:React.createElement('div',{className:"overlay",onClick:()=>setDrillModal(null)},
-    React.createElement('div',{className:"modal-sheet",onClick:e=>e.stopPropagation()},
-      React.createElement('div',{className:"m-handle"}),
-      React.createElement('div',{className:"m-top"},React.createElement('div',{className:"m-day-label"},`Day ${drillModal.day} · ${drillModal.cat}`),React.createElement('div',{className:"m-title-txt"},drillModal.title)),
-      React.createElement('div',{className:"m-body"},
+  // ── WALL MODAL ─────────────────────────────────────────────────────────────
+  const WallModal=()=>!wallModal?null:React.createElement("div",{className:"overlay",onClick:()=>setWallModal(null)},
+    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
+      React.createElement("div",{className:"m-handle"}),
+      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Outside School Wall"),React.createElement("div",{className:"m-title-txt"},wallModal.emoji+" "+wallModal.label),React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:24,color:"var(--blue)",marginTop:2}},"+"+wallModal.pts+" pts")),
+      React.createElement("div",{className:"m-body"},
+        React.createElement("div",{style:{background:"rgba(56,182,255,.05)",border:"1px solid rgba(56,182,255,.18)",borderRadius:10,padding:"12px",marginBottom:11,whiteSpace:"pre-line",fontSize:12,color:"#bbb",lineHeight:1.7}},wallModal.desc),
+        React.createElement("div",{style:{background:"rgba(201,168,76,.05)",border:"1px solid rgba(201,168,76,.18)",borderRadius:10,padding:"10px 12px",marginBottom:12,fontSize:11,color:"#d4a84c",lineHeight:1.6}},"⚠ Honour system: Only log this if you genuinely completed it."),
+        React.createElement("button",{className:"submit-btn go",style:{margin:0,width:"100%"},onClick:()=>doWall(wallModal.id)},"✓ CONFIRM — I COMPLETED THIS"),
+        React.createElement("div",{style:{textAlign:"center",fontSize:9,color:"var(--muted)",marginTop:8,fontFamily:"Rajdhani,sans-serif",letterSpacing:1}},"Each bonus can only be claimed once."))));
+
+  // ── DRILL MODAL ─────────────────────────────────────────────────────────────
+  const DrillModal=()=>!drillModal?null:React.createElement("div",{className:"overlay",onClick:()=>setDrillModal(null)},
+    React.createElement("div",{className:"modal-sheet",onClick:e=>e.stopPropagation()},
+      React.createElement("div",{className:"m-handle"}),
+      React.createElement("div",{className:"m-top"},React.createElement("div",{className:"m-day-label"},"Day "+drillModal.day+" · "+drillModal.cat),React.createElement("div",{className:"m-title-txt"},drillModal.title)),
+      React.createElement("div",{className:"m-body"},
         React.createElement(VideoPlayer,{ytId:drillModal.yt,ytLabel:drillModal.ytLabel}),
-        React.createElement('div',{className:"dtags",style:{padding:"10px 0 0"}},
-          React.createElement('span',{className:"dtag"},`⏱ ${drillModal.dur}`),React.createElement('span',{className:"dtag red"},"📐 3m×3m"),React.createElement('span',{className:"dtag"},"⚽".repeat(drillModal.diff)),React.createElement('span',{className:"dtag gold"},`👟 ${drillModal.foot}`)),
-        React.createElement('div',{className:"cue-box",style:{margin:"10px 0 0"}},drillModal.cue),
-        React.createElement('div',{style:{fontSize:14,color:"#bbb",lineHeight:1.7,margin:"10px 0"}},drillModal.desc),
-        React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:16,fontWeight:700,color:"var(--red)",marginBottom:9}},drillModal.sets),
-        React.createElement('div',{className:"tip-box",style:{margin:"0 0 9px"}},"💡 ",drillModal.tip),
-        React.createElement('div',{className:"space-box"},React.createElement('span',null,"📐"),React.createElement('div',null,React.createElement('strong',null,"Space:")," ",drillModal.space)))));
+        React.createElement("div",{className:"dtags",style:{padding:"9px 0 0"}},React.createElement("span",{className:"dtag"},"⏱ "+drillModal.dur),React.createElement("span",{className:"dtag red"},"📐 3m×3m"),React.createElement("span",{className:"dtag"},"⚽".repeat(drillModal.diff)),React.createElement("span",{className:"dtag gold"},"👟 "+drillModal.foot)),
+        React.createElement("div",{className:"cue-box",style:{margin:"9px 0 0"}},drillModal.cue),
+        React.createElement("div",{style:{fontSize:13,color:"#bbb",lineHeight:1.7,margin:"9px 0"}},drillModal.desc),
+        React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:15,fontWeight:700,color:"var(--red)",marginBottom:8}},drillModal.sets),
+        React.createElement("div",{className:"tip-box",style:{margin:"0 0 8px"}},"💡 ",drillModal.tip))));
 
-  // INSTAGRAM MODAL
-  const IgModalComp=()=>{
-    const tp=teams.find(t=>t.tid===user.t)?.pts??0;
-    const story=getShare("story");
-    const post=getShare("post");
-    return React.createElement('div',{className:"overlay",onClick:()=>{setIgModal(false);setIgView(null);}},
-      React.createElement('div',{className:"modal-sheet",style:{maxHeight:"90vh"},onClick:e=>e.stopPropagation()},
-        React.createElement('div',{className:"m-handle"}),
-        React.createElement('div',{className:"m-top"},React.createElement('div',{className:"m-day-label"},"Share Your Progress"),React.createElement('div',{className:"m-title-txt"},"📸 Instagram Share Kit")),
-        React.createElement('div',{className:"m-body"},
-          !igView?React.createElement('div',null,
-            React.createElement('p',{style:{fontSize:12,color:"var(--muted)",marginBottom:13,lineHeight:1.6}},"Three ways to share your Cheetahs progress. Tap a style to generate your content."),
-            React.createElement('button',{className:"ig-option",onClick:()=>setIgView("story")},React.createElement('span',{className:"ig-icon"},"📱"),React.createElement('div',{className:"ig-info-txt"},React.createElement('div',{className:"ig-title-txt"},"Story Caption"),React.createElement('div',{className:"ig-desc-txt"},"Short punchy lines for Instagram Stories. Pair with a video clip of your drill."))),
-            React.createElement('button',{className:"ig-option",onClick:()=>setIgView("post")},React.createElement('span',{className:"ig-icon"},"🖼️"),React.createElement('div',{className:"ig-info-txt"},React.createElement('div',{className:"ig-title-txt"},"Feed Post Caption"),React.createElement('div',{className:"ig-desc-txt"},"Full caption with hashtags. Great for a highlights reel or photo."))),
-            React.createElement('button',{className:"ig-option",onClick:()=>setIgView("card")},React.createElement('span',{className:"ig-icon"},"🃏"),React.createElement('div',{className:"ig-info-txt"},React.createElement('div',{className:"ig-title-txt"},"Score Card"),React.createElement('div',{className:"ig-desc-txt"},"Screenshot and post as your Story. Shows your day, tier, and stats.")))):
-          igView==="story"?React.createElement('div',null,
-            React.createElement('button',{className:"back-btn",onClick:()=>setIgView(null)},"← Back"),
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:"var(--white)",marginBottom:7}},"📱 Instagram Story Caption"),
-            React.createElement('p',{style:{fontSize:11,color:"var(--muted)",marginBottom:9}},"Film a 5–15 second clip of your drill, then overlay this text in Instagram Stories."),
-            React.createElement('div',{className:"copy-box"},story),
-            React.createElement('button',{className:`copy-btn ${copied?"copied":""}`,onClick:()=>doCopy(story)},copied?"✅ COPIED!":"📋 COPY CAPTION")):
-          igView==="post"?React.createElement('div',null,
-            React.createElement('button',{className:"back-btn",onClick:()=>setIgView(null)},"← Back"),
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:"var(--white)",marginBottom:7}},"🖼️ Feed Post Caption"),
-            React.createElement('p',{style:{fontSize:11,color:"var(--muted)",marginBottom:9}},"Post a video or photo, then paste this caption into Instagram."),
-            React.createElement('div',{className:"copy-box"},post),
-            React.createElement('button',{className:`copy-btn ${copied?"copied":""}`,onClick:()=>doCopy(post)},copied?"✅ COPIED!":"📋 COPY CAPTION")):
-          React.createElement('div',null,
-            React.createElement('button',{className:"back-btn",onClick:()=>setIgView(null)},"← Back"),
-            React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:13,color:"var(--white)",marginBottom:7}},"🃏 Score Card — Screenshot & Share as Story"),
-            React.createElement('div',{className:"share-card"},
-              React.createElement('div',{style:{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}},React.createElement(CBLogo,{size:44}),React.createElement('div',{style:{fontFamily:"Anton,sans-serif",fontSize:13,color:"var(--gold)",letterSpacing:1.5,textAlign:"right",lineHeight:1.2}},"CB CHEETAHS",React.createElement('br',null),"BALL MASTERY")),
-              React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:10,color:"var(--muted)",letterSpacing:3,textTransform:"uppercase",marginBottom:3}},`Day ${CURRENT_DAY} of 15`),
-              React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:18,fontWeight:700,color:"var(--white)",marginBottom:2,lineHeight:1.2}},today.title),
-              React.createElement('div',{style:{fontFamily:"Rajdhani,sans-serif",fontSize:13,fontWeight:700,color:TIERS.find(t=>t.id===selTier)?.color??"var(--muted)",marginBottom:12}},TIERS.find(t=>t.id===selTier)?.label??"Select your tier on Today tab first"),
-              React.createElement('div',{className:"share-grid"},
-                [{l:"MY PTS",v:myTotal.toLocaleString(),c:"var(--gold)"},{l:"RANK",v:`#${myRank}`,c:"var(--red)"},{l:"STREAK",v:streak>=1?`🔥${streak}`:"—",c:"#ff6b35"}].map(s=>React.createElement('div',{key:s.l,className:"share-stat"},React.createElement('div',{className:"ss-val",style:{color:s.c}},s.v),React.createElement('div',{className:"ss-lbl"},s.l)))),
-              React.createElement('div',{style:{background:"rgba(200,16,46,.1)",border:"1px solid rgba(200,16,46,.28)",borderRadius:7,padding:"6px 9px",fontSize:10,color:"var(--muted)"}},React.createElement('span',{style:{color:"var(--red)",fontWeight:700}},TL[user.t])," · ",tp.toLocaleString()," team pts · #CherryBeachCheetahs")),
-            React.createElement('div',{style:{fontSize:11,color:"var(--muted)",textAlign:"center",marginTop:8,lineHeight:1.6}},"📸 iPhone: Home + Volume Up · Android: Power + Volume Down"))
-        )));
-  };
-
-  // MAIN RENDER
-  return React.createElement('div',{className:"shell"},
-    React.createElement('div',{className:"app-header"},
-      React.createElement('div',{className:"header-inner"},
-        React.createElement('div',{className:"header-left"},
-          React.createElement(CBLogo,{size:40}),
-          React.createElement('div',null,React.createElement('div',{className:"header-club"},"CHERRY BEACH CHEETAHS"),React.createElement('div',{className:"header-sub-txt"},"U15 · 15-Day Ball Mastery"))),
-        React.createElement('div',{className:"header-right"},
-          React.createElement('div',{style:{textAlign:"right"}},
-            React.createElement('div',{className:"hname"},user.n),
-            streak>=3&&React.createElement('div',{className:"hstreak"},`🔥${streak}-day`),
-            React.createElement('div',{className:"hlogout",onClick:()=>setUser(null)},"logout")),
-          React.createElement('div',{className:"av",style:{background:TC[user.t]}},user.i))),
-      React.createElement('nav',{className:"app-nav"},
+  // ── MAIN RENDER ─────────────────────────────────────────────────────────────
+  return React.createElement("div",{className:"shell"},
+    dataLoading&&React.createElement("div",{className:"loading-overlay"},
+      React.createElement("div",{className:"loading-box"},
+        React.createElement("div",{className:"spin"}),
+        React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:13,color:"var(--muted)",letterSpacing:2,textTransform:"uppercase"}},"Loading data…"))),
+    React.createElement("div",{className:"app-header"},
+      React.createElement("div",{className:"header-inner"},
+        React.createElement("div",{className:"header-left"},
+          React.createElement(CBLogo,{size:38}),
+          React.createElement("div",null,React.createElement("div",{className:"header-club"},"CHERRY BEACH CHEETAHS"),React.createElement("div",{className:"header-sub-txt"},"U15 · 15-Day Ball Mastery"))),
+        React.createElement("div",{className:"header-right"},
+          React.createElement("div",{style:{textAlign:"right"}},
+            React.createElement("div",{className:"hname"},user.n),
+            streak>=3&&React.createElement("div",{className:"hstreak"},"🔥"+streak+"-day"),
+            React.createElement("div",{className:"hlogout",onClick:()=>{setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set([1,2,3,4,5,6,7,8,9]))}},"logout")),
+          React.createElement("div",{className:"av",style:{background:TC[user.t]||"#888"}},user.i))),
+      React.createElement("nav",{className:"app-nav"},
         [{id:"home",l:"Home"},{id:"today",l:"Today"},{id:"drills",l:"Drills"},{id:"standings",l:"Standings"},{id:"points",l:"Points"}].map(n=>
-          React.createElement('button',{key:n.id,className:`nav-btn ${tab===n.id?"active":""}`,onClick:()=>goTab(n.id)},n.l)))),
-    React.createElement('div',{className:"content"},
-      React.createElement('div',{className:`page fade ${fade?"":"out"}`},
+          React.createElement("button",{key:n.id,className:"nav-btn "+(tab===n.id?"active":""),onClick:()=>goTab(n.id)},n.l)))),
+    React.createElement("div",{className:"content"},
+      React.createElement("div",{className:"page fade "+(fade?"":"out")},
         tab==="home"&&React.createElement(HomeContent,null),
         tab==="today"&&React.createElement(TodayContent,null),
         tab==="drills"&&React.createElement(DrillsContent,null),
         tab==="standings"&&React.createElement(StandingsContent,null),
         tab==="points"&&React.createElement(PointsContent,null))),
     mathModal&&React.createElement(MathModal,null),
-    wallModal&&React.createElement(WallModalComp,null),
-    drillModal&&React.createElement(DrillModalComp,null),
-    igModal&&React.createElement(IgModalComp,null)
-  );
+    wallModal&&React.createElement(WallModal,null),
+    drillModal&&React.createElement(DrillModal,null));
 }
 
-const root=ReactDOM.createRoot(document.getElementById('root'));
-root.render(React.createElement(App,null));
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App,null));
 </script>
 </body>
 </html>
