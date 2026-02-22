@@ -222,7 +222,9 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNP-6JcvkgWLmu5ag2q6xd7VioAsxZkCqLOjXKLy9ZSBpeaEiceUuSVqWI4ds8OW9i/exec";
+// ⚠️ IMPORTANT: This URL must be updated every time you create a NEW deployment in Apps Script.
+// After pasting the new Code.gs and redeploying, copy the new /exec URL here.
+const APPS_SCRIPT_URL = "PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE";
 
 const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
@@ -263,11 +265,19 @@ const FALLBACK_DRILLS=[
 ];
 
 async function callAPI(action, data={}) {
-  if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return {ok:false,error:"No API configured"};
+  if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return {ok:false,error:"No API configured"};
   try {
     const params=new URLSearchParams({action,...data});
-    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{method:"GET"});
-    return await r.json();
+    // Apps Script redirects script.google.com -> script.googleusercontent.com.
+    // redirect:"follow" + credentials:"omit" ensures this works in all browsers
+    // including mobile Safari when running as a home screen PWA.
+    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{
+      method:"GET",redirect:"follow",credentials:"omit"
+    });
+    if(!r.ok) return {ok:false,error:"Server error "+r.status};
+    const text=await r.text();
+    try { return JSON.parse(text); }
+    catch(e) { return {ok:false,error:"Bad server response — re-check deployment settings."}; }
   } catch(e) { return {ok:false,error:e.message}; }
 }
 
@@ -371,7 +381,7 @@ function App() {
   const today=drills[CURRENT_DAY-1]||drills[0];
 
   useEffect(()=>{
-    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
+    if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
     setDataLoading(true);
     Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions"),callAPI("getPlayers")])
       .then(([dr,cfg,sess,pl])=>{
@@ -383,7 +393,7 @@ function App() {
   },[]);
 
   useEffect(()=>{
-    if(!user||APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
+    if(!user||APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
     callAPI("getPlayerSessions",{username:user.u}).then(r=>{
       if(r.ok&&r.sessions){
         const d=new Set(r.sessions.map(s=>Number(s.day)));
@@ -499,7 +509,7 @@ function App() {
   const doLogin=async function(){
     if(!lu.trim()||!lp.trim()){setLerr("Enter your username and password.");return;}
     setLloading(true);setLerr("");
-    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+    if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
       const demos=[
         {u:"aylah",    pw:"cheetah736",n:"Ayla Hanna",     t:5,i:"AH"},
         {u:"ellac",    pw:"cheetah951",n:"Ella Childs",     t:1,i:"EC"},
@@ -534,7 +544,7 @@ function App() {
     if(!selTier||!user) return;
     setSubmitted(true);
     setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
-    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+    if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
       callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
     }
   };
@@ -543,7 +553,7 @@ function App() {
     if(!user) return;
     setWallDone(prev=>new Set([...prev,wid]));
     setWallModal(null);
-    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+    if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
       const b=WALL_BONUSES.find(w=>w.id===wid);
       callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
     }
