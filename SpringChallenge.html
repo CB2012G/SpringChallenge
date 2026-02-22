@@ -243,7 +243,6 @@ const WALL_BONUSES=[
 ];
 
 const SQUAD_TARGET=30*15*35;
-const PARENT_THRESH=Math.round(SQUAD_TARGET*0.70);
 
 const FALLBACK_DRILLS=[
   {day:1,week:1,title:"Cone Square Sole Roll Circuit",cat:"Ball Mastery",dur:"20 min",diff:2,foot:"Both",yt:"",ytLabel:"Ball Mastery Drill",desc:"Place 4 objects at corners of your 3m×3m square. Roll the ball with the sole of your foot to each corner in sequence.",sets:"10 laps CW (right) + 10 laps CCW (left) · 3 sets · Rest 45 sec",cue:"🔍 BENT KNEES — Your centre of gravity must feel low.",tip:"Use the arch of your sole — not the toe tip, not the heel."},
@@ -349,7 +348,7 @@ function App() {
   const [dataLoading,setDataLoading]=useState(false);
   const [selTier,setSelTier]=useState(null);
   const [submitted,setSubmitted]=useState(false);
-  const [doneDays,setDoneDays]=useState(new Set([1,2,3,4,5,6,7,8,9]));
+  const [doneDays,setDoneDays]=useState(new Set());
   const [wallDone,setWallDone]=useState(new Set());
   const [wallModal,setWallModal]=useState(null);
   const [drillModal,setDrillModal]=useState(null);
@@ -389,7 +388,7 @@ function App() {
   const todayPts=selTier?(TIERS.find(t=>t.id===selTier)||{pts:0}).pts:0;
 
   const getStats=useCallback(function(u){
-    const entries=allSessions.filter(s=>s.username===u);
+    const entries=allSessions.filter(s=>s.username===u&&s.tier!=="wall_bonus");
     const days=[...new Set(entries.map(s=>Number(s.day)))].sort((a,b)=>a-b);
     let streak=0;
     for(let i=days.length-1;i>=0;i--){
@@ -502,7 +501,8 @@ function App() {
     const r=await callAPI("login",{username:lu.trim().toLowerCase(),password:lp.trim()});
     setLloading(false);
     if(r.ok&&r.user){
-      setUser({u:r.user.username,n:r.user.name,t:Number(r.user.team),i:(r.user.name||"").split(" ").map(w=>w[0]).join("").slice(0,2).toUpperCase()});
+      const ini=r.user.initials||(r.user.name||"").split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase();
+      setUser({u:r.user.username,n:r.user.name,t:Number(r.user.team),i:ini});
     } else {
       setLerr(r.error||"Incorrect login — all lowercase. Contact your coach.");
     }
@@ -969,7 +969,7 @@ function App() {
           React.createElement("div",{style:{textAlign:"right"}},
             React.createElement("div",{className:"hname"},user.n),
             streak>=3&&React.createElement("div",{className:"hstreak"},"🔥"+streak+"-day"),
-            React.createElement("div",{className:"hlogout",onClick:function(){setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set([1,2,3,4,5,6,7,8,9]));}},"logout")),
+            React.createElement("div",{className:"hlogout",onClick:function(){setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set());}},"logout")),
           React.createElement("div",{className:"av",style:{background:TC[user.t]||"#888"}},user.i))),
       React.createElement("nav",{className:"app-nav"},
         [{id:"home",l:"Home"},{id:"today",l:"Today"},{id:"drills",l:"Drills"},{id:"standings",l:"Standings"},{id:"points",l:"Points"}].map(function(n){
