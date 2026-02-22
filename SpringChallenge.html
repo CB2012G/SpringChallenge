@@ -446,17 +446,37 @@ function App() {
           const t=drillSess.find(function(s){return Number(s.day)===CURRENT_DAY;});
           if(t) setSelTier(t.tier);
         }
-        // Wall bonus sessions (tier="wall_bonus") -> restore wallDone so
-        // bonuses can't be re-claimed and points persist across logout/refresh
+        // Wall bonus sessions (tier="wall_bonus", bonusId e.g. "wall_full")
+        // Restores wallDone so bonuses can't be re-claimed after logout/refresh
         const wallIds=new Set(
           r.sessions
             .filter(function(s){return s.tier==="wall_bonus"&&s.bonusId;})
             .map(function(s){return s.bonusId;})
         );
-        setWallDone(wallIds);
+        if(wallIds.size>0) setWallDone(wallIds);
       }
     });
   },[user]);
+
+  // Belt-and-suspenders: also seed wallDone from allSessions whenever it loads
+  // allSessions contains wall_bonus rows for ALL players including the logged-in one
+  useEffect(()=>{
+    if(!user||allSessions.length===0) return;
+    const wallIds=new Set(
+      allSessions
+        .filter(function(s){return s.username===user.u&&s.tier==="wall_bonus";})
+        .map(function(s){
+          // allSessions wall_bonus rows have bonusType stored in a field
+          // Try every possible field name the backend might use
+          return s.bonusId||s.bonusType||s.wall_id||s.bonus_id||null;
+        })
+        .filter(Boolean)
+    );
+    if(wallIds.size>0) setWallDone(function(prev){
+      // Merge — don't wipe out anything already set
+      return new Set([...prev,...wallIds]);
+    });
+  },[user,allSessions]);
 
   const todayPts=selTier?(TIERS.find(t=>t.id===selTier)||{pts:0}).pts:0;
 
@@ -603,11 +623,25 @@ function App() {
 
   const doWall=async function(wid){
     if(!user) return;
-    setWallDone(prev=>new Set([...prev,wid]));
     setWallModal(null);
     if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
       const b=WALL_BONUSES.find(w=>w.id===wid);
-      callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
+      const r=await callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
+      if(r.ok){
+        // Only mark done locally AFTER confirmed saved to sheet
+        setWallDone(prev=>new Set([...prev,wid]));
+        // Refresh all sessions so leaderboard totals update
+        callAPI("getAllSessions").then(function(sr){
+          if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
+        });
+      } else {
+        alert("Wall bonus could not be saved: "+(r.error||"Unknown error")+"
+
+Make sure the script is redeployed.");
+      }
+    } else {
+      // Demo mode — just mark done locally
+      setWallDone(prev=>new Set([...prev,wid]));
     }
   };
 
