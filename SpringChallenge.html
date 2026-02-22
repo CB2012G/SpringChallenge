@@ -417,9 +417,10 @@ function App() {
     allPlayers.forEach(function(p){
       if(!validUsername(p.username)) return;
       const nm=String(p.name||"").trim();
-      if(!nm||nm.length>60) return; // skip garbage rows
-      const ini=String(p.initials||"").trim()||(nm.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?");
-      map[p.username]={u:p.username,n:nm,t:Number(p.team)||1,i:ini,days:new Set(),base:0};
+      // Use username as fallback — never drop a player just because their name is missing
+      const displayName=(nm&&nm.length<=60)?nm:String(p.username);
+      const ini=String(p.initials||"").trim()||(displayName.split(" ").map(function(w){return w[0]||"";}).join("").slice(0,2).toUpperCase()||"?");
+      map[p.username]={u:p.username,n:displayName,t:Number(p.team)||1,i:ini,days:new Set(),base:0};
     });
     // If no players loaded yet, fall back to building from sessions
     if(allPlayers.length===0){
@@ -781,20 +782,27 @@ function App() {
               return React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i);
             })));
       }),
-      React.createElement("div",{className:"sec"},"Individual Rankings"),
-      lb.map(function(p,i){
-        return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
-          React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
-          React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
-          React.createElement("div",{className:"lb-info"},
-            React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
-            React.createElement("div",{className:"lb-meta"},
-              React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
-              React.createElement("span",null,"·"),
-              React.createElement("span",null,p.days+"/15"),
-              p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
-          React.createElement("div",{className:"lb-pts"},p.total.toLocaleString()));
-      }));
+      React.createElement("div",{className:"sec"},"Individual Rankings — All Players"),
+      dataLoading
+        ? React.createElement("div",{style:{textAlign:"center",padding:"28px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:13,letterSpacing:1}},
+            React.createElement("div",{className:"spin",style:{margin:"0 auto 12px"}}),
+            "Loading player data…")
+        : lb.length<=1
+          ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
+              "Waiting for player data from Google Sheets")
+          : lb.map(function(p,i){
+              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
+                React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+                React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
+                React.createElement("div",{className:"lb-info"},
+                  React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
+                  React.createElement("div",{className:"lb-meta"},
+                    React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
+                    React.createElement("span",null,"·"),
+                    React.createElement("span",null,p.days+"/15"),
+                    p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
+                React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
+            }));
   }
 
   // POINTS
