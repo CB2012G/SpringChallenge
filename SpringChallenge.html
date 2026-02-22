@@ -366,7 +366,9 @@ function App() {
         if(dr.ok&&dr.drills&&dr.drills.length) setDrills(dr.drills);
         if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
         if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
-        if(pl.ok&&pl.players) setAllPlayers(pl.players);
+        console.log("[getPlayers response]",JSON.stringify(pl));
+        if(pl.ok&&pl.players&&pl.players.length) setAllPlayers(pl.players);
+        else console.warn("[getPlayers] no players returned — ok:",pl&&pl.ok,"count:",pl&&pl.players&&pl.players.length);
       }).finally(()=>setDataLoading(false));
   },[]);
 
@@ -787,9 +789,15 @@ function App() {
         ? React.createElement("div",{style:{textAlign:"center",padding:"28px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:13,letterSpacing:1}},
             React.createElement("div",{className:"spin",style:{margin:"0 auto 12px"}}),
             "Loading player data…")
-        : lb.length<=1
-          ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
-              "Waiting for player data from Google Sheets")
+        : allPlayers.length===0
+          ? React.createElement("div",{style:{background:"rgba(200,16,46,.07)",border:"1px solid rgba(200,16,46,.25)",borderRadius:10,padding:"14px 16px",margin:"4px 0 8px"}},
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontWeight:700,fontSize:12,color:"var(--red)",letterSpacing:1,marginBottom:5}},"PLAYERS SHEET NOT RETURNING DATA"),
+              React.createElement("div",{style:{fontSize:11,color:"#bbb",lineHeight:1.7}},"The getPlayers API call returned no players. Check:"),
+              React.createElement("ul",{style:{fontSize:11,color:"#bbb",lineHeight:2,paddingLeft:18,marginTop:4}},
+                React.createElement("li",null,"Apps Script is redeployed after adding getPlayers action"),
+                React.createElement("li",null,'Players sheet tab is named exactly "Players"'),
+                React.createElement("li",null,'Column headers: username, name, team, initials (row 1)'),
+                React.createElement("li",null,"Open browser console (F12) to see the raw API response")))
           : lb.map(function(p,i){
               return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
                 React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
