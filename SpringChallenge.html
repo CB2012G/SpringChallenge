@@ -437,14 +437,23 @@ function App() {
     if(!user||APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
     callAPI("getPlayerSessions",{username:user.u}).then(r=>{
       if(r.ok&&r.sessions){
-        const d=new Set(r.sessions.map(s=>Number(s.day)));
-        setDoneDays(d);
-        const todayDone=r.sessions.some(s=>Number(s.day)===CURRENT_DAY);
+        // Drill sessions (day > 0) -> doneDays
+        const drillSess=r.sessions.filter(function(s){return Number(s.day)>0;});
+        setDoneDays(new Set(drillSess.map(function(s){return Number(s.day);})));
+        const todayDone=drillSess.some(function(s){return Number(s.day)===CURRENT_DAY;});
         if(todayDone){
           setSubmitted(true);
-          const t=r.sessions.find(s=>Number(s.day)===CURRENT_DAY);
+          const t=drillSess.find(function(s){return Number(s.day)===CURRENT_DAY;});
           if(t) setSelTier(t.tier);
         }
+        // Wall bonus sessions -> wallDone so points survive logout/login
+        const wallIds=new Set(
+          r.sessions
+            .filter(function(s){return s.tier==="wall_bonus";})
+            .map(function(s){return s.bonusId||s.tier_id||s.id;})
+            .filter(Boolean)
+        );
+        if(wallIds.size>0) setWallDone(wallIds);
       }
     });
   },[user]);
