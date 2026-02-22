@@ -344,7 +344,7 @@ function App() {
   const [drills,setDrills]=useState(FALLBACK_DRILLS);
   const [allSessions,setAllSessions]=useState([]);
   const [allPlayers,setAllPlayers]=useState([]);
-  const [config,setConfig]=useState({current_day:10,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0});
+  const [config,setConfig]=useState({current_day:1,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0,programme_start:""});
   const [dataLoading,setDataLoading]=useState(false);
   const [selTier,setSelTier]=useState(null);
   const [submitted,setSubmitted]=useState(false);
@@ -354,7 +354,20 @@ function App() {
   const [drillModal,setDrillModal]=useState(null);
   const [mathModal,setMathModal]=useState(false);
 
-  const CURRENT_DAY=config.current_day||10;
+  // Compute current day from programme_start — the server already does this,
+  // but we also do it client-side so the fallback default is always correct.
+  function computeCurrentDay(startStr) {
+    if(!startStr) return 1;
+    const start=new Date(startStr+"T00:00:00");
+    const today=new Date();
+    today.setHours(0,0,0,0);
+    const diff=Math.floor((today-start)/(24*60*60*1000));
+    return Math.min(Math.max(diff+1,1),15);
+  }
+
+  const CURRENT_DAY=config.programme_start
+    ? computeCurrentDay(config.programme_start)
+    : (config.current_day||1);
   const today=drills[CURRENT_DAY-1]||drills[0];
 
   useEffect(()=>{
@@ -402,7 +415,7 @@ function App() {
 
   const myStats=user?getStats(user.u):{days:0,streak:0,base:0,sb:0,total:0};
   const totalDays=doneDays.size+(submitted&&!doneDays.has(CURRENT_DAY)?1:0);
-  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user&&Number(s.day)===CURRENT_DAY)?todayPts:0);
+  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user.u&&Number(s.day)===CURRENT_DAY)?todayPts:0);
   const streak=(myStats.streak||0)+(submitted&&myStats.streak===0?1:myStats.streak>0&&!doneDays.has(CURRENT_DAY)?1:0);
   const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
   const wpts=[...wallDone].reduce((s,id)=>s+(WALL_BONUSES.find(w=>w.id===id)||{pts:0}).pts,0);
@@ -787,7 +800,7 @@ function App() {
         ? React.createElement("div",{style:{textAlign:"center",padding:"28px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:13,letterSpacing:1}},
             React.createElement("div",{className:"spin",style:{margin:"0 auto 12px"}}),
             "Loading player data…")
-        : lb.length<=1
+        : allPlayers.length===0
           ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
               "Waiting for player data from Google Sheets")
           : lb.map(function(p,i){
