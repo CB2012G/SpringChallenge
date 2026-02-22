@@ -625,9 +625,7 @@ function App() {
           if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
         });
       } else {
-        alert("Session could not be saved: "+(r.error||"Unknown error")+"
-
-Try again or contact your coach.");
+        alert("Session could not be saved: "+(r.error||"Unknown error")+"\n\nTry again or contact your coach.");
       }
     } else {
       // Demo mode
