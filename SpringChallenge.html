@@ -222,7 +222,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwVjCpSiccFFBqEZPyRew1INxOJdrn0zhvx3EcXcfGmJOXvtNIrM0_mpDS7-eYCP6kv/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzbhAESqWpkcrTj7aDy9QP6ovDRno25VdFYQm9ZKU1OwRvAyyxbnpnLGr-nSH6LbwN0/exec";
 
 const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
@@ -297,18 +297,37 @@ function CBLogo({size=80}) {
 
 function VideoPlayer({ytId,ytLabel}) {
   const [playing,setPlaying]=useState(false);
+  const [errored,setErrored]=useState(false);
   const id=(ytId||"").trim();
   if(!id) return React.createElement("div",{className:"video-wrap"},
     React.createElement("div",{className:"video-thumb"},
-      React.createElement("div",{className:"video-cap"},"No video assigned — check Drills sheet")));
-  if(playing) return React.createElement("div",{className:"video-wrap"},
-    React.createElement("iframe",{src:"https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&modestbranding=1&playsinline=1",title:"drill",allowFullScreen:true,allow:"autoplay",style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"}}));
+      React.createElement("div",{className:"video-cap"},"No video assigned — coach can add YouTube ID in Drills sheet")));
+  if(playing&&!errored) return React.createElement("div",{className:"video-wrap"},
+    React.createElement("iframe",{
+      src:"https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&modestbranding=1&playsinline=1&origin="+encodeURIComponent(window.location.origin),
+      title:"drill",allowFullScreen:true,allow:"autoplay; encrypted-media",
+      style:{position:"absolute",inset:0,width:"100%",height:"100%",border:"none"},
+      onError:function(){setErrored(true);}
+    }));
+  if(errored) return React.createElement("div",{className:"video-wrap"},
+    React.createElement("div",{className:"video-thumb"},
+      React.createElement("div",{className:"video-cap"},"Video unavailable"),
+      React.createElement("div",{className:"video-attr",style:{color:"rgba(255,255,255,.25)",textAlign:"center",padding:"0 20px"}},"Coach can update the YouTube ID in the Drills sheet"),
+      React.createElement("a",{
+        href:"https://www.youtube.com/watch?v="+id,
+        target:"_blank",
+        rel:"noopener noreferrer",
+        style:{marginTop:8,padding:"6px 14px",background:"var(--red)",color:"#fff",borderRadius:6,fontSize:10,fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:1,textDecoration:"none"}
+      },"OPEN IN YOUTUBE →")));
+  // Show thumbnail with play button using YouTube thumbnail
+  const thumbUrl="https://img.youtube.com/vi/"+id+"/mqdefault.jpg";
   return React.createElement("div",{className:"video-wrap"},
-    React.createElement("div",{className:"video-thumb",onClick:()=>setPlaying(true)},
-      React.createElement("div",{className:"play-btn"},"▶"),
-      React.createElement("div",{className:"video-cap"},"Watch Drill Demo"),
-      ytLabel&&React.createElement("div",{className:"video-attr"},ytLabel),
-      React.createElement("div",{className:"video-attr",style:{color:"rgba(255,255,255,.15)",marginTop:3}},"If video unavailable, coach can update ID in Drills sheet")));
+    React.createElement("div",{className:"video-thumb",onClick:function(){setPlaying(true);setErrored(false);},
+      style:{backgroundImage:"url("+thumbUrl+")",backgroundSize:"cover",backgroundPosition:"center"}},
+      React.createElement("div",{style:{position:"absolute",inset:0,background:"rgba(0,0,0,0.45)"}}),
+      React.createElement("div",{className:"play-btn",style:{position:"relative",zIndex:1}},"▶"),
+      React.createElement("div",{className:"video-cap",style:{position:"relative",zIndex:1}},"Watch Drill Demo"),
+      ytLabel&&React.createElement("div",{className:"video-attr",style:{position:"relative",zIndex:1}},ytLabel)));
 }
 
 function App() {
