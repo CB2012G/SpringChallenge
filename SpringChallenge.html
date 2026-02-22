@@ -822,11 +822,7 @@ function App() {
                 React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),
                 React.createElement("div",{className:"sc-stat-lbl"},s.l));
             })),
-          React.createElement("div",{className:"sc-team-bar"},
-            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
-              React.createElement("div",{style:{width:8,height:8,borderRadius:"50%",background:TC[user.t]}}),
-              React.createElement("div",{className:"sc-team-name",style:{color:TC[user.t]}},TL[user.t])),
-            React.createElement("div",{className:"sc-team-pts"},(teams.find(t=>t.tid===user.t)||{pts:0}).pts.toLocaleString()+" pts")),
+
           React.createElement("div",{className:"sc-footer"},
             React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
       React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
@@ -848,7 +844,7 @@ function App() {
               return React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i);
             })));
       }),
-      React.createElement("div",{className:"sec"},"Individual Rankings — All Players"),
+      React.createElement("div",{className:"sec"},"Your Position"),
       dataLoading
         ? React.createElement("div",{style:{textAlign:"center",padding:"28px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:13,letterSpacing:1}},
             React.createElement("div",{className:"spin",style:{margin:"0 auto 12px"}}),
@@ -856,19 +852,33 @@ function App() {
         : allPlayers.length===0
           ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
               "Waiting for player data from Google Sheets")
-          : lb.map(function(p,i){
-              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
-                React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
-                React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
-                React.createElement("div",{className:"lb-info"},
-                  React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
-                  React.createElement("div",{className:"lb-meta"},
-                    React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
-                    React.createElement("span",null,"·"),
-                    React.createElement("span",null,p.days+"/15"),
-                    p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
-                React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
-            }));
+          : (function(){
+              const myIdx=lb.findIndex(function(p){return p.u===user.u;});
+              if(myIdx===-1) return null;
+              const rows=[myIdx-1,myIdx,myIdx+1].filter(function(i){return i>=0&&i<lb.length;});
+              return React.createElement("div",null,
+                rows.map(function(i){
+                  const p=lb[i];
+                  const isMe=p.u===user.u;
+                  return React.createElement("div",{key:p.u,
+                    className:"lb-row "+(isMe?"me":""),
+                    style:isMe?{borderColor:"var(--team)",background:"var(--team-faint)"}:{}},
+                    React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},
+                      i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+                    React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
+                    React.createElement("div",{className:"lb-info"},
+                      React.createElement("div",{className:"lb-name",style:isMe?{color:"var(--gold)"}:{}},
+                        p.n+(isMe?" (You)":"")),
+                      React.createElement("div",{className:"lb-meta"},
+                        React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
+                        React.createElement("span",null,"·"),
+                        React.createElement("span",null,p.days+"/15"),
+                        p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
+                    React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
+                }),
+                React.createElement("div",{style:{textAlign:"center",marginTop:14,fontSize:13,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,paddingBottom:4}},
+                  "Ranked #"+(myIdx+1)+" of "+lb.length+" players"));
+            })());
   }
 
   // POINTS
