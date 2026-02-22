@@ -614,10 +614,25 @@ function App() {
 
   const doSubmit=async function(){
     if(!selTier||!user) return;
-    setSubmitted(true);
-    setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
     if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
-      callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
+      // Await confirmation before marking as done locally
+      const r=await callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
+      if(r.ok){
+        setSubmitted(true);
+        setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
+        // Refresh all sessions so leaderboard updates immediately
+        callAPI("getAllSessions").then(function(sr){
+          if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
+        });
+      } else {
+        alert("Session could not be saved: "+(r.error||"Unknown error")+"
+
+Try again or contact your coach.");
+      }
+    } else {
+      // Demo mode
+      setSubmitted(true);
+      setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
     }
   };
 
