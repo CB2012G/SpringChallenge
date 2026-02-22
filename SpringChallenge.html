@@ -559,14 +559,16 @@ function App() {
         {u:"emmae",    pw:"cheetah817",n:"Emma Evdemon",     t:4,i:"EE"},
       ];
       const f=demos.find(p=>p.u===lu.trim().toLowerCase()&&p.pw===lp.trim());
-      if(f){setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
+      if(f){applyTeamTheme(f.t);setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
       setLloading(false);return;
     }
     const r=await callAPI("login",{username:lu.trim().toLowerCase(),password:lp.trim()});
     setLloading(false);
     if(r.ok&&r.user){
+      const tNum=Number(r.user.team)||1;
       const ini=r.user.initials||(r.user.name||"").split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase();
-      setUser({u:r.user.username,n:r.user.name,t:Number(r.user.team),i:ini});
+      applyTeamTheme(tNum);
+      setUser({u:r.user.username,n:r.user.name,t:tNum,i:ini});
     } else {
       setLerr(r.error||"Incorrect login — all lowercase. Contact your coach.");
     }
