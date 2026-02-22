@@ -614,13 +614,15 @@ function App() {
 
   const doSubmit=async function(){
     if(!selTier||!user) return;
+    const dayNum=Number(CURRENT_DAY)||1;
+    const drillTitle=(today&&today.title)?today.title:"Day "+dayNum;
+    const tierStr=String(selTier||"").trim();
+    const pts=Number(todayPts)||0;
     if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
-      // Await confirmation before marking as done locally
-      const r=await callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
+      const r=await callAPI("submitSession",{username:String(user.u),day:dayNum,drillTitle:drillTitle,tier:tierStr,ptsEarned:pts,team:Number(user.t)||1});
       if(r.ok){
         setSubmitted(true);
-        setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
-        // Refresh all sessions so leaderboard updates immediately
+        setDoneDays(prev=>new Set([...prev,dayNum]));
         callAPI("getAllSessions").then(function(sr){
           if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
         });
@@ -628,9 +630,8 @@ function App() {
         alert("Session could not be saved: "+(r.error||"Unknown error")+"\n\nTry again or contact your coach.");
       }
     } else {
-      // Demo mode
       setSubmitted(true);
-      setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
+      setDoneDays(prev=>new Set([...prev,dayNum]));
     }
   };
 
