@@ -437,7 +437,7 @@ function App() {
     if(!user||APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
     callAPI("getPlayerSessions",{username:user.u}).then(r=>{
       if(r.ok&&r.sessions){
-        // Drill sessions (day > 0) -> doneDays
+        // Drill sessions (day > 0) -> doneDays + submitted state
         const drillSess=r.sessions.filter(function(s){return Number(s.day)>0;});
         setDoneDays(new Set(drillSess.map(function(s){return Number(s.day);})));
         const todayDone=drillSess.some(function(s){return Number(s.day)===CURRENT_DAY;});
@@ -446,14 +446,14 @@ function App() {
           const t=drillSess.find(function(s){return Number(s.day)===CURRENT_DAY;});
           if(t) setSelTier(t.tier);
         }
-        // Wall bonus sessions -> wallDone so points survive logout/login
+        // Wall bonus sessions (tier="wall_bonus") -> restore wallDone so
+        // bonuses can't be re-claimed and points persist across logout/refresh
         const wallIds=new Set(
           r.sessions
-            .filter(function(s){return s.tier==="wall_bonus";})
-            .map(function(s){return s.bonusId||s.tier_id||s.id;})
-            .filter(Boolean)
+            .filter(function(s){return s.tier==="wall_bonus"&&s.bonusId;})
+            .map(function(s){return s.bonusId;})
         );
-        if(wallIds.size>0) setWallDone(wallIds);
+        setWallDone(wallIds);
       }
     });
   },[user]);
@@ -832,6 +832,30 @@ function App() {
                 React.createElement("div",{className:"sc-stat-lbl"},s.l));
             })),
 
+          React.createElement("div",{className:"sc-divider",style:{margin:"12px 0 10px"}}),
+          (function(){
+            const myIdx=lb.findIndex(function(p){return p.u===user.u;});
+            if(myIdx===-1) return null;
+            const rows=[myIdx-1,myIdx,myIdx+1].filter(function(i){return i>=0&&i<lb.length;});
+            return React.createElement("div",{style:{marginBottom:10}},
+              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:10,color:"rgba(255,255,255,.3)",letterSpacing:2,textTransform:"uppercase",marginBottom:6,textAlign:"center"}},"YOUR POSITION"),
+              rows.map(function(i){
+                const p=lb[i];
+                const isMe=p.u===user.u;
+                return React.createElement("div",{key:p.u,
+                  style:{display:"flex",alignItems:"center",gap:7,padding:"5px 8px",borderRadius:8,marginBottom:3,
+                    background:isMe?"rgba(255,255,255,.06)":"rgba(255,255,255,.02)",
+                    border:isMe?"1px solid "+TC[user.t]+"55":"1px solid rgba(255,255,255,.06)"}},
+                  React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:12,color:i<3?"var(--gold)":"rgba(255,255,255,.3)",width:20,textAlign:"center",flexShrink:0}},
+                    i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+                  React.createElement("div",{style:{width:22,height:22,borderRadius:"50%",background:TC[p.t],display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Rajdhani,sans-serif",fontSize:9,fontWeight:700,color:"#fff",flexShrink:0}},p.i),
+                  React.createElement("div",{style:{flex:1,minWidth:0}},
+                    React.createElement("div",{style:{fontSize:12,fontWeight:600,color:isMe?TC[user.t]:"rgba(255,255,255,.7)",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}},
+                      p.n+(isMe?" (You)":""))),
+                  React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:14,color:isMe?"var(--gold)":"rgba(255,255,255,.4)",flexShrink:0}},
+                    p.total>0?p.total.toLocaleString():"0"));
+              }));
+          })(),
           React.createElement("div",{className:"sc-footer"},
             React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
       React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
@@ -853,7 +877,7 @@ function App() {
               return React.createElement("span",{key:p.u,className:"tchip",style:{borderColor:p.u===user.u?t.color:"var(--border)",color:p.u===user.u?t.color:"var(--muted)"}},p.i);
             })));
       }),
-      React.createElement("div",{className:"sec"},"Your Position"),
+      React.createElement("div",{className:"sec"},"Individual Rankings — All Players"),
       dataLoading
         ? React.createElement("div",{style:{textAlign:"center",padding:"28px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:13,letterSpacing:1}},
             React.createElement("div",{className:"spin",style:{margin:"0 auto 12px"}}),
@@ -861,33 +885,20 @@ function App() {
         : allPlayers.length===0
           ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
               "Waiting for player data from Google Sheets")
-          : (function(){
-              const myIdx=lb.findIndex(function(p){return p.u===user.u;});
-              if(myIdx===-1) return null;
-              const rows=[myIdx-1,myIdx,myIdx+1].filter(function(i){return i>=0&&i<lb.length;});
-              return React.createElement("div",null,
-                rows.map(function(i){
-                  const p=lb[i];
-                  const isMe=p.u===user.u;
-                  return React.createElement("div",{key:p.u,
-                    className:"lb-row "+(isMe?"me":""),
-                    style:isMe?{borderColor:"var(--team)",background:"var(--team-faint)"}:{}},
-                    React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},
-                      i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
-                    React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
-                    React.createElement("div",{className:"lb-info"},
-                      React.createElement("div",{className:"lb-name",style:isMe?{color:"var(--gold)"}:{}},
-                        p.n+(isMe?" (You)":"")),
-                      React.createElement("div",{className:"lb-meta"},
-                        React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
-                        React.createElement("span",null,"·"),
-                        React.createElement("span",null,p.days+"/15"),
-                        p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
-                    React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
-                }),
-                React.createElement("div",{style:{textAlign:"center",marginTop:14,fontSize:13,color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",letterSpacing:1,paddingBottom:4}},
-                  "Ranked #"+(myIdx+1)+" of "+lb.length+" players"));
-            })());
+          : lb.map(function(p,i){
+              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":""),
+                style:p.u===user.u?{borderColor:"var(--team)",background:"var(--team-faint)"}:{}},
+                React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
+                React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
+                React.createElement("div",{className:"lb-info"},
+                  React.createElement("div",{className:"lb-name",style:p.u===user.u?{color:"var(--gold)"}:{}},p.n+(p.u===user.u?" (You)":"")),
+                  React.createElement("div",{className:"lb-meta"},
+                    React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
+                    React.createElement("span",null,"·"),
+                    React.createElement("span",null,p.days+"/15"),
+                    p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
+                React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
+            });
   }
 
   // POINTS
