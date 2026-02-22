@@ -635,9 +635,7 @@ function App() {
           if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
         });
       } else {
-        alert("Wall bonus could not be saved: "+(r.error||"Unknown error")+"
-
-Make sure the script is redeployed.");
+        alert("Wall bonus could not be saved: "+(r.error||"Unknown error")+"\n\nMake sure the script is redeployed.");
       }
     } else {
       // Demo mode — just mark done locally
