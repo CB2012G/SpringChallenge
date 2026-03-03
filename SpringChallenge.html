@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="theme-color" content="#0d0d0d"/>
-<title>CB Cheetahs — Spring Skills Challenge</title>
+<title>CB Cheetahs — Ball Mastery</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -15,34 +15,8 @@
   --red:#c8102e;--red2:#e01030;--gold:#c9a84c;--gold2:#e8c46a;
   --white:#fff;--muted:#888;--grey:#bbb;
   --green:#00c97a;--blue:#38b6ff;--purple:#7b61ff;--orange:#ff6b35;
-  /* Team theming — overridden dynamically by JS on login */
-  --team:#c8102e;--team2:#e01030;--team-glow:rgba(200,16,46,.18);--team-border:rgba(200,16,46,.22);
-  --team-subtle:rgba(200,16,46,.08);--team-faint:rgba(200,16,46,.04);
 }
-/* Team-themed elements */
-.app-header{border-bottom:1px solid var(--team-border)!important;}
-.nav-btn.active{color:var(--team)!important;border-bottom-color:var(--team)!important;}
-.day-pill{background:var(--team)!important;}
-.hero{border-color:var(--team-border)!important;}
-.hero::after{background:radial-gradient(circle,var(--team-glow),transparent 70%)!important;}
-.stat-card{border-top-color:var(--team)!important;}
-.drill-hero{border-top-color:var(--team)!important;}
-.dh-top{background:linear-gradient(135deg,var(--team-subtle),#1c1c1c)!important;}
-.dh-day{color:var(--team)!important;}
-.dcat{color:var(--team)!important;}
-.drill-sets-txt{color:var(--team)!important;}
-.dtag.red{background:var(--team-faint)!important;border-color:var(--team-border)!important;color:var(--team)!important;}
-.drill-row:hover:not(.locked){border-color:var(--team)!important;}
-.dd.dtoday{background:var(--team-subtle)!important;}
-.ddnum.today-num{color:var(--team)!important;}
-.submit-btn.go{background:linear-gradient(135deg,var(--team),var(--team2))!important;box-shadow:0 5px 18px var(--team-glow)!important;}
-.login-btn{background:linear-gradient(135deg,var(--team),var(--team2))!important;}
-.form-input:focus{border-color:var(--team)!important;box-shadow:0 0 0 3px var(--team-subtle)!important;}
-.prog-fill{background:linear-gradient(90deg,var(--team),var(--gold))!important;}
-.grand-fill{background:linear-gradient(90deg,var(--team),var(--gold))!important;}
-.sec{color:var(--team)!important;}
-.login-prog{color:var(--team)!important;}
-html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3',sans-serif;font-size:17px;height:100%;overflow:hidden;}
+html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3',sans-serif;height:100%;overflow:hidden;}
 #root{height:100%;display:flex;flex-direction:column;}
 .login-page{flex:1;background:radial-gradient(ellipse 80% 60% at 50% 0%,#220008,#0d0d0d 65%);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto;position:relative;}
 .login-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px),repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(200,16,46,.04) 39px,rgba(200,16,46,.04) 40px);pointer-events:none;}
@@ -50,39 +24,39 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .login-card{background:linear-gradient(160deg,#1e1e1e,#161616);border:1px solid var(--border);border-radius:20px;padding:clamp(20px,5vw,40px) clamp(16px,5vw,36px);width:100%;max-width:400px;box-shadow:0 24px 60px rgba(0,0,0,.8),0 0 0 1px rgba(201,168,76,.1);position:relative;z-index:1;}
 .login-logo{text-align:center;margin-bottom:18px;}
 .login-club{font-family:'Anton',sans-serif;font-size:clamp(20px,5.5vw,28px);color:var(--gold);letter-spacing:3px;line-height:1.05;margin-top:10px;}
-.login-sub{font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:3px;}
-.login-prog{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--red);letter-spacing:4px;text-transform:uppercase;margin-top:3px;}
-.lc-note{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:7px;padding:7px 11px;font-size:14px;color:rgba(201,168,76,.7);margin-bottom:14px;text-align:center;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.login-sub{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:3px;}
+.login-prog{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--red);letter-spacing:4px;text-transform:uppercase;margin-top:3px;}
+.lc-note{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.2);border-radius:7px;padding:7px 11px;font-size:11px;color:rgba(201,168,76,.7);margin-bottom:14px;text-align:center;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
 .form-group{margin-bottom:13px;}
-.form-label{display:block;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-family:'Rajdhani',sans-serif;}
+.form-label{display:block;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-family:'Rajdhani',sans-serif;}
 .form-input{width:100%;padding:12px 14px;background:#0f0f0f;border:1px solid var(--border);border-radius:10px;font-size:16px;color:var(--white);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;}
 .form-input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.15);}
 .login-btn{width:100%;padding:14px;border:none;border-radius:11px;background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;letter-spacing:3px;cursor:pointer;text-transform:uppercase;margin-top:2px;}
 .login-btn:active{opacity:.85;}
 .login-btn:disabled{opacity:.55;cursor:default;}
-.forgot-link{text-align:center;margin-top:11px;font-size:14px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.forgot-link{text-align:center;margin-top:11px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
 .forgot-link a{color:var(--gold);cursor:pointer;text-decoration:underline;}
-.login-err{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.35);border-radius:8px;padding:9px 13px;font-size:15px;color:#ff8888;margin-bottom:13px;}
-.login-ok{background:rgba(0,201,122,.08);border:1px solid rgba(0,201,122,.3);border-radius:8px;padding:9px 13px;font-size:15px;color:#00c97a;margin-bottom:13px;}
+.login-err{background:rgba(200,16,46,.1);border:1px solid rgba(200,16,46,.35);border-radius:8px;padding:9px 13px;font-size:12px;color:#ff8888;margin-bottom:13px;}
+.login-ok{background:rgba(0,201,122,.08);border:1px solid rgba(0,201,122,.3);border-radius:8px;padding:9px 13px;font-size:12px;color:#00c97a;margin-bottom:13px;}
 .shell{display:flex;flex-direction:column;height:100%;height:100dvh;}
 .app-header{background:#111;border-bottom:1px solid var(--border);flex-shrink:0;}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:8px 13px;gap:8px;min-height:52px;}
 .header-left{display:flex;align-items:center;gap:8px;flex:1;min-width:0;}
 .header-club{font-family:'Anton',sans-serif;font-size:clamp(12px,3.2vw,16px);color:var(--gold);letter-spacing:1.5px;white-space:nowrap;}
-.header-sub-txt{font-family:'Rajdhani',sans-serif;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
+.header-sub-txt{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;}
 .header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
-.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:#fff;border:2px solid var(--gold);flex-shrink:0;}
-.hname{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;line-height:1.2;}
-.hstreak{font-size:12px;color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;}
-.hlogout{font-size:13px;color:#444;cursor:pointer;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:#fff;border:2px solid var(--gold);flex-shrink:0;}
+.hname{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;line-height:1.2;}
+.hstreak{font-size:9px;color:var(--orange);font-family:'Rajdhani',sans-serif;font-weight:700;}
+.hlogout{font-size:10px;color:#444;cursor:pointer;font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
 .app-nav{display:flex;border-top:1px solid var(--border);background:#0f0f0f;flex-shrink:0;overflow-x:auto;scrollbar-width:none;}
 .app-nav::-webkit-scrollbar{display:none;}
-.nav-btn{flex:1;min-width:50px;background:none;border:none;color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 3px 7px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}
+.nav-btn{flex:1;min-width:50px;background:none;border:none;color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:9px 3px 7px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s;}
 .nav-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;}
 .page{max-width:560px;margin:0 auto;padding:14px 12px 80px;}
 @media(min-width:480px){.page{padding:16px 16px 80px;}}
-.sec{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:8px;}
+.sec{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin:16px 0 8px;display:flex;align-items:center;gap:8px;}
 .sec::after{content:'';flex:1;height:1px;background:var(--border);}
 .sec:first-child{margin-top:0;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:10px;overflow:hidden;}
@@ -91,71 +65,71 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .fade.out{opacity:0;}
 .hero{background:linear-gradient(150deg,#1a0008,#1c1010 60%,#1a0d00 100%);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:15px 13px;margin-bottom:11px;position:relative;overflow:hidden;}
 .hero::after{content:'';position:absolute;top:-30px;right:-15px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.1),transparent 70%);pointer-events:none;}
-.day-pill{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 11px;border-radius:999px;margin-bottom:6px;}
-.hero-greet{font-family:'Rajdhani',sans-serif;font-size:13px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+.day-pill{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 9px;border-radius:999px;margin-bottom:6px;}
+.hero-greet{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
 .hero-name{font-family:'Anton',sans-serif;font-size:clamp(24px,6.5vw,32px);letter-spacing:1.5px;line-height:1.05;margin-bottom:2px;}
-.streak-pill{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#7a2000,#c84400);color:#fff;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;padding:4px 12px;border-radius:999px;margin-top:7px;animation:pulseO 2s infinite;}
+.streak-pill{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,#7a2000,#c84400);color:#fff;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;margin-top:7px;animation:pulseO 2s infinite;}
 @keyframes pulseO{0%,100%{box-shadow:0 0 0 0 rgba(200,68,0,.5);}50%{box-shadow:0 0 0 7px rgba(200,68,0,0);}}
 .prog-wrap{margin-top:10px;}
-.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.prog-meta{display:flex;justify-content:space-between;font-size:9px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
 .prog-track{background:#1a1a1a;border-radius:999px;height:6px;overflow:hidden;border:1px solid var(--border);}
 .prog-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 1.2s ease;}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:11px;}
 .stat-card{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:10px;padding:10px 6px;text-align:center;}
 .stat-val{font-family:'Anton',sans-serif;font-size:clamp(22px,5.5vw,30px);line-height:1;margin-bottom:2px;}
-.stat-lbl{font-family:'Rajdhani',sans-serif;font-size:9px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
 .drill-hero{background:var(--card);border:1px solid var(--border);border-top:3px solid var(--red);border-radius:14px;margin-bottom:11px;overflow:hidden;}
 .dh-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:12px 14px 10px;}
-.dh-day{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--gold);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:3px;}
+.dh-day{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--gold);letter-spacing:3px;font-weight:700;text-transform:uppercase;margin-bottom:3px;}
 .dh-name{font-family:'Rajdhani',sans-serif;font-size:clamp(18px,4.5vw,24px);font-weight:700;line-height:1.15;}
 .dtags{display:flex;gap:5px;flex-wrap:wrap;padding:10px 14px 0;}
-.dtag{background:#111;border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:11px;font-weight:700;color:var(--muted);font-family:'Rajdhani',sans-serif;text-transform:uppercase;}
+.dtag{background:#111;border:1px solid var(--border);border-radius:5px;padding:3px 7px;font-size:8px;font-weight:700;color:var(--muted);font-family:'Rajdhani',sans-serif;text-transform:uppercase;}
 .dtag.red{background:rgba(200,16,46,.1);border-color:rgba(200,16,46,.3);color:var(--red);}
 .dtag.gold{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);color:var(--gold);}
 .video-wrap{margin:10px 14px 0;border-radius:10px;overflow:hidden;aspect-ratio:16/9;position:relative;background:#000;}
 .video-thumb{position:absolute;inset:0;background:linear-gradient(150deg,#1a0008,#0d0d0d);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:7px;}
 .play-btn{width:54px;height:54px;border-radius:50%;background:var(--red);border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;transition:transform .2s;}
 .play-btn:hover{transform:scale(1.08);}
-.video-cap{font-family:'Rajdhani',sans-serif;font-size:13px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;}
-.video-attr{font-size:12px;color:rgba(255,255,255,.2);}
-.cue-box{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:9px 12px;margin:10px 14px 0;font-size:14px;color:#d4a84c;line-height:1.6;font-weight:600;}
-.tip-box{background:rgba(0,201,122,.05);border-left:3px solid var(--green);border-radius:0 7px 7px 0;padding:8px 12px;margin:8px 14px 0;font-size:14px;color:var(--green);line-height:1.5;}
-.drill-desc-txt{padding:10px 14px 0;font-size:15px;color:#bbb;line-height:1.7;}
+.video-cap{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;}
+.video-attr{font-size:8px;color:rgba(255,255,255,.2);}
+.cue-box{background:rgba(201,168,76,.07);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:9px 12px;margin:10px 14px 0;font-size:12px;color:#d4a84c;line-height:1.6;font-weight:600;}
+.tip-box{background:rgba(0,201,122,.05);border-left:3px solid var(--green);border-radius:0 7px 7px 0;padding:8px 12px;margin:8px 14px 0;font-size:12px;color:var(--green);line-height:1.5;}
+.drill-desc-txt{padding:10px 14px 0;font-size:13px;color:#bbb;line-height:1.7;}
 .drill-sets-txt{padding:7px 14px 0;font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;color:var(--red);}
-.sec-title-inner{padding:12px 14px 6px;font-weight:700;font-size:16px;color:var(--white);}
+.sec-title-inner{padding:12px 14px 6px;font-weight:700;font-size:13px;color:var(--white);}
 .tier-section{padding:4px 14px 0;}
-.tier-lbl{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.tier-lbl{font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
 .tier-btn{width:100%;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;border:2px solid var(--border);background:#111;cursor:pointer;transition:border-color .15s;margin-bottom:6px;text-align:left;}
 .tier-btn:active{transform:scale(.98);}
 .tier-emo{font-size:24px;flex-shrink:0;width:30px;text-align:center;}
 .tier-info{flex:1;min-width:0;}
-.tier-name{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;margin-bottom:1px;}
-.tier-sub{font-size:13px;color:var(--muted);line-height:1.35;}
+.tier-name{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;margin-bottom:1px;}
+.tier-sub{font-size:10px;color:var(--muted);line-height:1.35;}
 .tier-pts{font-family:'Anton',sans-serif;font-size:20px;flex-shrink:0;}
 .submit-btn{display:block;width:calc(100% - 28px);margin:10px 14px;padding:14px;border:none;border-radius:10px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all .2s;}
 .submit-btn.go{background:linear-gradient(135deg,var(--red),var(--red2));color:#fff;box-shadow:0 5px 18px rgba(200,16,46,.3);}
 .submit-btn.go:active{transform:scale(.98);}
 .submit-btn.dim{background:#2a0008;color:rgba(255,255,255,.3);cursor:default;}
-.submit-hint{text-align:center;font-size:13px;color:#444;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding-bottom:12px;}
+.submit-hint{text-align:center;font-size:9px;color:#444;font-family:'Rajdhani',sans-serif;letter-spacing:1px;padding-bottom:12px;}
 .wall-section{background:rgba(56,182,255,.03);border:1px solid rgba(56,182,255,.18);border-radius:12px;margin-bottom:11px;overflow:hidden;}
 .wall-hdr{background:rgba(56,182,255,.07);padding:10px 12px;border-bottom:1px solid rgba(56,182,255,.12);}
-.wall-title{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--blue);letter-spacing:1px;}
-.wall-subtitle{font-size:12px;color:rgba(56,182,255,.5);margin-top:2px;}
+.wall-title{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;color:var(--blue);letter-spacing:1px;}
+.wall-subtitle{font-size:10px;color:rgba(56,182,255,.5);margin-top:2px;}
 .wall-btn{display:flex;align-items:center;gap:10px;padding:11px 12px;border-bottom:1px solid rgba(56,182,255,.07);background:transparent;border-left:none;border-right:none;border-top:none;width:100%;text-align:left;cursor:pointer;transition:background .13s;}
 .wall-btn:last-child{border-bottom:none;}
 .wall-btn:hover:not(.wdone){background:rgba(56,182,255,.05);}
 .wall-btn.wdone{opacity:.5;cursor:default;}
 .wall-emo{font-size:18px;width:24px;text-align:center;flex-shrink:0;}
 .wall-info-txt{flex:1;min-width:0;}
-.wall-name{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;margin-bottom:1px;}
-.wall-sub2{font-size:12px;color:var(--muted);line-height:1.3;}
+.wall-name{font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;margin-bottom:1px;}
+.wall-sub2{font-size:10px;color:var(--muted);line-height:1.3;}
 .wall-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--blue);flex-shrink:0;}
-.wall-done-badge{background:rgba(0,201,122,.12);border:1px solid var(--green);color:var(--green);font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;white-space:nowrap;}
-.rule-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;font-size:16px;border-bottom:1px solid var(--border);}
+.wall-done-badge{background:rgba(0,201,122,.12);border:1px solid var(--green);color:var(--green);font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;font-family:'Rajdhani',sans-serif;letter-spacing:1px;white-space:nowrap;}
+.rule-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;font-size:12px;border-bottom:1px solid var(--border);}
 .rule-row:last-child{border:none;}
-.rule-val{font-family:'Rajdhani',sans-serif;font-size:17px;font-weight:700;flex-shrink:0;margin-left:8px;}
+.rule-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;flex-shrink:0;margin-left:8px;}
 .week-nav{display:flex;gap:5px;margin-bottom:11px;}
-.week-btn{flex:1;padding:7px 3px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s;line-height:1.4;}
+.week-btn{flex:1;padding:7px 3px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--muted);font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;text-align:center;transition:all .15s;line-height:1.4;}
 .week-btn.active{background:var(--red);color:#fff;border-color:var(--red);}
 .drill-row{display:flex;align-items:stretch;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;overflow:hidden;cursor:pointer;transition:border-color .13s;}
 .drill-row:hover:not(.locked){border-color:var(--red);}
@@ -165,22 +139,22 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .dd.dtoday{background:rgba(200,16,46,.09);}
 .dd.dlocked{background:#0d0d0d;}
 .ddnum{font-family:'Anton',sans-serif;font-size:18px;line-height:1;}
-.ddlbl{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+.ddlbl{font-family:'Rajdhani',sans-serif;font-size:6px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
 .db{padding:9px 11px;flex:1;min-width:0;}
-.dcat{font-size:10px;color:var(--red);letter-spacing:2px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:1px;}
-.dtitle{font-family:'Rajdhani',sans-serif;font-size:16px;font-weight:700;line-height:1.2;margin-bottom:2px;}
-.dmeta{display:flex;gap:7px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
+.dcat{font-size:8px;color:var(--red);letter-spacing:2px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:1px;}
+.dtitle{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;line-height:1.2;margin-bottom:2px;}
+.dmeta{display:flex;gap:7px;font-size:8px;color:var(--muted);font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
 .dstat{display:flex;align-items:center;justify-content:center;width:30px;flex-shrink:0;}
 .grand-card{background:linear-gradient(150deg,#1a0008,#141414);border:1px solid rgba(200,16,46,.22);border-radius:14px;padding:14px 13px;margin-bottom:11px;}
 .grand-title-txt{font-family:'Anton',sans-serif;font-size:clamp(17px,4.5vw,21px);letter-spacing:2px;line-height:1;}
-.grand-sub-txt{font-family:'Rajdhani',sans-serif;font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2px 0 10px;}
+.grand-sub-txt{font-family:'Rajdhani',sans-serif;font-size:8px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:2px 0 10px;}
 .grand-pct{font-family:'Anton',sans-serif;font-size:clamp(30px,7.5vw,40px);color:var(--gold);line-height:1;}
 .grand-track{background:#111;border-radius:999px;height:10px;overflow:hidden;border:1px solid var(--border);margin:8px 0 4px;}
 .grand-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--red),var(--gold));transition:width 1.5s ease;}
-.reward-card{border-radius:8px;padding:9px 11px;font-size:15px;line-height:1.7;margin-top:7px;}
+.reward-card{border-radius:8px;padding:9px 11px;font-size:11px;line-height:1.6;margin-top:7px;}
 .rwd-locked{background:rgba(255,255,255,.02);border:1px solid var(--border);color:var(--muted);}
 .rwd-unlock{background:rgba(0,201,122,.06);border:1px solid rgba(0,201,122,.28);color:#7af0c0;}
-.math-link{display:inline-flex;align-items:center;gap:4px;font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:8px;cursor:pointer;}
+.math-link{display:inline-flex;align-items:center;gap:4px;font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-top:8px;cursor:pointer;}
 .team-card{border-radius:12px;margin-bottom:8px;overflow:hidden;border:1px solid var(--border);background:var(--card);}
 .team-top{padding:11px 13px;display:flex;align-items:center;justify-content:space-between;}
 .team-nbig{font-family:'Anton',sans-serif;font-size:clamp(16px,4.5vw,20px);letter-spacing:1px;}
@@ -189,55 +163,68 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .tbar-track{background:#111;border-radius:999px;height:4px;overflow:hidden;}
 .tbar-fill{height:100%;border-radius:999px;transition:width 1s ease;}
 .tchips{padding:0 13px 10px;display:flex;gap:4px;flex-wrap:wrap;}
-.tchip{font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;padding:3px 8px;border-radius:999px;background:#111;border:1px solid var(--border);color:var(--muted);}
+.tchip{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;background:#111;border:1px solid var(--border);color:var(--muted);}
 .lb-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--card);border-radius:9px;margin-bottom:5px;border:1px solid var(--border);}
 .lb-row.me{border:2px solid var(--gold);background:rgba(201,168,76,.03);}
 .lb-rank{font-family:'Anton',sans-serif;font-size:15px;color:var(--muted);width:22px;text-align:center;flex-shrink:0;}
 .lb-rank.top{color:var(--gold);}
-.lb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
+.lb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;}
 .lb-info{flex:1;min-width:0;}
-.lb-name{font-weight:600;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.lb-meta{font-size:11px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
-.lb-pts{font-family:'Anton',sans-serif;font-size:22px;color:var(--gold);flex-shrink:0;}
+.lb-name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lb-meta{font-size:9px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
+.lb-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);flex-shrink:0;}
 .scorecard-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
 .scorecard{width:min(360px,100%);aspect-ratio:4/5;background:linear-gradient(160deg,#1a0008 0%,#0d0d0d 45%,#07100a 100%);border:2px solid var(--gold);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .scorecard::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(201,168,76,.015) 24px,rgba(201,168,76,.015) 25px);pointer-events:none;}
 .scorecard::after{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.12),transparent 70%);pointer-events:none;}
 .sc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;position:relative;z-index:1;}
 .sc-club{font-family:'Anton',sans-serif;font-size:13px;color:var(--gold);letter-spacing:2px;line-height:1.2;text-align:right;}
-.sc-day-badge{background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:7px;display:inline-block;}
+.sc-day-badge{background:var(--red);color:#fff;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:7px;display:inline-block;}
 .sc-drill{font-family:'Rajdhani',sans-serif;font-size:clamp(18px,5vw,24px);font-weight:700;color:var(--white);line-height:1.15;margin-bottom:5px;position:relative;z-index:1;}
 .sc-tier{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;margin-bottom:16px;position:relative;z-index:1;}
 .sc-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.4),transparent);margin:0 0 16px;position:relative;z-index:1;}
 .sc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px;position:relative;z-index:1;}
 .sc-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:11px 6px;text-align:center;}
 .sc-stat-val{font-family:'Anton',sans-serif;font-size:clamp(22px,5.5vw,28px);line-height:1;margin-bottom:3px;}
-.sc-stat-lbl{font-family:'Rajdhani',sans-serif;font-size:10px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
+.sc-stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
 .sc-team-bar{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;margin-bottom:14px;}
 .sc-team-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;}
 .sc-team-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);}
-.sc-footer{font-family:'Rajdhani',sans-serif;font-size:12px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;text-align:center;position:relative;z-index:1;margin-top:auto;}
+.sc-footer{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;text-align:center;position:relative;z-index:1;margin-top:auto;}
 .sc-hashtag{color:rgba(201,168,76,.5);}
-.sc-screenshot-hint{text-align:center;padding:10px 0 4px;font-size:14px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
+.sc-screenshot-hint{text-align:center;padding:10px 0 4px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:flex;align-items:flex-end;backdrop-filter:blur(5px);}
 .modal-sheet{background:var(--card);border-top:1px solid var(--border);border-radius:20px 20px 0 0;width:100%;max-height:92vh;max-height:92dvh;overflow-y:auto;animation:slideUp .26s ease;}
 @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
 .m-handle{width:38px;height:4px;background:var(--border);border-radius:2px;margin:10px auto;}
 .m-top{background:linear-gradient(135deg,#1a0008,#1c1c1c);padding:12px 16px 14px;border-bottom:1px solid var(--border);}
-.m-day-label{font-size:13px;color:var(--gold);letter-spacing:3px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:3px;}
+.m-day-label{font-size:8px;color:var(--gold);letter-spacing:3px;font-weight:700;font-family:'Rajdhani',sans-serif;text-transform:uppercase;margin-bottom:3px;}
 .m-title-txt{font-family:'Rajdhani',sans-serif;font-size:clamp(19px,5vw,23px);font-weight:700;line-height:1.1;}
 .m-body{padding:12px 14px 22px;}
 .math-panel{background:#111;border:1px solid var(--border);border-radius:10px;padding:12px;margin:9px 0;}
-.math-row{display:flex;justify-content:space-between;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border);font-size:14px;gap:9px;}
+.math-row{display:flex;justify-content:space-between;align-items:flex-start;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;gap:9px;}
 .math-row:last-child{border:none;}
 .math-lbl{color:var(--muted);line-height:1.4;flex:1;}
-.math-formula{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(201,168,76,.5);display:block;margin-top:2px;}
+.math-formula{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(201,168,76,.5);display:block;margin-top:2px;}
 .math-val{font-family:'Rajdhani',sans-serif;font-size:14px;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
-.math-note{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:14px;color:#bbb;line-height:1.8;}
+.math-note{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:10px 12px;margin-top:8px;font-size:11px;color:#bbb;line-height:1.8;}
 .loading-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:300;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(3px);}
 .loading-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;text-align:center;}
 .spin{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--red);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 12px;}
 @keyframes spin{to{transform:rotate(360deg);}}
+.keepup-section{background:rgba(0,255,170,.03);border-top:1px solid rgba(0,255,170,.08);padding:13px 14px 16px;}
+.keepup-hdr{margin-bottom:10px;}
+.keepup-title{font-family:"Rajdhani",sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,.75);letter-spacing:.5px;margin-bottom:2px;}
+.keepup-sub{font-size:10px;color:var(--muted);line-height:1.4;}
+.keepup-input-row{display:flex;gap:8px;align-items:center;}
+.keepup-input{flex:1;padding:11px 13px;background:#0f0f0f;border:1px solid var(--border);border-radius:10px;font-size:22px;font-family:"Anton",sans-serif;color:var(--white);outline:none;text-align:center;-webkit-appearance:none;transition:border-color .2s;}
+.keepup-input:focus{border-color:rgba(0,201,122,.5);}
+.keepup-btn{padding:11px 18px;border:none;border-radius:10px;font-family:"Rajdhani",sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;background:#1a1a1a;color:#444;border:1px solid var(--border);transition:all .15s;}
+.keepup-btn.active{background:rgba(0,201,122,.12);color:var(--green);border-color:rgba(0,201,122,.35);}
+.keepup-btn:disabled{cursor:default;}
+.keepup-done{display:flex;align-items:baseline;gap:8px;padding:10px 0 2px;}
+.keepup-done-num{font-family:"Anton",sans-serif;font-size:32px;color:var(--green);line-height:1;}
+.keepup-done-lbl{font-family:"Rajdhani",sans-serif;font-size:11px;color:rgba(0,201,122,.6);font-weight:700;letter-spacing:.5px;}
 </style>
 </head>
 <body>
@@ -248,26 +235,9 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-// ⚠️ IMPORTANT: This URL must be updated every time you create a NEW deployment in Apps Script.
-// After pasting the new Code.gs and redeploying, copy the new /exec URL here.
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwQGsPu3JT-6fPNytjYUq5CEhtdCRLs3cgcuCkqgU-4Cv-dhvtfwEZF-0OlQq2xSnBp/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzNP-6JcvkgWLmu5ag2q6xd7VioAsxZkCqLOjXKLy9ZSBpeaEiceUuSVqWI4ds8OW9i/exec";
 
-const TC={1:"#c8102e",2:"#38b6ff",3:"#c9a84c",4:"#00c97a",5:"#7b61ff"};
-const TC2={1:"#e01030",2:"#55d4ff",3:"#e8c46a",4:"#00e68a",5:"#9b81ff"};
-const TGLOW={1:"rgba(200,16,46,.18)",2:"rgba(56,182,255,.18)",3:"rgba(201,168,76,.18)",4:"rgba(0,201,122,.18)",5:"rgba(123,97,255,.18)"};
-const TBORDER={1:"rgba(200,16,46,.22)",2:"rgba(56,182,255,.22)",3:"rgba(201,168,76,.22)",4:"rgba(0,201,122,.22)",5:"rgba(123,97,255,.22)"};
-const TSUBTLE={1:"rgba(200,16,46,.08)",2:"rgba(56,182,255,.08)",3:"rgba(201,168,76,.08)",4:"rgba(0,201,122,.08)",5:"rgba(123,97,255,.08)"};
-const TFAINT={1:"rgba(200,16,46,.04)",2:"rgba(56,182,255,.04)",3:"rgba(201,168,76,.04)",4:"rgba(0,201,122,.04)",5:"rgba(123,97,255,.04)"};
-function applyTeamTheme(teamNum){
-  const t=Number(teamNum)||1;
-  const r=document.documentElement;
-  r.style.setProperty("--team",TC[t]||"#c8102e");
-  r.style.setProperty("--team2",TC2[t]||"#e01030");
-  r.style.setProperty("--team-glow",TGLOW[t]||"rgba(200,16,46,.18)");
-  r.style.setProperty("--team-border",TBORDER[t]||"rgba(200,16,46,.22)");
-  r.style.setProperty("--team-subtle",TSUBTLE[t]||"rgba(200,16,46,.08)");
-  r.style.setProperty("--team-faint",TFAINT[t]||"rgba(200,16,46,.04)");
-}
+const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
 
 const TIERS=[
@@ -306,15 +276,10 @@ const FALLBACK_DRILLS=[
 ];
 
 async function callAPI(action, data={}) {
-  if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return {ok:false,error:"No API configured"};
+  if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return {ok:false,error:"No API configured"};
   try {
     const params=new URLSearchParams({action,...data});
-    // Apps Script redirects script.google.com -> script.googleusercontent.com.
-    // redirect:"follow" + credentials:"omit" ensures this works in all browsers
-    // including mobile Safari when running as a home screen PWA.
-    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{
-      method:"GET",redirect:"follow",credentials:"omit"
-    });
+    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{method:"GET",redirect:"follow",credentials:"omit"});
     if(!r.ok) return {ok:false,error:"Server error "+r.status};
     const text=await r.text();
     try { return JSON.parse(text); }
@@ -404,20 +369,16 @@ function App() {
   const [wallModal,setWallModal]=useState(null);
   const [drillModal,setDrillModal]=useState(null);
   const [mathModal,setMathModal]=useState(false);
+  const [keepupInput,setKeepupInput]=useState("");
+  const [keepupSubmitted,setKeepupSubmitted]=useState(false);
+  const [keepupToday,setKeepupToday]=useState(0);
+  const [allKeepups,setAllKeepups]=useState([]);
 
   // Compute current day from programme_start — the server already does this,
   // but we also do it client-side so the fallback default is always correct.
-  function computeCurrentDay(startVal) {
-    if(!startVal) return 1;
-    let start;
-    if(startVal instanceof Date) {
-      start=new Date(startVal.getFullYear(),startVal.getMonth(),startVal.getDate());
-    } else {
-      // Handle "2026-02-20" or "2026/02/20" or any string
-      const s=String(startVal).trim().replace(/\//g,"-").split("T")[0];
-      start=new Date(s+"T00:00:00");
-    }
-    if(isNaN(start.getTime())) return 1;
+  function computeCurrentDay(startStr) {
+    if(!startStr) return 1;
+    const start=new Date(startStr+"T00:00:00");
     const today=new Date();
     today.setHours(0,0,0,0);
     const diff=Math.floor((today-start)/(24*60*60*1000));
@@ -430,61 +391,39 @@ function App() {
   const today=drills[CURRENT_DAY-1]||drills[0];
 
   useEffect(()=>{
-    if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
+    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
     setDataLoading(true);
-    Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions"),callAPI("getPlayers")])
-      .then(([dr,cfg,sess,pl])=>{
+    Promise.all([callAPI("getDrills"),callAPI("getConfig"),callAPI("getAllSessions"),callAPI("getPlayers"),callAPI("getAllKeepups")])
+      .then(([dr,cfg,sess,pl,ku])=>{
         if(dr.ok&&dr.drills&&dr.drills.length) setDrills(dr.drills);
         if(cfg.ok) setConfig(prev=>({...prev,...cfg.config}));
         if(sess.ok&&sess.sessions) setAllSessions(sess.sessions);
         if(pl.ok&&pl.players) setAllPlayers(pl.players);
+        if(ku.ok&&ku.keepups) setAllKeepups(ku.keepups);
       }).finally(()=>setDataLoading(false));
   },[]);
 
   useEffect(()=>{
-    if(!user||APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE") return;
+    if(!user||APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return;
     callAPI("getPlayerSessions",{username:user.u}).then(r=>{
       if(r.ok&&r.sessions){
-        // Drill sessions (day > 0) -> doneDays + submitted state
-        const drillSess=r.sessions.filter(function(s){return Number(s.day)>0;});
-        setDoneDays(new Set(drillSess.map(function(s){return Number(s.day);})));
-        const todayDone=drillSess.some(function(s){return Number(s.day)===CURRENT_DAY;});
+        const d=new Set(r.sessions.map(s=>Number(s.day)));
+        setDoneDays(d);
+        const todayDone=r.sessions.some(s=>Number(s.day)===CURRENT_DAY);
         if(todayDone){
           setSubmitted(true);
-          const t=drillSess.find(function(s){return Number(s.day)===CURRENT_DAY;});
+          const t=r.sessions.find(s=>Number(s.day)===CURRENT_DAY);
           if(t) setSelTier(t.tier);
         }
-        // Wall bonus sessions (tier="wall_bonus", bonusId e.g. "wall_full")
-        // Restores wallDone so bonuses can't be re-claimed after logout/refresh
-        const wallIds=new Set(
-          r.sessions
-            .filter(function(s){return s.tier==="wall_bonus"&&s.bonusId;})
-            .map(function(s){return s.bonusId;})
-        );
-        if(wallIds.size>0) setWallDone(wallIds);
+      }
+    });
+    callAPI("getPlayerKeepups",{username:user.u}).then(r=>{
+      if(r.ok&&r.keepups){
+        const todayEntry=r.keepups.find(k=>Number(k.day)===CURRENT_DAY);
+        if(todayEntry){ setKeepupToday(Number(todayEntry.count)||0); setKeepupSubmitted(true); }
       }
     });
   },[user]);
-
-  // Belt-and-suspenders: also seed wallDone from allSessions whenever it loads
-  // allSessions contains wall_bonus rows for ALL players including the logged-in one
-  useEffect(()=>{
-    if(!user||allSessions.length===0) return;
-    const wallIds=new Set(
-      allSessions
-        .filter(function(s){return s.username===user.u&&s.tier==="wall_bonus";})
-        .map(function(s){
-          // allSessions wall_bonus rows have bonusType stored in a field
-          // Try every possible field name the backend might use
-          return s.bonusId||s.bonusType||s.wall_id||s.bonus_id||null;
-        })
-        .filter(Boolean)
-    );
-    if(wallIds.size>0) setWallDone(function(prev){
-      // Merge — don't wipe out anything already set
-      return new Set([...prev,...wallIds]);
-    });
-  },[user,allSessions]);
 
   const todayPts=selTier?(TIERS.find(t=>t.id===selTier)||{pts:0}).pts:0;
 
@@ -503,9 +442,7 @@ function App() {
 
   const myStats=user?getStats(user.u):{days:0,streak:0,base:0,sb:0,total:0};
   const totalDays=doneDays.size+(submitted&&!doneDays.has(CURRENT_DAY)?1:0);
-  // basePts: use allSessions as source of truth; only add todayPts optimistically if not yet in allSessions
-  const todayInSessions=user&&allSessions.some(function(s){return s.username===user.u&&Number(s.day)===CURRENT_DAY&&s.tier!=="wall_bonus";});
-  const basePts=myStats.base+(submitted&&!todayInSessions?todayPts:0);
+  const basePts=myStats.base+(submitted&&!allSessions.some(s=>s.username===user.u&&Number(s.day)===CURRENT_DAY)?todayPts:0);
   const streak=(myStats.streak||0)+(submitted&&myStats.streak===0?1:myStats.streak>0&&!doneDays.has(CURRENT_DAY)?1:0);
   const sb=streak>=7?500:streak>=5?250:streak>=3?100:0;
   const wpts=[...wallDone].reduce((s,id)=>s+(WALL_BONUSES.find(w=>w.id===id)||{pts:0}).pts,0);
@@ -543,6 +480,17 @@ function App() {
       if(Number(s.day)>0) map[s.username].days.add(Number(s.day));
       map[s.username].base+=(Number(s.ptsEarned)||0);
     });
+    // Tally keepups per player
+    const kuMap={};
+    allKeepups.forEach(function(k){
+      if(!kuMap[k.username]) kuMap[k.username]=0;
+      kuMap[k.username]+=(Number(k.count)||0);
+    });
+    // Add logged-in player's today keepup optimistically
+    if(user&&keepupSubmitted&&keepupToday>0){
+      const alreadyCounted=allKeepups.some(k=>k.username===user.u&&Number(k.day)===CURRENT_DAY);
+      if(!alreadyCounted){ if(!kuMap[user.u]) kuMap[user.u]=0; kuMap[user.u]+=keepupToday; }
+    }
     return Object.values(map).map(function(p){
       const days=[...p.days].sort((a,b)=>a-b);
       let streak=0;
@@ -551,7 +499,7 @@ function App() {
         else break;
       }
       const sb2=streak>=7?500:streak>=5?250:streak>=3?100:0;
-      return Object.assign({},p,{days:days.length,streak,sb:sb2,total:p.base+sb2});
+      return Object.assign({},p,{days:days.length,streak,sb:sb2,total:p.base+sb2,keepups:kuMap[p.u]||0});
     }).sort(function(a,b){
       // Sort by total points desc; if tied (e.g. all 0 on day 1), sort alphabetically
       if(b.total!==a.total) return b.total-a.total;
@@ -589,7 +537,7 @@ function App() {
   const doLogin=async function(){
     if(!lu.trim()||!lp.trim()){setLerr("Enter your username and password.");return;}
     setLloading(true);setLerr("");
-    if(APPS_SCRIPT_URL==="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
+    if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
       const demos=[
         {u:"aylah",    pw:"cheetah736",n:"Ayla Hanna",     t:5,i:"AH"},
         {u:"ellac",    pw:"cheetah951",n:"Ella Childs",     t:1,i:"EC"},
@@ -598,16 +546,14 @@ function App() {
         {u:"emmae",    pw:"cheetah817",n:"Emma Evdemon",     t:4,i:"EE"},
       ];
       const f=demos.find(p=>p.u===lu.trim().toLowerCase()&&p.pw===lp.trim());
-      if(f){applyTeamTheme(f.t);setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
+      if(f){setUser(f);}else{setLerr("Incorrect login — all lowercase. Contact your coach.");}
       setLloading(false);return;
     }
     const r=await callAPI("login",{username:lu.trim().toLowerCase(),password:lp.trim()});
     setLloading(false);
     if(r.ok&&r.user){
-      const tNum=Number(r.user.team)||1;
       const ini=r.user.initials||(r.user.name||"").split(" ").map(w=>w[0]||"").join("").slice(0,2).toUpperCase();
-      applyTeamTheme(tNum);
-      setUser({u:r.user.username,n:r.user.name,t:tNum,i:ini});
+      setUser({u:r.user.username,n:r.user.name,t:Number(r.user.team),i:ini});
     } else {
       setLerr(r.error||"Incorrect login — all lowercase. Contact your coach.");
     }
@@ -624,46 +570,30 @@ function App() {
 
   const doSubmit=async function(){
     if(!selTier||!user) return;
-    const dayNum=Number(CURRENT_DAY)||1;
-    const drillTitle=(today&&today.title)?today.title:"Day "+dayNum;
-    const tierStr=String(selTier||"").trim();
-    const pts=Number(todayPts)||0;
-    if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
-      const r=await callAPI("submitSession",{username:String(user.u),day:dayNum,drillTitle:drillTitle,tier:tierStr,ptsEarned:pts,team:Number(user.t)||1});
-      if(r.ok){
-        setSubmitted(true);
-        setDoneDays(prev=>new Set([...prev,dayNum]));
-        callAPI("getAllSessions").then(function(sr){
-          if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
-        });
-      } else {
-        alert("Session could not be saved: "+(r.error||"Unknown error")+"\n\nTry again or contact your coach.");
-      }
-    } else {
-      setSubmitted(true);
-      setDoneDays(prev=>new Set([...prev,dayNum]));
+    setSubmitted(true);
+    setDoneDays(prev=>new Set([...prev,CURRENT_DAY]));
+    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+      callAPI("submitSession",{username:user.u,day:CURRENT_DAY,drillTitle:today.title,tier:selTier,ptsEarned:todayPts,team:user.t});
     }
   };
 
   const doWall=async function(wid){
     if(!user) return;
+    setWallDone(prev=>new Set([...prev,wid]));
     setWallModal(null);
-    if(APPS_SCRIPT_URL!=="PASTE_YOUR_NEW_DEPLOYMENT_URL_HERE"){
+    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
       const b=WALL_BONUSES.find(w=>w.id===wid);
-      const r=await callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
-      if(r.ok){
-        // Only mark done locally AFTER confirmed saved to sheet
-        setWallDone(prev=>new Set([...prev,wid]));
-        // Refresh all sessions so leaderboard totals update
-        callAPI("getAllSessions").then(function(sr){
-          if(sr.ok&&sr.sessions) setAllSessions(sr.sessions);
-        });
-      } else {
-        alert("Wall bonus could not be saved: "+(r.error||"Unknown error")+"\n\nMake sure the script is redeployed.");
-      }
-    } else {
-      // Demo mode — just mark done locally
-      setWallDone(prev=>new Set([...prev,wid]));
+      callAPI("submitWallBonus",{username:user.u,bonusType:wid,pts:b?b.pts:0,team:user.t});
+    }
+  };
+
+  const doKeepup=async function(){
+    const count=parseInt(keepupInput,10);
+    if(!count||count<1||!user) return;
+    setKeepupToday(count);
+    setKeepupSubmitted(true);
+    if(APPS_SCRIPT_URL!=="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE"){
+      callAPI("submitKeepup",{username:user.u,day:CURRENT_DAY,count});
     }
   };
 
@@ -675,8 +605,8 @@ function App() {
       React.createElement("div",{className:"login-logo"},
         React.createElement(CBLogo,{size:78}),
         React.createElement("div",{className:"login-club"},"CHERRY BEACH CHEETAHS"),
-        React.createElement("div",{className:"login-sub"},"U14 Ball Mastery Challenge"),
-        React.createElement("div",{className:"login-prog"},"15-Day Indoor Program · 3m × 3m")),
+        React.createElement("div",{className:"login-sub"},"U15 Ball Mastery Challenge"),
+        React.createElement("div",{className:"login-prog"},"15-Day Indoor Programme · 3m × 3m")),
       React.createElement("div",{className:"lc-note"},"👤 Username: firstname + last initial  |  All lowercase"),
       lerr&&React.createElement("div",{className:"login-err"},"⚠ "+lerr),
       lok&&React.createElement("div",{className:"login-ok"},"✓ "+lok),
@@ -802,7 +732,32 @@ function App() {
         React.createElement("div",{className:"drill-desc-txt"},today.desc),
         React.createElement("div",{className:"drill-sets-txt"},today.sets),
         React.createElement("div",{className:"tip-box"},"💡 ",React.createElement("strong",null,"Pro Tip:")," ",today.tip),
-        submitted ? sessionDone : sessionForm));
+        submitted ? sessionDone : sessionForm,
+        React.createElement("div",{className:"keepup-section"},
+          React.createElement("div",{className:"keepup-hdr"},
+            React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
+            React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
+          keepupSubmitted
+            ? React.createElement("div",{className:"keepup-done"},
+                React.createElement("span",{className:"keepup-done-num"},keepupToday.toLocaleString()),
+                React.createElement("span",{className:"keepup-done-lbl"},"keep-ups logged today ✓"))
+            : React.createElement("div",{className:"keepup-input-row"},
+                React.createElement("input",{
+                  className:"keepup-input",
+                  type:"number",
+                  inputMode:"numeric",
+                  placeholder:"e.g. 42",
+                  min:"1",
+                  max:"9999",
+                  value:keepupInput,
+                  onChange:function(e){setKeepupInput(e.target.value);},
+                  onKeyDown:function(e){if(e.key==="Enter"&&keepupInput)doKeepup();}
+                }),
+                React.createElement("button",{
+                  className:"keepup-btn "+(keepupInput&&parseInt(keepupInput,10)>0?"active":""),
+                  onClick:doKeepup,
+                  disabled:!keepupInput||parseInt(keepupInput,10)<1
+                },"LOG")))));
   }
 
   // DRILLS
@@ -887,31 +842,11 @@ function App() {
                 React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),
                 React.createElement("div",{className:"sc-stat-lbl"},s.l));
             })),
-
-          React.createElement("div",{className:"sc-divider",style:{margin:"12px 0 10px"}}),
-          (function(){
-            const myIdx=lb.findIndex(function(p){return p.u===user.u;});
-            if(myIdx===-1) return null;
-            const rows=[myIdx-1,myIdx,myIdx+1].filter(function(i){return i>=0&&i<lb.length;});
-            return React.createElement("div",{style:{marginBottom:10}},
-              React.createElement("div",{style:{fontFamily:"Rajdhani,sans-serif",fontSize:10,color:"rgba(255,255,255,.3)",letterSpacing:2,textTransform:"uppercase",marginBottom:6,textAlign:"center"}},"YOUR POSITION"),
-              rows.map(function(i){
-                const p=lb[i];
-                const isMe=p.u===user.u;
-                return React.createElement("div",{key:p.u,
-                  style:{display:"flex",alignItems:"center",gap:7,padding:"5px 8px",borderRadius:8,marginBottom:3,
-                    background:isMe?"rgba(255,255,255,.06)":"rgba(255,255,255,.02)",
-                    border:isMe?"1px solid "+TC[user.t]+"55":"1px solid rgba(255,255,255,.06)"}},
-                  React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:12,color:i<3?"var(--gold)":"rgba(255,255,255,.3)",width:20,textAlign:"center",flexShrink:0}},
-                    i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
-                  React.createElement("div",{style:{width:22,height:22,borderRadius:"50%",background:TC[p.t],display:"flex",alignItems:"center",justifyContent:"center",fontFamily:"Rajdhani,sans-serif",fontSize:9,fontWeight:700,color:"#fff",flexShrink:0}},p.i),
-                  React.createElement("div",{style:{flex:1,minWidth:0}},
-                    React.createElement("div",{style:{fontSize:12,fontWeight:600,color:isMe?TC[user.t]:"rgba(255,255,255,.7)",whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}},
-                      p.n+(isMe?" (You)":""))),
-                  React.createElement("div",{style:{fontFamily:"Anton,sans-serif",fontSize:14,color:isMe?"var(--gold)":"rgba(255,255,255,.4)",flexShrink:0}},
-                    p.total>0?p.total.toLocaleString():"0"));
-              }));
-          })(),
+          React.createElement("div",{className:"sc-team-bar"},
+            React.createElement("div",{style:{display:"flex",alignItems:"center",gap:7}},
+              React.createElement("div",{style:{width:8,height:8,borderRadius:"50%",background:TC[user.t]}}),
+              React.createElement("div",{className:"sc-team-name",style:{color:TC[user.t]}},TL[user.t])),
+            React.createElement("div",{className:"sc-team-pts"},(teams.find(t=>t.tid===user.t)||{pts:0}).pts.toLocaleString()+" pts")),
           React.createElement("div",{className:"sc-footer"},
             React.createElement("span",{className:"sc-hashtag"},"#CherryBeachCheetahs")," · Ball Mastery Challenge"))),
       React.createElement("div",{className:"sc-screenshot-hint"},"📸 Screenshot and post to Instagram"),
@@ -942,18 +877,19 @@ function App() {
           ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
               "Waiting for player data from Google Sheets")
           : lb.map(function(p,i){
-              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":""),
-                style:p.u===user.u?{borderColor:"var(--team)",background:"var(--team-faint)"}:{}},
+              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
                 React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
                 React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
                 React.createElement("div",{className:"lb-info"},
-                  React.createElement("div",{className:"lb-name",style:p.u===user.u?{color:"var(--gold)"}:{}},p.n+(p.u===user.u?" (You)":"")),
+                  React.createElement("div",{className:"lb-name"},p.n+(p.u===user.u?" (You)":"")),
                   React.createElement("div",{className:"lb-meta"},
                     React.createElement("span",{style:{color:TC[p.t]}},TL[p.t]),
                     React.createElement("span",null,"·"),
                     React.createElement("span",null,p.days+"/15"),
                     p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
-                React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"));
+                React.createElement("div",{style:{textAlign:"right",flexShrink:0}},
+                  React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"),
+                  p.keepups>0&&React.createElement("div",{style:{fontSize:9,color:"rgba(255,255,255,.28)",fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,marginTop:1}},"🎾 "+p.keepups.toLocaleString())));
             }));
   }
 
