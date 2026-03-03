@@ -279,8 +279,9 @@ async function callAPI(action, data={}) {
   if(APPS_SCRIPT_URL==="YOUR_APPS_SCRIPT_WEBAPP_URL_HERE") return {ok:false,error:"No API configured"};
   try {
     const params=new URLSearchParams({action,...data});
-    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{method:"GET",redirect:"follow",credentials:"omit"});
-    if(!r.ok) return {ok:false,error:"Server error "+r.status};
+    // Apps Script does a cross-origin redirect. We read the body as text regardless
+    // of HTTP status — the JSON payload itself carries ok:true/false.
+    const r=await fetch(`${APPS_SCRIPT_URL}?${params}`,{method:"GET",redirect:"follow"});
     const text=await r.text();
     try { return JSON.parse(text); }
     catch(e) { return {ok:false,error:"Bad server response — re-check deployment settings."}; }
