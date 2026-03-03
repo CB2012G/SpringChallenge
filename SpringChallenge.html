@@ -424,6 +424,11 @@ function App() {
         if(todayEntry){ setKeepupToday(Number(todayEntry.count)||0); setKeepupSubmitted(true); }
       }
     });
+    // Refresh allKeepups so the standings show correctly immediately on login
+    // without requiring a new submission to trigger the optimistic update.
+    callAPI("getAllKeepups").then(r=>{
+      if(r.ok&&r.keepups) setAllKeepups(r.keepups);
+    });
   },[user]);
 
   const todayPts=selTier?(TIERS.find(t=>t.id===selTier)||{pts:0}).pts:0;
@@ -481,16 +486,22 @@ function App() {
       if(Number(s.day)>0) map[s.username].days.add(Number(s.day));
       map[s.username].base+=(Number(s.ptsEarned)||0);
     });
-    // Tally keepups per player
+    // Tally keepups per player from server data
     const kuMap={};
     allKeepups.forEach(function(k){
       if(!kuMap[k.username]) kuMap[k.username]=0;
       kuMap[k.username]+=(Number(k.count)||0);
     });
-    // Add logged-in player's today keepup optimistically
+    // Optimistically add today's keepup if just submitted this session
+    // (i.e. allKeepups hasn't been refreshed yet from the server)
     if(user&&keepupSubmitted&&keepupToday>0){
-      const alreadyCounted=allKeepups.some(k=>k.username===user.u&&Number(k.day)===CURRENT_DAY);
-      if(!alreadyCounted){ if(!kuMap[user.u]) kuMap[user.u]=0; kuMap[user.u]+=keepupToday; }
+      const serverHasToday=allKeepups.some(function(k){
+        return String(k.username).toLowerCase()===String(user.u).toLowerCase()&&Number(k.day)===CURRENT_DAY;
+      });
+      if(!serverHasToday){
+        if(!kuMap[user.u]) kuMap[user.u]=0;
+        kuMap[user.u]+=keepupToday;
+      }
     }
     return Object.values(map).map(function(p){
       const days=[...p.days].sort((a,b)=>a-b);
