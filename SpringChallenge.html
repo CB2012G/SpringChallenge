@@ -370,7 +370,6 @@ function App() {
   const [wallModal,setWallModal]=useState(null);
   const [drillModal,setDrillModal]=useState(null);
   const [mathModal,setMathModal]=useState(false);
-  const [keepupInput,setKeepupInput]=useState("");
   const [keepupSubmitted,setKeepupSubmitted]=useState(false);
   const [keepupToday,setKeepupToday]=useState(0);
   const [allKeepups,setAllKeepups]=useState([]);
@@ -599,8 +598,7 @@ function App() {
     }
   };
 
-  const doKeepup=async function(){
-    const count=parseInt(keepupInput,10);
+  const doKeepup=async function(count){
     if(!count||count<1||!user) return;
     setKeepupToday(count);
     setKeepupSubmitted(true);
@@ -704,6 +702,43 @@ function App() {
             React.createElement("div",{style:{fontSize:8,color:"var(--muted)"}},"team points")))));
   }
 
+  // KEEPUP SECTION — isolated component so typing doesn't re-render App
+  function KeepupSection({submitted, today, onSubmit}) {
+    const [val, setVal] = useState("");
+    const handleSubmit = function() {
+      const n = parseInt(val, 10);
+      if(n >= 1) onSubmit(n);
+    };
+    if(submitted) return React.createElement("div",{className:"keepup-section"},
+      React.createElement("div",{className:"keepup-hdr"},
+        React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
+        React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
+      React.createElement("div",{className:"keepup-done"},
+        React.createElement("span",{className:"keepup-done-num"},today.toLocaleString()),
+        React.createElement("span",{className:"keepup-done-lbl"},"keep-ups logged today ✓")));
+    return React.createElement("div",{className:"keepup-section"},
+      React.createElement("div",{className:"keepup-hdr"},
+        React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
+        React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
+      React.createElement("div",{className:"keepup-input-row"},
+        React.createElement("input",{
+          className:"keepup-input",
+          type:"number",
+          inputMode:"numeric",
+          placeholder:"e.g. 42",
+          min:"1",
+          max:"9999",
+          value:val,
+          onChange:function(e){setVal(e.target.value);},
+          onKeyDown:function(e){if(e.key==="Enter"&&val)handleSubmit();}
+        }),
+        React.createElement("button",{
+          className:"keepup-btn "+(val&&parseInt(val,10)>0?"active":""),
+          onClick:handleSubmit,
+          disabled:!val||parseInt(val,10)<1
+        },"LOG")));
+  }
+
   // TODAY — fixed: use function body with variables instead of arrow + giant ternary
   function TodayContent() {
     const sessionForm = React.createElement("div",null,
@@ -745,31 +780,11 @@ function App() {
         React.createElement("div",{className:"drill-sets-txt"},today.sets),
         React.createElement("div",{className:"tip-box"},"💡 ",React.createElement("strong",null,"Pro Tip:")," ",today.tip),
         submitted ? sessionDone : sessionForm,
-        React.createElement("div",{className:"keepup-section"},
-          React.createElement("div",{className:"keepup-hdr"},
-            React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
-            React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
-          keepupSubmitted
-            ? React.createElement("div",{className:"keepup-done"},
-                React.createElement("span",{className:"keepup-done-num"},keepupToday.toLocaleString()),
-                React.createElement("span",{className:"keepup-done-lbl"},"keep-ups logged today ✓"))
-            : React.createElement("div",{className:"keepup-input-row"},
-                React.createElement("input",{
-                  className:"keepup-input",
-                  type:"number",
-                  inputMode:"numeric",
-                  placeholder:"e.g. 42",
-                  min:"1",
-                  max:"9999",
-                  value:keepupInput,
-                  onChange:function(e){setKeepupInput(e.target.value);},
-                  onKeyDown:function(e){if(e.key==="Enter"&&keepupInput)doKeepup();}
-                }),
-                React.createElement("button",{
-                  className:"keepup-btn "+(keepupInput&&parseInt(keepupInput,10)>0?"active":""),
-                  onClick:doKeepup,
-                  disabled:!keepupInput||parseInt(keepupInput,10)<1
-                },"LOG")))));
+        React.createElement(KeepupSection,{
+          submitted:keepupSubmitted,
+          today:keepupToday,
+          onSubmit:doKeepup
+        })));
   }
 
   // DRILLS
