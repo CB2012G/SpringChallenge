@@ -916,7 +916,7 @@ function App() {
                     p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
                 React.createElement("div",{style:{textAlign:"right",flexShrink:0}},
                   React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"),
-                  p.keepups>0&&React.createElement("div",{style:{fontSize:9,color:"rgba(255,255,255,.28)",fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,marginTop:1}},""KU: "+p.keepups.toLocaleString())));
+                  p.keepups>0&&React.createElement("div",{style:{fontSize:9,color:"rgba(255,255,255,.28)",fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,marginTop:1}},"KU: "+p.keepups.toLocaleString())));
             }));
   }
 
