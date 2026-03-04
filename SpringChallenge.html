@@ -231,7 +231,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.22.5/babel.min.js"></script>
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
@@ -711,14 +711,14 @@ function App() {
     };
     if(submitted) return React.createElement("div",{className:"keepup-section"},
       React.createElement("div",{className:"keepup-hdr"},
-        React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
+        React.createElement("div",{className:"keepup-title"},"Tennis Ball Keep-Ups"),
         React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
       React.createElement("div",{className:"keepup-done"},
         React.createElement("span",{className:"keepup-done-num"},today.toLocaleString()),
         React.createElement("span",{className:"keepup-done-lbl"},"keep-ups logged today ✓")));
     return React.createElement("div",{className:"keepup-section"},
       React.createElement("div",{className:"keepup-hdr"},
-        React.createElement("div",{className:"keepup-title"},"🎾 Tennis Ball Keep-Ups"),
+        React.createElement("div",{className:"keepup-title"},"Tennis Ball Keep-Ups"),
         React.createElement("div",{className:"keepup-sub"},"How many did you do today? Log your best set.")),
       React.createElement("div",{className:"keepup-input-row"},
         React.createElement("input",{
@@ -916,7 +916,7 @@ function App() {
                     p.streak>=3&&React.createElement("span",{style:{color:"var(--orange)"}},"🔥"+p.streak))),
                 React.createElement("div",{style:{textAlign:"right",flexShrink:0}},
                   React.createElement("div",{className:"lb-pts"},p.total>0?p.total.toLocaleString():"—"),
-                  p.keepups>0&&React.createElement("div",{style:{fontSize:9,color:"rgba(255,255,255,.28)",fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,marginTop:1}},"🎾 "+p.keepups.toLocaleString())));
+                  p.keepups>0&&React.createElement("div",{style:{fontSize:9,color:"rgba(255,255,255,.28)",fontFamily:"Rajdhani,sans-serif",fontWeight:700,letterSpacing:.5,marginTop:1}},""KU: "+p.keepups.toLocaleString())));
             }));
   }
 
