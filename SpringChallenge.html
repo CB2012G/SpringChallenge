@@ -165,16 +165,16 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .tchips{padding:0 13px 10px;display:flex;gap:4px;flex-wrap:wrap;}
 .tchip{font-family:'Rajdhani',sans-serif;font-size:8px;font-weight:700;padding:2px 6px;border-radius:999px;background:#111;border:1px solid var(--border);color:var(--muted);}
 .lb-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--card);border-radius:9px;margin-bottom:5px;border:1px solid var(--border);}
-.lb-row.me{border:2px solid var(--gold);background:rgba(201,168,76,.03);}
+.lb-row.me{border:2px solid var(--team-color,var(--gold));background:rgba(128,128,128,.04);}
 .lb-rank{font-family:'Anton',sans-serif;font-size:15px;color:var(--muted);width:22px;text-align:center;flex-shrink:0;}
 .lb-rank.top{color:var(--gold);}
 .lb-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rajdhani',sans-serif;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;}
 .lb-info{flex:1;min-width:0;}
 .lb-name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .lb-meta{font-size:9px;color:var(--muted);display:flex;gap:5px;font-family:'Rajdhani',sans-serif;font-weight:600;flex-wrap:wrap;}
-.lb-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);flex-shrink:0;}
+.lb-pts{font-family:'Anton',sans-serif;font-size:18px;color:var(--gold);flex-shrink:0;} .lb-row.me .lb-pts{color:var(--team-color,var(--gold));}
 .scorecard-wrap{display:flex;justify-content:center;padding:4px 0 10px;}
-.scorecard{width:min(360px,100%);aspect-ratio:4/5;background:linear-gradient(160deg,#1a0008 0%,#0d0d0d 45%,#07100a 100%);border:2px solid var(--gold);border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.scorecard{width:min(360px,100%);aspect-ratio:4/5;background:linear-gradient(160deg,#1a0008 0%,#0d0d0d 45%,#07100a 100%);border:2px solid var(--team-color,var(--gold));border-radius:18px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 .scorecard::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(201,168,76,.015) 24px,rgba(201,168,76,.015) 25px);pointer-events:none;}
 .scorecard::after{content:'';position:absolute;top:-60px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(200,16,46,.12),transparent 70%);pointer-events:none;}
 .sc-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;position:relative;z-index:1;}
@@ -189,7 +189,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 .sc-stat-lbl{font-family:'Rajdhani',sans-serif;font-size:7px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:700;}
 .sc-team-bar{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;margin-bottom:14px;}
 .sc-team-name{font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:700;}
-.sc-team-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--gold);}
+.sc-team-pts{font-family:'Anton',sans-serif;font-size:20px;color:var(--team-color,var(--gold));}
 .sc-footer{font-family:'Rajdhani',sans-serif;font-size:9px;color:rgba(255,255,255,.2);letter-spacing:2px;text-transform:uppercase;text-align:center;position:relative;z-index:1;margin-top:auto;}
 .sc-hashtag{color:rgba(201,168,76,.5);}
 .sc-screenshot-hint{text-align:center;padding:10px 0 4px;font-size:11px;color:var(--muted);font-family:'Rajdhani',sans-serif;letter-spacing:.5px;}
@@ -237,7 +237,7 @@ const {useState,useEffect,useCallback}=React;
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz3VlQrpjGiDPgC0W0uetPeU6qh8qgT82_ZKf3PknMutDd_qzNRSJaUS7eQYjJl3iid/exec";
 
-const TC={1:"#c8102e",2:"#888",3:"#c9a84c",4:"#555",5:"#7b61ff"};
+const TC={1:"#c8102e",2:"#38b6ff",3:"#c9a84c",4:"#00c97a",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
 
 const TIERS=[
@@ -852,7 +852,7 @@ function App() {
         React.createElement("div",{className:"math-link",onClick:function(){setMathModal(true);}},"📊 How is this calculated? →")),
       React.createElement("div",{className:"sec"},"Score Card"),
       React.createElement("div",{className:"scorecard-wrap"},
-        React.createElement("div",{className:"scorecard"},
+        React.createElement("div",{className:"scorecard",style:{"--team-color":TC[user.t]}},
           React.createElement("div",{className:"sc-header"},
             React.createElement(CBLogo,{size:42}),
             React.createElement("div",{style:{textAlign:"right"}},
@@ -864,7 +864,7 @@ function App() {
             React.createElement("div",{className:"sc-tier",style:{color:(TIERS.find(t=>t.id===selTier)||{color:"var(--muted)"}).color}},(TIERS.find(t=>t.id===selTier)||{label:"Log today's session to update card"}).label)),
           React.createElement("div",{className:"sc-divider"}),
           React.createElement("div",{className:"sc-stats"},
-            [{l:"MY PTS",v:myTotal.toLocaleString(),c:"var(--gold)"},{l:"RANK",v:"#"+myRank,c:"var(--red)"},{l:"STREAK",v:streak>=1?"🔥"+streak:"—",c:"var(--orange)"}].map(function(s){
+            [{l:"MY PTS",v:myTotal.toLocaleString(),c:TC[user.t]},{l:"RANK",v:"#"+myRank,c:"var(--red)"},{l:"STREAK",v:streak>=1?"🔥"+streak:"—",c:"var(--orange)"}].map(function(s){
               return React.createElement("div",{key:s.l,className:"sc-stat"},
                 React.createElement("div",{className:"sc-stat-val",style:{color:s.c}},s.v),
                 React.createElement("div",{className:"sc-stat-lbl"},s.l));
@@ -904,7 +904,7 @@ function App() {
           ? React.createElement("div",{style:{textAlign:"center",padding:"24px 0",color:"var(--muted)",fontFamily:"Rajdhani,sans-serif",fontSize:12,letterSpacing:.5}},
               "Waiting for player data from Google Sheets")
           : lb.map(function(p,i){
-              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":"")},
+              return React.createElement("div",{key:p.u,className:"lb-row "+(p.u===user.u?"me":""),style:p.u===user.u?{"--team-color":TC[user.t]}:{}}),
                 React.createElement("div",{className:"lb-rank "+(i<3?"top":"")},i===0?"🥇":i===1?"🥈":i===2?"🥉":"#"+(i+1)),
                 React.createElement("div",{className:"lb-av",style:{background:TC[p.t]}},p.i),
                 React.createElement("div",{className:"lb-info"},
@@ -1084,7 +1084,7 @@ function App() {
           React.createElement("div",{style:{textAlign:"right"}},
             React.createElement("div",{className:"hname"},user.n),
             streak>=3&&React.createElement("div",{className:"hstreak"},"🔥"+streak+"-day"),
-            React.createElement("div",{className:"hlogout",onClick:function(){setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set());}},"logout")),
+            React.createElement("div",{className:"hlogout",onClick:function(){setUser(null);setSubmitted(false);setSelTier(null);setWallDone(new Set());setDoneDays(new Set());setKeepupSubmitted(false);setKeepupToday(0);}},"logout")),
           React.createElement("div",{className:"av",style:{background:TC[user.t]||"#888"}},user.i))),
       React.createElement("nav",{className:"app-nav"},
         [{id:"home",l:"Home"},{id:"today",l:"Today"},{id:"drills",l:"Drills"},{id:"standings",l:"Standings"},{id:"points",l:"Points"}].map(function(n){
