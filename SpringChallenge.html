@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
 <meta name="theme-color" content="#0d0d0d"/>
-<title>CB Cheetahs — Skills Challenge</title>
+<title>CB Cheetahs — Ball Mastery</title>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani:wght@400;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -378,7 +378,10 @@ function App() {
   // but we also do it client-side so the fallback default is always correct.
   function computeCurrentDay(startStr) {
     if(!startStr) return 1;
-    const start=new Date(startStr+"T00:00:00");
+    // Parse as LOCAL midnight by splitting manually — new Date("yyyy-MM-dd")
+    // parses as UTC which can shift the day in negative-offset timezones.
+    const p=startStr.split("-");
+    const start=new Date(Number(p[0]),Number(p[1])-1,Number(p[2]));
     const today=new Date();
     today.setHours(0,0,0,0);
     const diff=Math.floor((today-start)/(24*60*60*1000));
