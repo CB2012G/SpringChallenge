@@ -235,7 +235,7 @@ html,body{background:var(--black);color:var(--white);font-family:'Source Sans 3'
 <script type="text/babel">
 const {useState,useEffect,useCallback}=React;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyz1N3u6J7_MXk0PHa8IeJl89kD-UdiHSe-GAyiKs19wBEC3jTMZvUeQCaCm-0xTQNC/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyYsLRb83nYy2hTmeLbB1vfgIo8OZW2ohMKWH6KuQys3qpyvmTYA8UN9BfHMsdLYbuB/exec";
 
 const TC={1:"#c8102e",2:"#38b6ff",3:"#c9a84c",4:"#00c97a",5:"#7b61ff"};
 const TL={1:"Red Hawks",2:"Blue Lightning",3:"Gold Rush",4:"Green Machine",5:"Purple Reign"};
@@ -361,7 +361,7 @@ function App() {
   const [drills,setDrills]=useState(FALLBACK_DRILLS);
   const [allSessions,setAllSessions]=useState([]);
   const [allPlayers,setAllPlayers]=useState([]);
-  const [config,setConfig]=useState({current_day:1,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0,programme_start:"2026-03-06"});
+  const [config,setConfig]=useState({current_day:4,squad_target:SQUAD_TARGET,parent_game_pct:.7,pizza_party_pct:1.0,programme_start:""});
   const [dataLoading,setDataLoading]=useState(false);
   const [selTier,setSelTier]=useState(null);
   const [submitted,setSubmitted]=useState(false);
@@ -388,9 +388,7 @@ function App() {
     return Math.min(Math.max(diff+1,1),15);
   }
 
-  const CURRENT_DAY=config.programme_start
-    ? computeCurrentDay(config.programme_start)
-    : (config.current_day||1);
+  const CURRENT_DAY=config.current_day||4;
   const today=drills[CURRENT_DAY-1]||drills[0];
 
   useEffect(()=>{
