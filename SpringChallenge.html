@@ -515,6 +515,7 @@ function App() {
     }).sort(function(a,b){
       // Sort by total points desc; if tied (e.g. all 0 on day 1), sort alphabetically
       if(b.total!==a.total) return b.total-a.total;
+      if(b.keepups!==a.keepups) return b.keepups-a.keepups;
       return a.n.localeCompare(b.n);
     });
   };
@@ -524,7 +525,7 @@ function App() {
   // Do NOT override server totals — leaderboard should reflect server state only
   if(user&&!lb.find(p=>p.u===user.u)){
     lb.push({u:user.u,n:user.n,t:user.t,i:user.i,days:0,streak:0,base:0,sb:0,total:0,keepups:0});
-    lb.sort((a,b)=>b.total-a.total||a.n.localeCompare(b.n));
+    lb.sort((a,b)=>b.total-a.total||(b.keepups-a.keepups)||a.n.localeCompare(b.n));
   }
 
   const myRank=user?lb.findIndex(p=>p.u===user.u)+1:"—";
