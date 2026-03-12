@@ -520,13 +520,11 @@ function App() {
   };
 
   const lb=buildLeaderboard();
+  // Only add the player to leaderboard if they are completely missing from server data
+  // Do NOT override server totals — leaderboard should reflect server state only
   if(user&&!lb.find(p=>p.u===user.u)){
-    lb.push({u:user.u,n:user.n,t:user.t,i:user.i,days:doneDays.size+(submitted?1:0),streak,base:basePts,sb,total:myTotal});
-    lb.sort((a,b)=>b.total-a.total);
-  } else if(user){
-    const me=lb.find(p=>p.u===user.u);
-    if(me){me.total=myTotal;me.days=totalDays;me.streak=streak;}
-    lb.sort((a,b)=>b.total-a.total);
+    lb.push({u:user.u,n:user.n,t:user.t,i:user.i,days:0,streak:0,base:0,sb:0,total:0,keepups:0});
+    lb.sort((a,b)=>b.total-a.total||a.n.localeCompare(b.n));
   }
 
   const myRank=user?lb.findIndex(p=>p.u===user.u)+1:"—";
